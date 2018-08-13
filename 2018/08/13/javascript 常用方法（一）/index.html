@@ -6,18 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018 | Jun woung blog</title>
+  <title>Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="懒懒的我，丑丑的你">
-<meta property="og:type" content="website">
+  <meta name="description" content="javascript 常用方法（一）标签（空格分隔）： 原生js 闭包  tips：在项目中，我们经常遇到一些方法，原生js并没有提供现成的相关的方法，因此我们只能自己定义自己要用到的方法，并将其挂在到全局作用域的变量上，这样在函数解释执行过后，在项目中的任何位置都可以调用封装好的方法。本次主要封装了：获取url链接参数、获取格式化时间、localstorage的相关操作">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Jun woung blog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/08/13/javascript 常用方法（一）/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="懒懒的我，丑丑的你">
+<meta property="og:description" content="javascript 常用方法（一）标签（空格分隔）： 原生js 闭包  tips：在项目中，我们经常遇到一些方法，原生js并没有提供现成的相关的方法，因此我们只能自己定义自己要用到的方法，并将其挂在到全局作用域的变量上，这样在函数解释执行过后，在项目中的任何位置都可以调用封装好的方法。本次主要封装了：获取url链接参数、获取格式化时间、localstorage的相关操作">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-08-13T10:39:25.460Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Jun woung blog">
-<meta name="twitter:description" content="懒懒的我，丑丑的你">
+<meta name="twitter:description" content="javascript 常用方法（一）标签（空格分隔）： 原生js 闭包  tips：在项目中，我们经常遇到一些方法，原生js并没有提供现成的相关的方法，因此我们只能自己定义自己要用到的方法，并将其挂在到全局作用域的变量上，这样在函数解释执行过后，在项目中的任何位置都可以调用封装好的方法。本次主要封装了：获取url链接参数、获取格式化时间、localstorage的相关操作">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -149,151 +150,171 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-javascript 常用方法（一）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="javascript-常用方法（一）"><a href="#javascript-常用方法（一）" class="headerlink" title="javascript 常用方法（一）"></a>javascript 常用方法（一）</h1><p>标签（空格分隔）： 原生js 闭包</p>
+<hr>
+<p><code>tips：</code></p><h5>在项目中，我们经常遇到一些方法，原生js并没有提供现成的相关的方法，因此我们只能自己定义自己要用到的方法，并将其挂在到全局作用域的变量上，这样在函数解释执行过后，在项目中的任何位置都可以调用封装好的方法。本次主要封装了：获取url链接参数、获取格式化时间、localstorage的相关操作</h5><br><a id="more"></a>
+---
+## 1 获取url参数方法
+`tips：`网上有用正则表达式写的函数，我是用解析url链接参数方式获取个参数
+### 1.1 函数代码
+<escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">function getUrlParam()&#123;</span><br><span class="line">		/**</span><br><span class="line">		git Test</span><br><span class="line">		hhh</span><br><span class="line">		哦呵呵呵</span><br><span class="line">		branch master-dev tijiao-issue101</span><br><span class="line">		1、判断url参数个数，为空则直接返回空；</span><br><span class="line">		2、判断传入的参数是否为空，</span><br><span class="line">				为空：判断url参数个数，个数为1，则返回参数值；个数不为1，则返回空；</span><br><span class="line">				不为空：判断url参数个数，</span><br><span class="line">						个数为1，且对应参数无参数名只有参数值，则直接返回参数值；如果对应参数包含参数名则比对参数名，一致则返回参数值，否则返回空</span><br><span class="line">						个数不为1，则遍历参数数组，寻找与参数名对应的参数值，找到则返回相应的参数值，否则返回空</span><br><span class="line">		*/</span><br><span class="line">		let str = &apos;&apos;;</span><br><span class="line">		let url = location.href;</span><br><span class="line">		let param_str = url.split(&apos;?&apos;)[1];</span><br><span class="line">		if(!param_str)return;</span><br><span class="line">		let key_value = param_str.split(&apos;&amp;&apos;);</span><br><span class="line">		let arg = arguments;</span><br><span class="line">		if(!arg || arg.length === 0)&#123;</span><br><span class="line">			if(key_value.length === 1)&#123;</span><br><span class="line">				if(key_value[0].indexOf(&apos;=&apos;) === -1)&#123;</span><br><span class="line">					return key_value[0];</span><br><span class="line">				&#125;</span><br><span class="line">				else&#123;</span><br><span class="line">					return key_value[0].split(&apos;=&apos;)[1];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">			return;</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			str =arguments[0].toString();</span><br><span class="line">		&#125;</span><br><span class="line">		if(!key_value || key_value.length &lt;= 0)return;</span><br><span class="line">		else&#123;</span><br><span class="line">			if(key_value.length == 1)&#123;</span><br><span class="line">				if(key_value[0].indexOf(&apos;=&apos;) === -1)&#123;</span><br><span class="line">					return key_value[0];</span><br><span class="line">				&#125;</span><br><span class="line">				else if(key_value[0].split(&apos;=&apos;).length == 2)&#123;</span><br><span class="line">					if(key_value[0].split(&apos;=&apos;)[0] == str)&#123;</span><br><span class="line">						return key_value[0].split(&apos;=&apos;)[1];</span><br><span class="line">					&#125;</span><br><span class="line">					else&#123;</span><br><span class="line">						return;</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;				</span><br><span class="line">			&#125;			</span><br><span class="line">			else&#123;</span><br><span class="line">				for(let i = 0; i &lt; key_value.length; i++)&#123;</span><br><span class="line">					let param = key_value[i].split(&apos;=&apos;);</span><br><span class="line">					if(param[0] == str)&#123;</span><br><span class="line">						return param[1];</span><br><span class="line">					&#125;</span><br><span class="line">				&#125;</span><br><span class="line">				return;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure><p></p>
+<h3 id="1-2-函数调用"><a href="#1-2-函数调用" class="headerlink" title="1.2 函数调用"></a>1.2 函数调用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getUrlParam()   //当url链接参数只有一个的时候，可以不指定参数名，直接返回参数值</span><br><span class="line">getUrlParam（str）  //返回指定参数名对应的参数值，没有则返回空值</span><br></pre></td></tr></table></figure>
+<h2 id="2-获取格式化时间"><a href="#2-获取格式化时间" class="headerlink" title="2 获取格式化时间"></a>2 获取格式化时间</h2><h3 id="2-1-函数代码"><a href="#2-1-函数代码" class="headerlink" title="2.1 函数代码"></a>2.1 函数代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">function getFormatDate()&#123;</span><br><span class="line">		/*</span><br><span class="line">			1、参数1代表传进来的日期格式，可以是日期对象，也可以是日期的value数值</span><br><span class="line">			2、参数2代表最终返回结果，year、month、day、hour、minute、second 分表表示精确到对应位，week表示输出星期几</span><br><span class="line">			3、参数1不传表示默认当前日期；参数2不传默认输出精确到秒</span><br><span class="line">		*/</span><br><span class="line">		let arg = arguments[0];</span><br><span class="line">		let str = arguments[1];</span><br><span class="line">		let date = null;</span><br><span class="line">		let weeks = [&apos;星期日&apos;,&apos;星期一&apos;,&apos;星期二&apos;,&apos;星期三&apos;,&apos;星期四&apos;,&apos;星期五&apos;,&apos;星期六&apos;];</span><br><span class="line">		if(!arg)&#123;</span><br><span class="line">			date = new Date();</span><br><span class="line">		&#125;</span><br><span class="line">		else&#123;</span><br><span class="line">			if(typeof arg === &apos;object&apos;)&#123;</span><br><span class="line">				date = arg;</span><br><span class="line">			&#125;</span><br><span class="line">			else&#123;</span><br><span class="line">				date = new Date(arg);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">		let year = date.getFullYear();</span><br><span class="line">		let month = date.getMonth() + 1;</span><br><span class="line">		let day = date.getDate();</span><br><span class="line">		let hour = date.getHours();</span><br><span class="line">		let minute = date.getMinutes();</span><br><span class="line">		let second = date.getSeconds();</span><br><span class="line">		let week = date.getDay();</span><br><span class="line">		month = month &gt; 9 ? month : (&apos;0&apos;+month);</span><br><span class="line">		day = day &gt; 9 ? day : (&apos;0&apos;+day);</span><br><span class="line">		hour = hour &gt; 9 ? hour : (&apos;0&apos;+hour);</span><br><span class="line">		minute = minute &gt; 9 ? minute : (&apos;0&apos;+minute);</span><br><span class="line">		second = second &gt; 9 ? second : (&apos;0&apos;+second);</span><br><span class="line">		switch(str)&#123;</span><br><span class="line">			case &apos;year&apos;: return year;</span><br><span class="line">			case &apos;month&apos;: return year+&apos;-&apos;+month;</span><br><span class="line">			case &apos;day&apos;: return year+&apos;-&apos;+month+&apos;-&apos;+day;</span><br><span class="line">			case &apos;hour&apos;: return year+&apos;-&apos;+month+&apos;-&apos;+day+&apos; &apos;+hour;</span><br><span class="line">			case &apos;minute&apos;: return year+&apos;-&apos;+month+&apos;-&apos;+day+&apos; &apos;+hour+&apos;:&apos;+minute;</span><br><span class="line">			case &apos;second&apos;: return year+&apos;-&apos;+month+&apos;-&apos;+day+&apos; &apos;+hour+&apos;:&apos;+minute+&apos;:&apos;+second;</span><br><span class="line">			case &apos;week&apos;: return weeks[week];</span><br><span class="line">			default: return year+&apos;-&apos;+month+&apos;-&apos;+day+&apos; &apos;+hour+&apos;:&apos;+minute+&apos;:&apos;+second;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="2-2-函数调用"><a href="#2-2-函数调用" class="headerlink" title="2.2 函数调用"></a>2.2 函数调用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">getFormatDate()     //获取当前时间，精确到秒</span><br><span class="line">getFormatDate(arg)      //arg可以为时间戳也可以为日期对象，返回指定日期的时间，精确到秒</span><br><span class="line">getFormatDate(arg1,arg2)    //arg1时间参数，arg2返回的日期格式，具体看代码首部注释</span><br></pre></td></tr></table></figure>
+<h2 id="3-localStorage方法再封装"><a href="#3-localStorage方法再封装" class="headerlink" title="3 localStorage方法再封装"></a>3 localStorage方法再封装</h2><p><code>tips:</code></p><h5>H5自带的localstorage方法，相较于cookie，极大的简化了本地存储参数。但是，其本身对localstorage封装的方法过于简单，只提供了基本功能，因此在使用过程中还是有些许不便。</h5><p></p>
+<h3 id="3-1-setLocal-方法"><a href="#3-1-setLocal-方法" class="headerlink" title="3.1 setLocal 方法"></a>3.1 setLocal 方法</h3><p><code>tips:</code>设置参数的同时，设置一个参数过期参数</p>
+<h4 id="3-1-1-函数代码"><a href="#3-1-1-函数代码" class="headerlink" title="3.1.1 函数代码"></a>3.1.1 函数代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">function setLocal(key,value,expire)&#123;</span><br><span class="line">		let key_timestamp = key + &apos;TimeStamp&apos;;</span><br><span class="line">		let now_timestamp = (new Date()).valueOf();</span><br><span class="line">		let time = expire ? (now_timestamp + expire*24*60*60*1000) : (now_timestamp + 24*60*60*1000);</span><br><span class="line">		window.localStorage[key] = value;</span><br><span class="line">		window.localStorage[key_timestamp] = time;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-1-2-函数调用"><a href="#3-1-2-函数调用" class="headerlink" title="3.1.2 函数调用"></a>3.1.2 函数调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">setLocal(key,value,expire)      //key参数名（必传），value参数值（必传），expire参数过期时间，不传则表示1天后过期</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-removeLocal-方法"><a href="#3-2-removeLocal-方法" class="headerlink" title="3.2 removeLocal 方法"></a>3.2 removeLocal 方法</h3><p><code>tips:</code>删除参数的同时，删除对应的过期参数</p>
+<h4 id="3-2-1-函数代码"><a href="#3-2-1-函数代码" class="headerlink" title="3.2.1 函数代码"></a>3.2.1 函数代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">function removeLocal(key)&#123;</span><br><span class="line">	window.localStorage.removeItem(key);</span><br><span class="line">	window.localStorage.removeItem(key+&apos;TimeStamp&apos;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-2-2-方法调用"><a href="#3-2-2-方法调用" class="headerlink" title="3.2.2 方法调用"></a>3.2.2 方法调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">removeLocal(key)        //删除对应的参数及过期参数</span><br></pre></td></tr></table></figure>
+<h3 id="3-3-getLocal-方法"><a href="#3-3-getLocal-方法" class="headerlink" title="3.3 getLocal 方法"></a>3.3 getLocal 方法</h3><p><code>tips:</code>获取对应的参数之前，比对对应的过期参数的时间戳与当前时间戳，如果过期则删除对应的参数以及过期参数，否则返回参数值</p>
+<h4 id="3-3-1-函数代码"><a href="#3-3-1-函数代码" class="headerlink" title="3.3.1 函数代码"></a>3.3.1 函数代码</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function getLocal(key)&#123;</span><br><span class="line">	let now_timestamp = (new Date()).valueOf();</span><br><span class="line">	let key_timestamp = window.localStorage[key+&apos;TimeStamp&apos;];</span><br><span class="line">	if(now_timestamp &gt; key_timestamp)&#123;</span><br><span class="line">		removeLocal(key);</span><br><span class="line">		return undefined;</span><br><span class="line">	&#125;</span><br><span class="line">	else&#123;</span><br><span class="line">		return window.localStorage[key];</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="3-3-2-函数调用"><a href="#3-3-2-函数调用" class="headerlink" title="3.3.2 函数调用"></a>3.3.2 函数调用</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">getLocal(key)       //获取指定的参数值</span><br></pre></td></tr></table></figure>
+<h2 id="4-将函数定义为全局"><a href="#4-将函数定义为全局" class="headerlink" title="4 将函数定义为全局"></a>4 将函数定义为全局</h2><p><code>tips:</code>将封装好的参数添加到全局变量里面，再置于闭包里面<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">(function()&#123;</span><br><span class="line">    function getUrlParam()&#123;</span><br><span class="line">        //...</span><br><span class="line">    &#125;</span><br><span class="line">    function getFormatDate()&#123;</span><br><span class="line">        //...</span><br><span class="line">    &#125;</span><br><span class="line">    function setLocal(key,value,expire)&#123;</span><br><span class="line">        //...</span><br><span class="line">    &#125;</span><br><span class="line">    function removeLocal(key)&#123;</span><br><span class="line">        //...</span><br><span class="line">    &#125;</span><br><span class="line">    function getLocal(key)&#123;</span><br><span class="line">        //...</span><br><span class="line">    &#125;</span><br><span class="line">    window.util = &#123;</span><br><span class="line">		&apos;getUrlParam&apos;: getUrlParam,</span><br><span class="line">		&apos;getFormatDate&apos;: getFormatDate,</span><br><span class="line">		&apos;setLocal&apos;: setLocal,</span><br><span class="line">		&apos;getLocal&apos;: getLocal,</span><br><span class="line">		&apos;removeLocal&apos;: removeLocal</span><br><span class="line">	&#125;;</span><br><span class="line">	console.log(window.util);   //输出对应变量</span><br><span class="line">&#125;)();</span><br></pre></td></tr></table></figure></p>
+<h3 id="4-1-调用"><a href="#4-1-调用" class="headerlink" title="4.1 调用"></a>4.1 调用</h3><h5 id="将以上代码引入主页面，之后就可以通过window-util-str-或window-util-方式调用指定方法"><a href="#将以上代码引入主页面，之后就可以通过window-util-str-或window-util-方式调用指定方法" class="headerlink" title="将以上代码引入主页面，之后就可以通过window.util[str]或window.util.方式调用指定方法"></a>将以上代码引入主页面，之后就可以通过<code>window.util[str]</code>或<code>window.util.</code>方式调用指定方法</h5></escape>
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://static.zybuluo.com/15013890200/qkxkhak75frt06audogyzwdl/44fa5455088a4a8b9ab67ca9a1a3240.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://static.zybuluo.com/15013890200/0mmotb1tzby2amg8dbt8kcdl/debf945a70816563d0b34062aba3608.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/13/javascript 常用方法（一）/" class="archive-article-date">
-  	<time datetime="2018-08-13T10:39:35.640Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/13/javascript 常用方法（一）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/13/IntelliJ IDEA 使用笔记/" class="archive-article-date">
-  	<time datetime="2018-08-13T08:20:35.382Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/13/vue select 选择插件/" class="archive-article-date">
-  	<time datetime="2018-08-13T08:16:33.772Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/13/IntelliJ IDEA 使用笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/13/vue dialog 弹窗插件/" class="archive-article-date">
-  	<time datetime="2018-08-13T08:14:10.407Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/13/vue pagination 分页插件/" class="archive-article-date">
-  	<time datetime="2018-08-13T08:10:57.164Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
+        
+        
+    </div>
+</aside>
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/13/vue craousel 轮播插件/" class="archive-article-date">
-  	<time datetime="2018-08-13T08:08:59.979Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+
   
   
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2018/page/2/">2</a><a class="extend next" rel="next" href="/archives/2018/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
   
 
 
@@ -317,8 +338,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

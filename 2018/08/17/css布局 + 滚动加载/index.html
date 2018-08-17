@@ -6,18 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Jun woung blog</title>
+  <title>css布局 + 滚动加载 | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="懒懒的我，丑丑的你">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jun woung blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="css布局 + 滚动加载标签（空格分隔）： css 布局 javascript    之前在整理vue组件框架的时候，发现自己对页面整体方面的布局上还是很薄弱，尤其是在页面整体高度自适应的时候，页面内容撑开，左边的导航栏并没有及时的随之撑开。当时落入了一个误区，以为设置导航栏div高度为auto或者为100%就可以自适应。其实并没有达到一丝效果。于是抽空就自己重新试着布局，终于试探出只用css就可">
+<meta name="keywords" content="javascript,css,布局">
+<meta property="og:type" content="article">
+<meta property="og:title" content="css布局 + 滚动加载">
+<meta property="og:url" content="http://yoursite.com/2018/08/17/css布局 + 滚动加载/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="懒懒的我，丑丑的你">
+<meta property="og:description" content="css布局 + 滚动加载标签（空格分隔）： css 布局 javascript    之前在整理vue组件框架的时候，发现自己对页面整体方面的布局上还是很薄弱，尤其是在页面整体高度自适应的时候，页面内容撑开，左边的导航栏并没有及时的随之撑开。当时落入了一个误区，以为设置导航栏div高度为auto或者为100%就可以自适应。其实并没有达到一丝效果。于是抽空就自己重新试着布局，终于试探出只用css就可">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://static.zybuluo.com/15013890200/d82u5ellxfz5oez9bytwtbj3/55bc7e057fc1e3a5c714220605dfdc2.png">
+<meta property="og:image" content="http://static.zybuluo.com/15013890200/flu1pdw4w4n0ace46b8zro9h/38f4e06017f7ad19059954cd6d7c5d1.png">
+<meta property="og:updated_time" content="2018-08-17T10:24:56.384Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jun woung blog">
-<meta name="twitter:description" content="懒懒的我，丑丑的你">
+<meta name="twitter:title" content="css布局 + 滚动加载">
+<meta name="twitter:description" content="css布局 + 滚动加载标签（空格分隔）： css 布局 javascript    之前在整理vue组件框架的时候，发现自己对页面整体方面的布局上还是很薄弱，尤其是在页面整体高度自适应的时候，页面内容撑开，左边的导航栏并没有及时的随之撑开。当时落入了一个误区，以为设置导航栏div高度为auto或者为100%就可以自适应。其实并没有达到一丝效果。于是抽空就自己重新试着布局，终于试探出只用css就可">
+<meta name="twitter:image" content="http://static.zybuluo.com/15013890200/d82u5ellxfz5oez9bytwtbj3/55bc7e057fc1e3a5c714220605dfdc2.png">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -149,16 +154,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-css布局 + 滚动加载" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-css布局 + 滚动加载" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/17/css布局 + 滚动加载/">css布局 + 滚动加载</a>
+    <h1 class="article-title" itemprop="name">
+      css布局 + 滚动加载
     </h1>
   
 
@@ -179,11 +182,49 @@
 <li>同时也做了滚动加载实验。（之前一直都是翻页请求加载数据，一直没有做过滚动加载）数据是模拟ajax请求得到的数据。</li>
 </ul>
 </blockquote>
-        
-          <a class="article-more-a" href="/2018/08/17/css布局 + 滚动加载/#more">更多 >></a>
-        
+<a id="more"></a>
+
+---
+
+## 代码部分
+<escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">	&lt;meta charset=&quot;utf-8&quot;&gt;</span><br><span class="line">	&lt;title&gt;cssTest&lt;/title&gt;</span><br><span class="line">	&lt;style type=&quot;text/css&quot;&gt;</span><br><span class="line">		*&#123;margin: 0;padding: 0;&#125;</span><br><span class="line">		html,body&#123;height: 100%;&#125;</span><br><span class="line">		.head&#123;width: 100%;height: 60px;background-color: #3896f8;line-height: 60px;font-size: 18px;color: #fff;text-align: center;&#125;</span><br><span class="line">		.body&#123;width: 100%;min-height: 883px;box-sizing: content-box;overflow: hidden;background-color: #efefef;position: relative;&#125;</span><br><span class="line">		.nav&#123;width: 200px;background-color: #222D43;float: left;overflow-y: auto;position: absolute;top: 0;left: 0;bottom: 0;&#125;</span><br><span class="line">		.crumb&#123;position: absolute;top: 10px;left: 220px;color: #666&#125;</span><br><span class="line">		.contain&#123;width: auto;background-color: #fff;box-sizing: content-box;padding: 20px;margin-top: 40px;margin-left: 220px;margin-right: 20px; min-height: 763px; &#125;</span><br><span class="line">		.footer&#123;height: 40px;width: auto;line-height: 40px;text-align: center;margin-left: 220px;color: #666;&#125;</span><br><span class="line">		.div_item&#123;width: 100%;height: 80px;margin-bottom: 20px;border:1px solid #ddd;transition: background 0.3s;&#125;</span><br><span class="line">	&lt;/style&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">&lt;div class=&quot;head&quot;&gt;页面布局测试&lt;/div&gt;</span><br><span class="line">&lt;div class=&quot;body&quot;&gt;</span><br><span class="line">	&lt;div class=&quot;nav&quot;&gt;&lt;/div&gt;</span><br><span class="line">	&lt;div class=&quot;crumb&quot;&gt;crumb&lt;/div&gt;</span><br><span class="line">	&lt;div class=&quot;contain&quot;&gt;</span><br><span class="line">		&lt;div id=&quot;contain&quot;&gt;			</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">	&lt;div class=&quot;footer&quot;&gt;copyright@wangjun&lt;/div&gt;</span><br><span class="line">&lt;/div&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;script type=&quot;text/javascript&quot;&gt;</span><br><span class="line">	var index = 0;//数据索引</span><br><span class="line">	var arr = [];//数据数组</span><br><span class="line">	var bottom = 0;//contain底边偏移量</span><br><span class="line">	var clientH = document.documentElement.clientHeight || document.body.clientHeight;//浏览器底边偏移量</span><br><span class="line">	var timeout = null;//定时任务 滚动加载时用到</span><br><span class="line">	function add()&#123;</span><br><span class="line">		/** 模拟ajax获取数据 */</span><br><span class="line">		for(var i = 0; i &lt; 10; i++)&#123;</span><br><span class="line">			index ++;</span><br><span class="line">			append(index);</span><br><span class="line">			arr.push(index);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">	function append(i)&#123;</span><br><span class="line">		/** 将节点注入到contain */</span><br><span class="line">		var dom = document.createElement(&apos;div&apos;);</span><br><span class="line">		dom.setAttribute(&apos;class&apos;,&apos;div_item&apos;);</span><br><span class="line">		dom.innerText = i;</span><br><span class="line">		document.getElementById(&apos;contain&apos;).appendChild(dom);</span><br><span class="line">	&#125;</span><br><span class="line">	add();</span><br><span class="line">	function getContainPosition()&#123;</span><br><span class="line">		/** 判断contain底边框距离浏览器底边的距离，以此判断是否需要发起请求 */</span><br><span class="line">		var cont = document.getElementById(&apos;contain&apos;);</span><br><span class="line">		bottom = cont.getBoundingClientRect().bottom;</span><br><span class="line">		return clientH-bottom;</span><br><span class="line">	&#125;</span><br><span class="line">	window.onscroll = function()&#123;</span><br><span class="line">		/** 监听页面滚动事件 */</span><br><span class="line">		timeout = setTimeout(function()&#123;</span><br><span class="line">			var dis = getContainPosition();</span><br><span class="line">			if(dis &gt; -20)&#123;	</span><br><span class="line">				add();</span><br><span class="line">				clearTimeout(timeout);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,1500);	</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h2><p>页面刚开始效果<br><img src="http://static.zybuluo.com/15013890200/d82u5ellxfz5oez9bytwtbj3/55bc7e057fc1e3a5c714220605dfdc2.png" alt="55bc7e057fc1e3a5c714220605dfdc2.png-67.1kB"></p>
+<p>滚动加载几轮之后<br><img src="http://static.zybuluo.com/15013890200/flu1pdw4w4n0ace46b8zro9h/38f4e06017f7ad19059954cd6d7c5d1.png" alt="38f4e06017f7ad19059954cd6d7c5d1.png-77.3kB"></p>
+</escape>
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://static.zybuluo.com/15013890200/qkxkhak75frt06audogyzwdl/44fa5455088a4a8b9ab67ca9a1a3240.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://static.zybuluo.com/15013890200/0mmotb1tzby2amg8dbt8kcdl/debf945a70816563d0b34062aba3608.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -211,16 +252,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/17/css布局 + 滚动加载/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/17/css布局 + 滚动加载/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/08/16/vue time 时间插件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">vue time 时间插件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -240,449 +340,14 @@
 
 
 
-
-  
-    <article id="post-vue time 时间插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/16/vue time 时间插件/">vue time 时间插件</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/16/vue time 时间插件/" class="archive-article-date">
-  	<time datetime="2018-08-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="vue-time-时间插件"><a href="#vue-time-时间插件" class="headerlink" title="vue time 时间插件"></a>vue time 时间插件</h1><p>标签（空格分隔）： vue javascript 插件</p>
-<hr>
-<blockquote>
-<ul>
-<li><code>tips:</code>文章只包括插件部分，注册和引用不再赘述（具体细节可查看 <a href="https://junwoung.github.io/2018/08/02/vue%20score%20%E8%AF%84%E5%88%86%E6%8F%92%E4%BB%B6/#more" target="_blank" rel="noopener">评分插件</a>）</li>
-<li>从接触前端工作以来，时间控件就经常会被引用。由于HTML自带时间控件样式过于丑陋，用起来和页面整体风格不搭。之前一直都希望能够自己来动手写一套自己的时间控件，由于时间的关系一直拖到现在，终于完成了。</li>
-<li>本时间控件由于笔者技术的原因还存在以下不足，待日后流弊了再一一解决：<blockquote>
-<p>1、 该时间控件是当做节点插入所需要的地方，而不是当做节点属性来引用。所以需要通过回调函数来传递组件的返回值；或者麻烦点，通过操作节点也能获得。<br>2、该时间控件由于笔者偷懒（其实是没有找到方便的方法）的缘故，暂不支持对控件的皮肤进行设置，要想改颜色，最捷径的方法是编辑器打开源码，整体替换需要替换的颜色   ^_^<br>3、改时间控件输出日期暂时只支持：精确到 天、小时、分钟、秒；（其他精确度实在是很少用到，笔者就偷懒忽略了）</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<p><esacpe>
-        
-          <a class="article-more-a" href="/2018/08/16/vue time 时间插件/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/16/vue time 时间插件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-IntelliJ IDEA 使用笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/13/IntelliJ IDEA 使用笔记/">IntelliJ IDEA 使用笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/13/IntelliJ IDEA 使用笔记/" class="archive-article-date">
-  	<time datetime="2018-08-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="IntelliJ-IDEA-使用笔记"><a href="#IntelliJ-IDEA-使用笔记" class="headerlink" title="IntelliJ IDEA 使用笔记"></a>IntelliJ IDEA 使用笔记</h1><p>标签（空格分隔）： IDEA 项目启动</p>
-<hr>
-<p><code>tips:</code>工作中经常遇到新启项目，由于项目开发周期一般都会持续好几个月时间，而项目启动一般只在项目开始阶段进行，导致我经常会遗忘在项目启动的时候一些配置的注意事项。</p>
-<p><esacpe>
-        
-          <a class="article-more-a" href="/2018/08/13/IntelliJ IDEA 使用笔记/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IntelliJ IDEA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">使用</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/13/IntelliJ IDEA 使用笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-javascript 常用方法（一）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/13/javascript 常用方法（一）/">javascript 常用方法（一）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/13/javascript 常用方法（一）/" class="archive-article-date">
-  	<time datetime="2018-08-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="javascript-常用方法（一）"><a href="#javascript-常用方法（一）" class="headerlink" title="javascript 常用方法（一）"></a>javascript 常用方法（一）</h1><p>标签（空格分隔）： 原生js 闭包</p>
-<p><code>tips：</code></p><h5>在项目中，我们经常遇到一些方法，原生js并没有提供现成的相关的方法，因此我们只能自己定义自己要用到的方法，并将其挂在到全局作用域的变量上，这样在函数解释执行过后，在项目中的任何位置都可以调用封装好的方法。本次主要封装了：获取url链接参数、获取格式化时间、localstorage的相关操作</h5><p></p>
-<hr>
-        
-          <a class="article-more-a" href="/2018/08/13/javascript 常用方法（一）/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原生javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">闭包</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/13/javascript 常用方法（一）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue dialog 弹窗插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/09/vue dialog 弹窗插件/">vue dialog 弹窗插件</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/09/vue dialog 弹窗插件/" class="archive-article-date">
-  	<time datetime="2018-08-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="vue-dialog-弹窗插件"><a href="#vue-dialog-弹窗插件" class="headerlink" title="vue dialog 弹窗插件"></a>vue dialog 弹窗插件</h1><p>标签（空格分隔）：  vue javascript dialog 插件</p>
-<h5 id="tips：本次主要封装了开发过程常见的confirm（确认）、alert（警告）、prompt（输入）、tips（提示）、loading（加载）对话框"><a href="#tips：本次主要封装了开发过程常见的confirm（确认）、alert（警告）、prompt（输入）、tips（提示）、loading（加载）对话框" class="headerlink" title="tips：本次主要封装了开发过程常见的confirm（确认）、alert（警告）、prompt（输入）、tips（提示）、loading（加载）对话框"></a><code>tips：</code>本次主要封装了开发过程常见的confirm（确认）、alert（警告）、prompt（输入）、tips（提示）、loading（加载）对话框</h5><hr>
-<p><esacpe>
-        
-          <a class="article-more-a" href="/2018/08/09/vue dialog 弹窗插件/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/09/vue dialog 弹窗插件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-vue select 选择插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/08/09/vue select 选择插件/">vue select 选择插件</a>
-    </h1>
-  
-
-        
-        <a href="/2018/08/09/vue select 选择插件/" class="archive-article-date">
-  	<time datetime="2018-08-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="vue-select-选择插件"><a href="#vue-select-选择插件" class="headerlink" title="vue select 选择插件"></a>vue select 选择插件</h1><p>标签（空格分隔）： vue javascript 插件</p>
-<hr>
-<h5 id="tips-web开发经常要用到很多不同类型的选择控件，本次特地针对六种常见的控件进行封装，引用插件的时候记得标明引用的选择控件类型：select（下拉列表）、tab（选择块）、checkbox（复选框）、radio（单选按钮）、switch（开关按钮）、complete（自动补全），具体说明下面会交代详细。"><a href="#tips-web开发经常要用到很多不同类型的选择控件，本次特地针对六种常见的控件进行封装，引用插件的时候记得标明引用的选择控件类型：select（下拉列表）、tab（选择块）、checkbox（复选框）、radio（单选按钮）、switch（开关按钮）、complete（自动补全），具体说明下面会交代详细。" class="headerlink" title="tips:web开发经常要用到很多不同类型的选择控件，本次特地针对六种常见的控件进行封装，引用插件的时候记得标明引用的选择控件类型：select（下拉列表）、tab（选择块）、checkbox（复选框）、radio（单选按钮）、switch（开关按钮）、complete（自动补全），具体说明下面会交代详细。"></a><code>tips:</code>web开发经常要用到很多不同类型的选择控件，本次特地针对六种常见的控件进行封装，引用插件的时候记得标明引用的选择控件类型：select（下拉列表）、tab（选择块）、checkbox（复选框）、radio（单选按钮）、switch（开关按钮）、complete（自动补全），具体说明下面会交代详细。</h5><p><esacpe>
-        
-          <a class="article-more-a" href="/2018/08/09/vue select 选择插件/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/08/09/vue select 选择插件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -705,8 +370,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

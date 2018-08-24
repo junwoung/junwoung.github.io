@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>javascript 常用方法（二） | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理三个关于数组的常用方法，去重、排序和扁平化多维数组">
+  <meta name="description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理三个关于数组的常用方法，去重、排序、扁平化多维数组和拷贝数组">
 <meta name="keywords" content="原生javascript,array">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript 常用方法（二）">
 <meta property="og:url" content="http://yoursite.com/2018/08/24/javascript 常用方法（二）/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理三个关于数组的常用方法，去重、排序和扁平化多维数组">
+<meta property="og:description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理三个关于数组的常用方法，去重、排序、扁平化多维数组和拷贝数组">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-24T06:23:32.788Z">
+<meta property="og:updated_time" content="2018-08-24T06:48:51.619Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 常用方法（二）">
-<meta name="twitter:description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理三个关于数组的常用方法，去重、排序和扁平化多维数组">
+<meta name="twitter:description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理三个关于数组的常用方法，去重、排序、扁平化多维数组和拷贝数组">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -174,7 +174,7 @@
         <h1 id="javascript-常用方法（二）"><a href="#javascript-常用方法（二）" class="headerlink" title="javascript 常用方法（二）"></a>javascript 常用方法（二）</h1><p>标签（空格分隔）： 原生javascript array</p>
 <hr>
 <blockquote>
-<p>之前有整理过JavaScript的一些常用方法，<a href="https://junwoung.github.io/2018/08/13/javascript%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">链接</a>,今天再来整理三个关于数组的常用方法，去重、排序和扁平化多维数组</p>
+<p>之前有整理过JavaScript的一些常用方法，<a href="https://junwoung.github.io/2018/08/13/javascript%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">链接</a>,今天再来整理三个关于数组的常用方法，去重、排序、扁平化多维数组和拷贝数组</p>
 </blockquote>
 <a id="more"></a>
 
@@ -198,7 +198,12 @@
 <p>方法一：实现和阅读都很简单，缺点：会改变原来数组的数据类型，返回的数组一律都是字符串数组<br>方法二：实现稍微复杂，但是可以保证数据原样输出。<br>当对输出数据没那么严格要求时，或者有特殊要求时（转化为string）方法一是最好的，其他情况最好用方法二。</p>
 </blockquote>
 <hr>
-<p>最后，和<a href="https://junwoung.github.io/2018/08/13/javascript%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">之前的做法</a>一样,将方法赋值给全局变量util的相关属性，这样就可以通过<code>window.uti.</code>或者<code>util.</code>来调用相关的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">window.util = &#123;</span><br><span class="line">    &apos;removeDuplicate&apos;: removeDuplicate,</span><br><span class="line">    &apos;sort&apos;: sort,</span><br><span class="line">    &apos;flatten&apos;: flatten,</span><br><span class="line">    &apos;flattenStr&apos;: flattenStr</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><code>拷贝数组</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function copy(arr) &#123;</span><br><span class="line">    return JSON.parse(JSON.stringify(arr));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<blockquote>
+<p>拷贝数组方法可以利用JSON的特性，也可以用枚举的方法赋值给新数组。这里我只介绍自己最偏爱也是最优的数组拷贝方法。</p>
+</blockquote>
+<hr>
+<p>最后，和<a href="https://junwoung.github.io/2018/08/13/javascript%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">之前的做法</a>一样,将方法赋值给全局变量util的相关属性，这样就可以通过<code>window.util.</code>或者<code>util.</code>来调用相关的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">window.util = &#123;</span><br><span class="line">    &apos;removeDuplicate&apos;: removeDuplicate,</span><br><span class="line">    &apos;sort&apos;: sort,</span><br><span class="line">    &apos;flatten&apos;: flatten,</span><br><span class="line">    &apos;flattenStr&apos;: flattenStr，</span><br><span class="line">    &apos;copy&apos;: copy</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 </escape>
       
 

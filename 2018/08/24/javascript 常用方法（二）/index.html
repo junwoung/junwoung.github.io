@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>javascript 常用方法（二） | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理两个关于数组的常用方法，去重和排序">
+  <meta name="description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理三个关于数组的常用方法，去重、排序和扁平化多维数组">
 <meta name="keywords" content="原生javascript,array">
 <meta property="og:type" content="article">
 <meta property="og:title" content="javascript 常用方法（二）">
 <meta property="og:url" content="http://yoursite.com/2018/08/24/javascript 常用方法（二）/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理两个关于数组的常用方法，去重和排序">
+<meta property="og:description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理三个关于数组的常用方法，去重、排序和扁平化多维数组">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-24T03:39:47.060Z">
+<meta property="og:updated_time" content="2018-08-24T04:03:37.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="javascript 常用方法（二）">
-<meta name="twitter:description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理两个关于数组的常用方法，去重和排序">
+<meta name="twitter:description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理三个关于数组的常用方法，去重、排序和扁平化多维数组">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -174,11 +174,14 @@
         <h1 id="javascript-常用方法（二）"><a href="#javascript-常用方法（二）" class="headerlink" title="javascript 常用方法（二）"></a>javascript 常用方法（二）</h1><p>标签（空格分隔）： 原生javascript array</p>
 <hr>
 <blockquote>
-<p>之前有整理过JavaScript的一些常用方法，<a href="https://junwoung.github.io/2018/08/13/javascript%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">链接</a>,今天再来整理两个关于数组的常用方法，去重和排序</p>
+<p>之前有整理过JavaScript的一些常用方法，<a href="https://junwoung.github.io/2018/08/13/javascript%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">链接</a>,今天再来整理三个关于数组的常用方法，去重、排序和扁平化多维数组</p>
 </blockquote>
 <a id="more"></a>
 
+---
+
 `去重`
+
 <escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function removeDuplicate(arr) &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 利用对象的特性达到数组去重，性能很好</span><br><span class="line">     * */</span><br><span class="line">    if(!arr || arr.length &lt; 2)return arr;</span><br><span class="line">    let obj = &#123;&#125;;</span><br><span class="line">    let data = [];</span><br><span class="line">    for(let i = 0,len = arr.length; i &lt; len; i++)&#123;</span><br><span class="line">        if(!obj[arr[i]])&#123;</span><br><span class="line">            obj[arr[i]] = true;</span><br><span class="line">            data.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p>去重的方法有很多，网上一抓一大把，我这里只介绍我最喜欢用的，个人也觉得时间复杂度最低的，巧妙的利用对象不可重复的特性，在代码量和理解上都是最能够接受的。值得注意的是es6提供了<code>array.from</code>方法，在数组去重代码量上更简洁。</p>
@@ -189,7 +192,13 @@
 <p>javascript自带的sort，默认是对string进行排序，即使你传入的是数值数组输出结果也是按照string来排的。<br>当然，网上的数组排序方法也很多，选择排序、快速排序、递归排序等。感兴趣的可以自行百度了解，笔者依然只介绍笔者最偏爱的排序方法。<br>该方法有个弊端，只能用于javascript语言，因为它中间还是调用了javascript的sort方法，不过传入了一个compare方法作为参数。代码量上十分精简，不过理解上就没那么直观了。</p>
 </blockquote>
 <hr>
-<p>最后，和<a href="https://junwoung.github.io/2018/08/13/javascript%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">之前的做法</a>一样,将方法赋值给全局变量util的相关属性，这样就可以通过<code>window.uti.</code>或者<code>util.</code>来调用相关的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">window.util = &#123;</span><br><span class="line">    &apos;removeDuplicate&apos;: removeDuplicate,</span><br><span class="line">    &apos;sort&apos;: sort</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
+<p><code>扁平化</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function flatten(arr,flag) &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 先将数组转化为字符串，再将字符串分割</span><br><span class="line">     * 为了避免数组元素中存在某些特定字符，允许用户自定义分割字符，默认值,,,</span><br><span class="line">     * */</span><br><span class="line">    flag = flag === undefined ? &apos;,,,&apos;:flag;</span><br><span class="line">    let str = arr.join(flag);</span><br><span class="line">    return  str.split(flag);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>关于数组扁平化，网上同样有很多方法，笔者只介绍自己最偏爱的方法。该方法相较于其他扁平化方法，无论从理解上、代码量上、时间复杂度上都是最优的。</p>
+</blockquote>
+<hr>
+<p>最后，和<a href="https://junwoung.github.io/2018/08/13/javascript%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">之前的做法</a>一样,将方法赋值给全局变量util的相关属性，这样就可以通过<code>window.uti.</code>或者<code>util.</code>来调用相关的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">window.util = &#123;</span><br><span class="line">    &apos;removeDuplicate&apos;: removeDuplicate,</span><br><span class="line">    &apos;sort&apos;: sort,</span><br><span class="line">    &apos;flatten&apos;: flatten</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 </escape>
       
 

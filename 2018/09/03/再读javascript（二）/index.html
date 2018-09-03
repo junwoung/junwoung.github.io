@@ -6,22 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>vue craousel 轮播插件 | Jun woung blog</title>
+  <title>再读javascript（二） | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vue craousel 轮播插件标签（空格分隔）： vue javascript 插件  1    插件部分1.1    template部分">
-<meta name="keywords" content="vue,javascript,插件">
+  <meta name="description" content="再读javascript（二）标签（空格分隔）： 原生javascript  上接 再读javascript（一）本章主要介绍BOM（浏览器对象模型）">
+<meta name="keywords" content="原生javascript,BOM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="vue craousel 轮播插件">
-<meta property="og:url" content="http://yoursite.com/2018/08/03/vue craousel 轮播插件/index.html">
+<meta property="og:title" content="再读javascript（二）">
+<meta property="og:url" content="http://yoursite.com/2018/09/03/再读javascript（二）/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="vue craousel 轮播插件标签（空格分隔）： vue javascript 插件  1    插件部分1.1    template部分">
+<meta property="og:description" content="再读javascript（二）标签（空格分隔）： 原生javascript  上接 再读javascript（一）本章主要介绍BOM（浏览器对象模型）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://static.zybuluo.com/15013890200/oeh9h19pvlul8xqr9zirr9rl/3d999c4937361254e62327c4187ea63.png">
-<meta property="og:updated_time" content="2018-08-13T12:17:19.410Z">
+<meta property="og:updated_time" content="2018-09-03T07:46:57.929Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="vue craousel 轮播插件">
-<meta name="twitter:description" content="vue craousel 轮播插件标签（空格分隔）： vue javascript 插件  1    插件部分1.1    template部分">
-<meta name="twitter:image" content="http://static.zybuluo.com/15013890200/oeh9h19pvlul8xqr9zirr9rl/3d999c4937361254e62327c4187ea63.png">
+<meta name="twitter:title" content="再读javascript（二）">
+<meta name="twitter:description" content="再读javascript（二）标签（空格分隔）： 原生javascript  上接 再读javascript（一）本章主要介绍BOM（浏览器对象模型）">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -153,54 +151,79 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-vue craousel 轮播插件" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-再读javascript（二）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      vue craousel 轮播插件
+      再读javascript（二）
     </h1>
   
 
         
-        <a href="/2018/08/03/vue craousel 轮播插件/" class="archive-article-date">
-  	<time datetime="2018-08-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
+        <a href="/2018/09/03/再读javascript（二）/" class="archive-article-date">
+  	<time datetime="2018-09-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-03</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="vue-craousel-轮播插件"><a href="#vue-craousel-轮播插件" class="headerlink" title="vue craousel 轮播插件"></a>vue craousel 轮播插件</h1><p>标签（空格分隔）： vue javascript 插件</p>
-<hr>
-<h2 id="1-插件部分"><a href="#1-插件部分" class="headerlink" title="1    插件部分"></a>1    插件部分</h2><h3 id="1-1-template部分"><a href="#1-1-template部分" class="headerlink" title="1.1    template部分"></a>1.1    template部分</h3><p><esacpe><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line">&lt;template&gt;</span><br><span class="line">	&lt;div class=&quot;j_div_carousel&quot; v-if=&quot;data.length&quot;&gt;</span><br><span class="line">		&lt;!-- 左右轮播 --&gt;</span><br><span class="line">		&lt;div class=&quot;j_div_imgs&quot; @mouseover=&quot;show_arrow = true&quot; @mouseout=&quot;show_arrow = false&quot; v-if=&apos;animate == &quot;left&quot;&apos;&gt;</span><br><span class="line">			&lt;div class=&quot;j_div_img_show&quot; :style=&quot;&#123;left:left&#125;&quot;&gt;</span><br><span class="line">				&lt;img class=&quot;j_carousel_img&quot; @click=&quot;turn_page(d.url)&quot; v-for=&quot;d in data&quot; :src=&quot;d.src&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">			&lt;div class=&quot;j_div_radios&quot; v-if=&quot;banner&quot;&gt;</span><br><span class="line">				&lt;span :title=&quot;a.name&quot; @click=&apos;select(key)&apos; class=&quot;j_sp_radio&quot; :class=&quot;&#123;&apos;j_sp_radio_selected&apos;:key == index&#125;&quot; v-for=&quot;(a,key) in data&quot;&gt;&lt;/span&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">			&lt;div class=&quot;j_div_arrow&quot; v-if=&quot;arrow &amp;&amp; show_arrow&quot;&gt;</span><br><span class="line">				&lt;span @click=&quot;turn_img(-1)&quot; class=&quot;j_left_arrow&quot; v-if=&apos;index &gt; 0&apos;&gt;&lt;&lt;/span&gt;</span><br><span class="line">				&lt;span @click=&quot;turn_img(1)&quot; class=&quot;j_right_arrow&quot; v-if=&apos;index &lt; data.length-1&apos;&gt;&gt;&lt;/span&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">		&lt;!-- 渐隐渐现 --&gt;</span><br><span class="line">		&lt;div class=&quot;j_div_imgs&quot; @mouseover=&quot;show_arrow = true&quot; @mouseout=&quot;show_arrow = false&quot; v-if=&apos;animate == &quot;disappear&quot;&apos;&gt;</span><br><span class="line">			&lt;img class=&quot;j_carousel_img j_dis_img&quot; @click=&quot;turn_page(d.url)&quot; v-for=&quot;(d,key) in data&quot; :src=&quot;d.src&quot; width=&quot;100%&quot; height=&quot;100%&quot; :style=&quot;&#123;opacity: key == index ? 1:0&#125;&quot;&gt;</span><br><span class="line">			&lt;div class=&quot;j_div_radios&quot; v-if=&quot;banner&quot;&gt;</span><br><span class="line">				&lt;span :title=&quot;a.name&quot; @click=&apos;select(key)&apos; class=&quot;j_sp_radio&quot; :class=&quot;&#123;&apos;j_sp_radio_selected&apos;:key == index&#125;&quot; v-for=&quot;(a,key) in data&quot;&gt;&lt;/span&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">			&lt;div class=&quot;j_div_arrow&quot; v-if=&quot;arrow &amp;&amp; show_arrow&quot;&gt;</span><br><span class="line">				&lt;span @click=&quot;turn_img(-1)&quot; class=&quot;j_left_arrow&quot; v-if=&apos;index &gt; 0&apos;&gt;&lt;&lt;/span&gt;</span><br><span class="line">				&lt;span @click=&quot;turn_img(1)&quot; class=&quot;j_right_arrow&quot; v-if=&apos;index &lt; data.length-1&apos;&gt;&gt;&lt;/span&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line"></span><br><span class="line">		&lt;!-- 上下轮播 --&gt;</span><br><span class="line">		&lt;div class=&quot;j_div_imgs2&quot; @mouseover=&quot;show_arrow = true&quot; @mouseout=&quot;show_arrow = false&quot; v-if=&apos;animate == &quot;vertical&quot;&apos;&gt;</span><br><span class="line">			&lt;div class=&quot;j_div_img_show&quot; style=&quot;transition: top 0.5s;&quot; :style=&quot;&#123;top:(-height*index)+&apos;px&apos;&#125;&quot;&gt;</span><br><span class="line">				&lt;img class=&quot;j_carousel_img&quot; @click=&quot;turn_page(d.url)&quot; v-for=&quot;d in data&quot; :src=&quot;d.src&quot; width=&quot;100%&quot; height=&quot;100%&quot;&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">			&lt;div class=&quot;j_div_radios&quot; v-if=&quot;banner&quot;&gt;</span><br><span class="line">				&lt;span :title=&quot;a.name&quot; @click=&apos;select(key)&apos; class=&quot;j_sp_radio&quot; :class=&quot;&#123;&apos;j_sp_radio_selected&apos;:key == index&#125;&quot; v-for=&quot;(a,key) in data&quot;&gt;&lt;/span&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">			&lt;div class=&quot;j_div_arrow&quot; v-if=&quot;arrow &amp;&amp; show_arrow&quot;&gt;</span><br><span class="line">				&lt;span @click=&quot;turn_img(-1)&quot; class=&quot;j_left_arrow&quot; v-if=&apos;index &gt; 0&apos;&gt;&lt;&lt;/span&gt;</span><br><span class="line">				&lt;span @click=&quot;turn_img(1)&quot; class=&quot;j_right_arrow&quot; v-if=&apos;index &lt; data.length-1&apos;&gt;&gt;&lt;/span&gt;</span><br><span class="line">			&lt;/div&gt;</span><br><span class="line">		&lt;/div&gt;</span><br><span class="line">	&lt;/div&gt;</span><br><span class="line">&lt;/template&gt;</span><br></pre></td></tr></table></figure></esacpe></p>
-<h4 id="Tips-轮播动画不同其实只影响包含图片那层div，和其他部分无关，仔细看template部分可以发现"><a href="#Tips-轮播动画不同其实只影响包含图片那层div，和其他部分无关，仔细看template部分可以发现" class="headerlink" title="Tips:轮播动画不同其实只影响包含图片那层div，和其他部分无关，仔细看template部分可以发现"></a><code>Tips:</code>轮播动画不同其实只影响包含图片那层div，和其他部分无关，仔细看template部分可以发现</h4><h3 id="1-2-script部分"><a href="#1-2-script部分" class="headerlink" title="1.2 script部分"></a>1.2 script部分</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">	export default &#123;</span><br><span class="line">		name: &apos;mycarousel&apos;,</span><br><span class="line">		data()&#123;</span><br><span class="line">			return&#123;</span><br><span class="line">				data: null,//轮播图片对象数组</span><br><span class="line">				animate: &apos;left&apos;,//轮播动画选择 left disappear vertical</span><br><span class="line">				click: true,//图片是否支持点击跳转</span><br><span class="line">				banner: true,//是否显示底banner</span><br><span class="line">				banner_click: true,//banner圆点是否支持点击</span><br><span class="line">				arrow: true,//是否显示左右切换箭头</span><br><span class="line">				left: 0,//animate 为left 时候，用于计算style left值</span><br><span class="line">				index: 0,// 记录当前轮播到的图片的数组索引，非id</span><br><span class="line">				t_out: null,//记录定时任务，当有人为切换播放顺序时，为了避免播放混乱，即清除原定时任务，再重新开始</span><br><span class="line">				time: 3,//图片切换间隔时长</span><br><span class="line">				show_arrow: false,//记录左右切换箭头是否显示</span><br><span class="line">				width: 200,//记录轮播图的宽度</span><br><span class="line">				height: 150//记录轮播图的高度</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		props: &#123;</span><br><span class="line">			carouselObj: &#123;</span><br><span class="line">				type: Object,</span><br><span class="line">				default: null</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		methods: &#123;</span><br><span class="line">			start_carousel: function()&#123;</span><br><span class="line">				/* 定时轮播任务 */</span><br><span class="line">				let t = this;</span><br><span class="line">				this.t_out = setTimeout(function()&#123;</span><br><span class="line">					setTimeout(function()&#123;</span><br><span class="line">						if(t.index &gt; t.data.length-2)&#123;</span><br><span class="line">							t.index = 0;</span><br><span class="line">						&#125;</span><br><span class="line">						else&#123;</span><br><span class="line">							t.index++;</span><br><span class="line">						&#125;</span><br><span class="line">						if(t.animate === &apos;left&apos;)&#123;</span><br><span class="line">							t.left = -t.index*t.width + &apos;px&apos;;</span><br><span class="line">						&#125;</span><br><span class="line">						else if(t.animate === &apos;vertical&apos;)&#123;</span><br><span class="line"></span><br><span class="line">						&#125;</span><br><span class="line">						t.start_carousel();</span><br><span class="line">					&#125;)		</span><br><span class="line">				&#125;,t.time*1000);</span><br><span class="line">			&#125;,</span><br><span class="line">			select: function(index)&#123;</span><br><span class="line">				/* 人为选择轮播索引 */</span><br><span class="line">				if(!this.banner_click)return;</span><br><span class="line">				this.index = index;</span><br><span class="line">				this.left = -index*this.width + &apos;px&apos;;</span><br><span class="line">				clearTimeout(this.t_out);	</span><br><span class="line">				this.start_carousel();		</span><br><span class="line">			&#125;,</span><br><span class="line">			turn_img: function(num)&#123;</span><br><span class="line">				/* 切换左右箭头 */</span><br><span class="line">				this.index = this.index + num;</span><br><span class="line">				this.left = -this.index*this.width + &apos;px&apos;;</span><br><span class="line">				clearTimeout(this.t_out);	</span><br><span class="line">				this.start_carousel();</span><br><span class="line">			&#125;,</span><br><span class="line">			turn_page: function(url)&#123;</span><br><span class="line">				/* 点击图片，触发跳转事件 */</span><br><span class="line">				if(!this.click)return;</span><br><span class="line">				window.open(&quot;//&quot;+url);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		mounted()&#123;</span><br><span class="line">			this.start_carousel();</span><br><span class="line">			this.width = this.$el.offsetWidth-2;</span><br><span class="line">			this.height = this.$el.offsetHeight -2 ;</span><br><span class="line">		&#125;,</span><br><span class="line">		beforeMount()&#123;</span><br><span class="line">			/* 将传入对象的各属性赋值给轮播数据 */</span><br><span class="line">			if(this.carouselObj)&#123;</span><br><span class="line">				for(let key in this.carouselObj)&#123;</span><br><span class="line">					this.$data[key] = this.carouselObj[key];</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;,</span><br><span class="line">		watch: &#123;</span><br><span class="line">			/* 当轮播对象 在切换图片的时候需要有返回函数时返回 */</span><br><span class="line">			&apos;index&apos;: function()&#123;</span><br><span class="line">				this.$emit(&apos;callback&apos;,this.index);</span><br><span class="line">			&#125;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure>
-<h3 id="1-3-css部分"><a href="#1-3-css部分" class="headerlink" title="1.3    css部分"></a>1.3    css部分</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;style scoped&gt;</span><br><span class="line">	.j_div_carousel&#123;width: 100%;height: 100%;border: 1px solid #ddd;&#125;</span><br><span class="line">	.j_div_imgs&#123;width:100%;height:100%;position:relative;overflow:hidden;white-space:nowrap;&#125;</span><br><span class="line">	.j_div_imgs2&#123;width:100%;height:100%;position:relative;overflow:hidden;line-height:0;&#125;</span><br><span class="line">	.j_div_img_show&#123;width:100%;height:100%;position:absolute;left:0;transition:left 0.5s;&#125;</span><br><span class="line">	.j_div_radios&#123;position:absolute;bottom:0;left:0;background:#000;opacity:0.5;height:30px;width:100%;text-align:center;line-height:30px;&#125;</span><br><span class="line">	.j_sp_radio&#123;display:inline-block;width:8px;height:8px;border-radius:50%;background-color:#666;margin-left:5px;cursor:pointer;position:relative;&#125;</span><br><span class="line">	.j_sp_radio_selected&#123;background-color:#fff;width:9px;height:9px;&#125;</span><br><span class="line">	.j_div_arrow&#123;position:absolute;top:40%;left:0;width:100%;height:0;&#125;</span><br><span class="line">	.j_left_arrow&#123;width:25px;height:25px;border-radius:50%;background-color:#000;color:#fff;display:inline-block;text-align:center;opacity:0.3;cursor:pointer;float:left;margin-left:5px;line-height:22px;&#125;</span><br><span class="line">	.j_right_arrow&#123;width:25px;height:25px;border-radius:50%;background-color:#000;color:#fff;display:inline-block;text-align:center;opacity:0.3;cursor:pointer;float:right;margin-right:5px;line-height:22px;&#125;</span><br><span class="line">	.j_carousel_img&#123;cursor:pointer;margin:0;&#125;</span><br><span class="line"></span><br><span class="line">	.j_dis_img&#123;position:absolute;top:0;left:0;opacity:0;transition:opacity 1s;&#125;</span><br><span class="line">&lt;/style&gt;</span><br></pre></td></tr></table></figure>
-<hr>
-<h2 id="2-插件的注册和引用"><a href="#2-插件的注册和引用" class="headerlink" title="2    插件的注册和引用"></a>2    插件的注册和引用</h2><p>此部分流程大致和评分插件完全一致</p>
+        <h1 id="再读javascript（二）"><a href="#再读javascript（二）" class="headerlink" title="再读javascript（二）"></a>再读javascript（二）</h1><p>标签（空格分隔）： 原生javascript</p>
 <blockquote>
+<p>上接 <a href="https://junwoung.github.io/2018/08/31/%E5%86%8D%E8%AF%BBjavascript%EF%BC%88%E4%B8%80%EF%BC%89/#more" target="_blank" rel="noopener">再读javascript（一）</a><br>本章主要介绍BOM（浏览器对象模型）</p>
+</blockquote>
+<a id="more"></a>
+
+<escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="1、top、parent对象-window对象"><a href="#1、top、parent对象-window对象" class="headerlink" title="1、top、parent对象(window对象)"></a>1、top、parent对象(window对象)</h4><blockquote>
+<p>top对象始终指向页面最外层的框架，也就是浏览器窗口。（用于多frame嵌套场景，对于现在当页面场景，相当于window对象）<br>parent对象指向当前框架的直接上层框架。在没有框架的时候等于top对象</p>
+</blockquote>
+<h4 id="2、和窗口有关的操作-window对象"><a href="#2、和窗口有关的操作-window对象" class="headerlink" title="2、和窗口有关的操作(window对象)"></a>2、和窗口有关的操作(window对象)</h4><blockquote>
+<p>1、screenLeft（screenX）、screenTop（screenY），浏览器距屏幕左边和上边的位置。<br>moveTo、moveBy，均接收两个参数，前者表示移动到某个位置，后者表示偏移量。（一般会被浏览器禁用）</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//跨浏览器取窗口左边和上边的位置</span><br><span class="line">var left = (typeof window.screenLeft == &apos;number&apos;) ? window.screenLeft : window.screenX;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>2、clientHeight、clientWidth,获取浏览器视口大小<br>resizeTo、resizeBy，均接收两个参数，前者表示缩放到固定大小，后者表示缩放了指定像素。（一般会被浏览器禁用）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">//获取浏览器视口大小（兼容方法）</span><br><span class="line">var clientH = document.documentElement.clientHeight || document.body.clientHeight;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<blockquote>
+<p>3、windown.open，在指定窗口打开指定URL。参数一：URL，；参数二：指定frame名或者_self、_parent、_top、_blank；参数三：当参数二不时已经存在的窗口或框架，则根据参数三创建一个新窗口或标签页</p>
+</blockquote>
+<h4 id="3、location对象"><a href="#3、location对象" class="headerlink" title="3、location对象"></a>3、location对象</h4><blockquote>
 <ul>
-<li>在<code>carousel.js</code>完成注册，组件命名随意，我一般命名<code>my+组件名</code>，所以该插件命名<code>my-carousel</code></li>
-<li>使用<code>my-carousel</code>插件之前，先<code>import carousel.js</code>，然后Vue.use()相关插件</li>
-<li>页面部分<code>&lt;my-carousel :carouselObj=&quot;carousel&quot; @callback=&quot;select&quot;&gt;&lt;/my-carousel&gt;</code></li>
+<li>包含hash、host、hostname、href、pathname、port、protocol、search属性<blockquote>
+<p>hash 返回url中#后面字符串，或者为空<br>pathname 返回url中的目录和文件名<br>search 返回url中？后面的参数字符串</p>
+</blockquote>
+</li>
 </ul>
 </blockquote>
-<h3 id="具体流程参见评分插件的引用"><a href="#具体流程参见评分插件的引用" class="headerlink" title="具体流程参见评分插件的引用"></a>具体流程参见<a href="https://www.zybuluo.com/15013890200/note/1244634" target="_blank" rel="noopener">评分插件</a>的引用</h3><hr>
-<h2 id="3-插件的配置"><a href="#3-插件的配置" class="headerlink" title="3    插件的配置"></a>3    插件的配置</h2><h3 id="3-1-参数配置"><a href="#3-1-参数配置" class="headerlink" title="3.1 参数配置"></a>3.1 参数配置</h3><h4 id="第二部分第三条：carouselObj传入一个对象，具体包含如下属性"><a href="#第二部分第三条：carouselObj传入一个对象，具体包含如下属性" class="headerlink" title="第二部分第三条：carouselObj传入一个对象，具体包含如下属性"></a>第二部分第三条：<code>carouselObj</code>传入一个对象，具体包含如下属性</h4><p><table></table></p>
-<p><thead><tr><td>属性名称</td><td>属性意义</td><td>默认值</td><td>是否必须</td></tr></thead></p>
-<p><tbody></tbody></p>
-<p><tr><td>data</td><td>传入素材轮播数组，每条记录必须包含src属性，可包含id、name、url</td><td>null</td><td>是</td></tr></p>
-<p><tr><td>click</td><td>点击图片是否支持跳转</td><td>true</td><td>否</td></tr></p>
-<p><tr><td>time</td><td>图片切换周期（单位秒）</td><td>3</td><td>否</td></tr></p>
-<p><tr><td>animate</td><td>图片切换动画</td><td>left</td><td>否</td></tr></p>
-<p><tr><td>arrow</td><td>是否包含左右切换箭头</td><td>true</td><td>否</td></tr></p>
-<p><tr><td>banner</td><td>图片下方是否展示缩略</td><td>true</td><td>否</td></tr></p>
-<p><tr><td>banner_click</td><td>缩略圆点是否可点击</td><td>true</td><td>否</td></tr><br></p>
-<h3 id="3-2-回调函数"><a href="#3-2-回调函数" class="headerlink" title="3.2    回调函数"></a>3.2    回调函数</h3><h4 id="callback回调函数select，当图片切换的时候出发，可以自行定义操作，不需要可以不配置回调函数"><a href="#callback回调函数select，当图片切换的时候出发，可以自行定义操作，不需要可以不配置回调函数" class="headerlink" title="callback回调函数select，当图片切换的时候出发，可以自行定义操作，不需要可以不配置回调函数"></a><code>callback</code>回调函数select，当图片切换的时候出发，可以自行定义操作，不需要可以不配置回调函数</h4><hr>
-<h3 id="4-效果图"><a href="#4-效果图" class="headerlink" title="4 效果图"></a>4 效果图</h3><p><img src="http://static.zybuluo.com/15013890200/oeh9h19pvlul8xqr9zirr9rl/3d999c4937361254e62327c4187ea63.png" alt="3d999c4937361254e62327c4187ea63.png-250.2kB"></p>
-
+<blockquote>
+<ul>
+<li>改变浏览器位置<blockquote>
+<p>location.assign()<br>window.location 与 location.href 效果相同，都调用location.assign方法<br>通过改变location的属性（hash除外），页面都会刷新并且在浏览器的历史记录生成一条新纪录。<br>location.replace() 浏览器不会回退到前一个页面<br>location.reload() 不传参数，重新加载（可能从缓存中加载）；传true，从服务器重新加载</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="4、navigator对象"><a href="#4、navigator对象" class="headerlink" title="4、navigator对象"></a>4、navigator对象</h4><blockquote>
+<p> navigator对象包含诸多属性，常用于检测显示网页的浏览器类型。</p>
+<blockquote>
+<p>1、检测插件（navigator.plugins）（非IE浏览器可用）<br>2、注册处理程序（navigator.registerContentHandler、navigator.registerProtocolHandler）</p>
+</blockquote>
+</blockquote>
+<h4 id="5、screen对象"><a href="#5、screen对象" class="headerlink" title="5、screen对象"></a>5、screen对象</h4><blockquote>
+<p>实际编程中用到的情况不多<br>基本上只用来标明客户端的能力，包含浏览器窗口外部的显示器信息，宽度高度等。</p>
+</blockquote>
+<h4 id="6、history对象"><a href="#6、history对象" class="headerlink" title="6、history对象"></a>6、history对象</h4><blockquote>
+<p>history记录用户上网的历史，从窗口被打开的那一刻算起。<br>出于安全方面的考虑，开发人员无法得知用户浏览过的url<br>history并不常用，但在创建自定义后退前进按钮，以及检测当前页面是不是用户历史记录中的第一个页面时，必须用它。</p>
+<blockquote>
+<p>history.go() 正数表示前进，负数表示后退。具体数值表示具体前进或者后退几步<br>history.back() 后退一页<br>history.forward() 前进一页<br>history.length 保存着历史记录的数量。为0表示是打开窗口后的第一个页面</p>
+</blockquote>
+</blockquote>
+</escape>
       
 
       
@@ -244,15 +267,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原生javascript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BOM</a>
         		</li>
       		
 		</ul>
@@ -308,7 +327,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/03/vue craousel 轮播插件/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/03/再读javascript（二）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -322,18 +341,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/09/vue dialog 弹窗插件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vue dialog 弹窗插件
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/02/vue score 评分插件/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vue score 评分插件</div>
+    <a href="/2018/08/31/再读javascript（一）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">再读javascript（一）</div>
       <i class="icon-circle-right"></i>
     </a>
   

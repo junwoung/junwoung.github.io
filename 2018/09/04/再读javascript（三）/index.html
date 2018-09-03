@@ -6,25 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>IntelliJ IDEA 使用笔记 | Jun woung blog</title>
+  <title>再读javascript（三） | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="IntelliJ IDEA 使用笔记标签（空格分隔）： IDEA 项目启动  tips:工作中经常遇到新启项目，由于项目开发周期一般都会持续好几个月时间，而项目启动一般只在项目开始阶段进行，导致我经常会遗忘在项目启动的时候一些配置的注意事项。">
-<meta name="keywords" content="IntelliJ IDEA,使用,工具">
+  <meta name="description" content="再读javascript（三）标签（空格分隔）： 原生javascript  上接再读javascript（二）本章主要记录DOM（文档对象模型）">
+<meta name="keywords" content="原生javascript,DOM">
 <meta property="og:type" content="article">
-<meta property="og:title" content="IntelliJ IDEA 使用笔记">
-<meta property="og:url" content="http://yoursite.com/2018/08/13/IntelliJ IDEA 使用笔记/index.html">
+<meta property="og:title" content="再读javascript（三）">
+<meta property="og:url" content="http://yoursite.com/2018/09/04/再读javascript（三）/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="IntelliJ IDEA 使用笔记标签（空格分隔）： IDEA 项目启动  tips:工作中经常遇到新启项目，由于项目开发周期一般都会持续好几个月时间，而项目启动一般只在项目开始阶段进行，导致我经常会遗忘在项目启动的时候一些配置的注意事项。">
+<meta property="og:description" content="再读javascript（三）标签（空格分隔）： 原生javascript  上接再读javascript（二）本章主要记录DOM（文档对象模型）">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://static.zybuluo.com/15013890200/3vyf63ci9xplgnfjd7799dnq/71ff05b9ee12c01f45a52f8bdab9c52.png">
-<meta property="og:image" content="http://static.zybuluo.com/15013890200/r0ysth3p6dcuqqzhegh7418y/04c93614eda31af67cd94a5441a8427.png">
-<meta property="og:image" content="http://static.zybuluo.com/15013890200/oeuvdr0acrs5qgr6h2erpmv9/3e6de7546a3de302454f1b990d74077.png">
-<meta property="og:image" content="http://static.zybuluo.com/15013890200/ovl93ksdm8xf54fx503g420u/0f996f8419232db06fd276478a002bb.png">
-<meta property="og:updated_time" content="2018-08-13T12:22:35.345Z">
+<meta property="og:updated_time" content="2018-09-03T12:21:12.580Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="IntelliJ IDEA 使用笔记">
-<meta name="twitter:description" content="IntelliJ IDEA 使用笔记标签（空格分隔）： IDEA 项目启动  tips:工作中经常遇到新启项目，由于项目开发周期一般都会持续好几个月时间，而项目启动一般只在项目开始阶段进行，导致我经常会遗忘在项目启动的时候一些配置的注意事项。">
-<meta name="twitter:image" content="http://static.zybuluo.com/15013890200/3vyf63ci9xplgnfjd7799dnq/71ff05b9ee12c01f45a52f8bdab9c52.png">
+<meta name="twitter:title" content="再读javascript（三）">
+<meta name="twitter:description" content="再读javascript（三）标签（空格分隔）： 原生javascript  上接再读javascript（二）本章主要记录DOM（文档对象模型）">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -156,36 +151,112 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-IntelliJ IDEA 使用笔记" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-再读javascript（三）" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      IntelliJ IDEA 使用笔记
+      再读javascript（三）
     </h1>
   
 
         
-        <a href="/2018/08/13/IntelliJ IDEA 使用笔记/" class="archive-article-date">
-  	<time datetime="2018-08-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
+        <a href="/2018/09/04/再读javascript（三）/" class="archive-article-date">
+  	<time datetime="2018-09-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-04</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="IntelliJ-IDEA-使用笔记"><a href="#IntelliJ-IDEA-使用笔记" class="headerlink" title="IntelliJ IDEA 使用笔记"></a>IntelliJ IDEA 使用笔记</h1><p>标签（空格分隔）： IDEA 项目启动</p>
+        <h1 id="再读javascript（三）"><a href="#再读javascript（三）" class="headerlink" title="再读javascript（三）"></a>再读javascript（三）</h1><p>标签（空格分隔）： 原生javascript</p>
+<blockquote>
+<p>上接<a href="https://junwoung.github.io/2018/09/03/%E5%86%8D%E8%AF%BBjavascript%EF%BC%88%E4%BA%8C%EF%BC%89/#more" target="_blank" rel="noopener">再读javascript（二）</a><br>本章主要记录DOM（文档对象模型）</p>
+</blockquote>
+<a id="more"></a>
+<escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <hr>
-<p><code>tips:</code>工作中经常遇到新启项目，由于项目开发周期一般都会持续好几个月时间，而项目启动一般只在项目开始阶段进行，导致我经常会遗忘在项目启动的时候一些配置的注意事项。</p>
-<p><esacpe><a id="more"></a></esacpe></p>
-<h2 id="1-从本地导入项目"><a href="#1-从本地导入项目" class="headerlink" title="1 从本地导入项目"></a>1 从本地导入项目</h2><p>file -&gt; new -&gt; project from exsisting sources;找到项目对应的pom.xml<br><img src="http://static.zybuluo.com/15013890200/3vyf63ci9xplgnfjd7799dnq/71ff05b9ee12c01f45a52f8bdab9c52.png" alt="71ff05b9ee12c01f45a52f8bdab9c52.png-13.5kB"></p>
-<h2 id="2-配置项目的configurations"><a href="#2-配置项目的configurations" class="headerlink" title="2 配置项目的configurations"></a>2 配置项目的configurations</h2><p>项目命名、deployment<br><img src="http://static.zybuluo.com/15013890200/r0ysth3p6dcuqqzhegh7418y/04c93614eda31af67cd94a5441a8427.png" alt="04c93614eda31af67cd94a5441a8427.png-58.8kB"><br><img src="http://static.zybuluo.com/15013890200/oeuvdr0acrs5qgr6h2erpmv9/3e6de7546a3de302454f1b990d74077.png" alt="3e6de7546a3de302454f1b990d74077.png-13.1kB"></p>
-<h2 id="3-配置maven"><a href="#3-配置maven" class="headerlink" title="3 配置maven"></a>3 配置maven</h2><p>file -&gt; settings -&gt; build,wxecution,deployment -&gt; build tools -&gt; maven<br><img src="http://static.zybuluo.com/15013890200/ovl93ksdm8xf54fx503g420u/0f996f8419232db06fd276478a002bb.png" alt="0f996f8419232db06fd276478a002bb.png-57.6kB"></p>
-<h2 id="4-安装包"><a href="#4-安装包" class="headerlink" title="4 安装包"></a>4 安装包</h2><p>file -&gt; settings -&gt; plugins</p>
-<h2 id="5-调出maven-工具栏"><a href="#5-调出maven-工具栏" class="headerlink" title="5 调出maven 工具栏"></a>5 调出maven 工具栏</h2><p>view -&gt; tool windows -&gt; maven projects<br>清除依赖：clean<br>重新安装：install</p>
-
+<h4 id="1、DOM1级获取节点信息"><a href="#1、DOM1级获取节点信息" class="headerlink" title="1、DOM1级获取节点信息"></a>1、DOM1级获取节点信息</h4><blockquote>
+<p>nodeType: 节点类型。<br>nodeName 和 nodeValue，对于元素节点，nodeName对应元素标签，nodeValue始终为null。<br>someNode.childNodes[n] 或者 someNode.childNodes.item(n)获取指定索引节点<br>nextSibling 和 previousSibling访问后一、前一兄弟节点。<br>firstChild 和 lastChild访问第一个和最后一个子节点。<br>parentNode 和 childNodes访问父节点和子节点们</p>
+</blockquote>
+<h4 id="2、DOM1级操作节点"><a href="#2、DOM1级操作节点" class="headerlink" title="2、DOM1级操作节点"></a>2、DOM1级操作节点</h4><blockquote>
+<p>appendChild(),从父节点的末尾插入，成为父节点最后一个节点。<br>insertBefore(),参数一：要插入的节点；参数二：作为参照的节点。插入的节点作为参照的节点前一个兄弟节点。<br>replaceChild（），参数一：要插入的节点；参数二：要替换的节点<br>removeChild（），移除指定节点<br>cloneChild（），复制某个节点，参数true：深复制，复制本节点及子节点；参数false：浅复制，只复制本节点</p>
+</blockquote>
+<h4 id="3、document对象类型"><a href="#3、document对象类型" class="headerlink" title="3、document对象类型"></a>3、document对象类型</h4><blockquote>
+<p>是HTMLDocument的一个实例，表示整个HTML，也是window对象的一个属性。<br>documentElement属性始终指向<html>元素，body属性直接指向<body>元素<br>URL、domain、referrer属性</body></html></p>
+<blockquote>
+<p>document.URL 获取完整的URL<br>document.domain 获取完整的域名<br>document.referrer 取得来源页面的URL</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>document特殊属性集合：</p>
+<blockquote>
+<p>document.anchors 所有带name特性的<a>元素<br>document.forms 所有form元素<br>document.images 所有img元素<br>document.links 所有带href特性的<a>元素</a></a></p>
+</blockquote>
+</blockquote>
+<h4 id="4、element对象类型"><a href="#4、element对象类型" class="headerlink" title="4、element对象类型"></a>4、element对象类型</h4><blockquote>
+<p>可以直接通过element.访问和设置相应属性。<br>getAttribute()、setAttribute()、removeAttribute()<br>创建元素 document.createElement()<br><code>tips：</code>在操作元素节点前（尤其是遍历一个元素数组），先判断元素类型element.nodeType == 1时，可以进行正常的element操作。</p>
+</blockquote>
+<h4 id="5、text对象类型、comment对象类型"><a href="#5、text对象类型、comment对象类型" class="headerlink" title="5、text对象类型、comment对象类型"></a>5、text对象类型、comment对象类型</h4><blockquote>
+<p>个人感觉用到的不多</p>
+</blockquote>
+<h4 id="6、DOM扩展"><a href="#6、DOM扩展" class="headerlink" title="6、DOM扩展"></a>6、DOM扩展</h4><blockquote>
+<p>html5之前获取元素的两种方法，getElementByID、getElementsBytagName；HTML5补充了querySelector和querySelectorAll方法，可以根据元素的tag、id、className来获取指定元素</p>
+<blockquote>
+<p>document.querySelector: 在文档范围内搜索。<br>element.querySelector: 在元素后代范围内查找</p>
+</blockquote>
+</blockquote>
+<h4 id="7、HTML5焦点管理"><a href="#7、HTML5焦点管理" class="headerlink" title="7、HTML5焦点管理"></a>7、HTML5焦点管理</h4><blockquote>
+<p>document.activeElement 属性，始终会引用DOM中当前获得了焦点的元素。<br>元素获得焦点方式：页面加载、用户输入（Tab键切换）、代码中调用focus()事件</p>
+</blockquote>
+<h4 id="8、HTML5插入标记"><a href="#8、HTML5插入标记" class="headerlink" title="8、HTML5插入标记"></a>8、HTML5插入标记</h4><blockquote>
+<p>innerHTML: 替换调用元素子节点<br>outerHTML: 替换调用元素</p>
+</blockquote>
+<h4 id="9、innerText"><a href="#9、innerText" class="headerlink" title="9、innerText"></a>9、innerText</h4><blockquote>
+<p>firefox不支持innerText属性，但是有个textContent属性。</p>
+<blockquote>
+<p>兼容Firefox： typeof element.textContent == ‘string’ ,为true，则调用textContent属性，否则调用innetText属性</p>
+</blockquote>
+</blockquote>
+<h4 id="10、滚动"><a href="#10、滚动" class="headerlink" title="10、滚动"></a>10、滚动</h4><blockquote>
+<p>scrollIntoView(): 将调用的元素滚动至浏览器视口内。传入true，与上边框对齐；传入false，尽可能与下边框对齐。<br>scrollIntoViewIfNeeded(): 只当元素不在视口内有效。传入true参数，尽量显示视口垂直方向中部。<br>scrollByLines(): 将元素内容滚动指定行高<br>scrollByPages(): 将元素内容滚动指定的页面高度</p>
+</blockquote>
+<h4 id="11、DOM2级"><a href="#11、DOM2级" class="headerlink" title="11、DOM2级"></a>11、DOM2级</h4><blockquote>
+<p>访问和设置元素的样式：element.style.（只能访问和设定style属性中的样式，不可访问外部样式）</p>
+<blockquote>
+<p>float是javascript保留字，访问float样式可以通过cssFloat（非ie），styleFloat（ie）</p>
+</blockquote>
+</blockquote>
+<h4 id="12、计算元素大小"><a href="#12、计算元素大小" class="headerlink" title="12、计算元素大小"></a>12、计算元素大小</h4><blockquote>
+<ul>
+<li>offsetHeight、offsetWidth 元素占用空间的宽高<br>offsetLeft、offsetTop 元素与包含元素的作、上边框的像素距离<blockquote>
+<p>取一个元素在页面上的偏移量，将这个元素的offsetLeft和offsetTop语气offsetParent的相同属性相加，如此循环直至根元素。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">function getElementTop(element)&#123;</span><br><span class="line">    var toptalTop = element.offsetTop;</span><br><span class="line">    var current = element.offsetParent;</span><br><span class="line">    while(current !== null)&#123;</span><br><span class="line">        totalTop += current.offfsetTop;</span><br><span class="line">        current = current.offsetParent;</span><br><span class="line">    &#125;</span><br><span class="line">    return totalTop;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>clientWidth、clientHeight 元素内容及其内边距所占空间大小。</li>
+<li>scrollTop、scrollLeft、scrollHeight、scrollWidth（滚动大小）<blockquote>
+<p>在没有滚动条的情况下scrollHeight、scrollWidth等于内容的总高度和宽度<br>scrollLeft、scrollTop被隐藏在内容区域左方和上方的像素数。可以改变这个属性改变元素滚动的位置</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="13、确定元素大小"><a href="#13、确定元素大小" class="headerlink" title="13、确定元素大小"></a>13、确定元素大小</h4><blockquote>
+<p>getBoundingClientRect()方法。</p>
+<blockquote>
+<p>该方法返回一个矩形对象。包含left、top、right、bottom属性。分别对应元素在页面中相对视口的位置。</p>
+</blockquote>
+</blockquote>
+<h4 id="14、页面滚动"><a href="#14、页面滚动" class="headerlink" title="14、页面滚动"></a>14、页面滚动</h4><blockquote>
+<p>页面滚动：scrollTo、scrollBy：均接收两个参数，参数一表示水平方向，参数二表示垂直方向。前者表示滚动到指定坐标。后者表示滚动指定像素。</p>
+</blockquote>
+</escape>
       
 
       
@@ -229,15 +300,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IntelliJ IDEA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原生javascript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">使用</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
         		</li>
       		
 		</ul>
@@ -293,7 +360,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/13/IntelliJ IDEA 使用笔记/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/04/再读javascript（三）/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -307,18 +374,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/13/javascript 常用方法（一）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          javascript 常用方法（一）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/09/vue select 选择插件/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">vue select 选择插件</div>
+    <a href="/2018/09/03/再读javascript（二）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">再读javascript（二）</div>
       <i class="icon-circle-right"></i>
     </a>
   

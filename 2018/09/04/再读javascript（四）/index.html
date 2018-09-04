@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>再读javascript（四） | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="再读javascript（四）标签（空格分隔）： 原生javascript  上接再读javascript（三）本章主要介绍事件本章内容繁多且复杂，有空得多回顾12">
+  <meta name="description" content="再读javascript（四）标签（空格分隔）： 原生javascript  上接再读javascript（三）本章主要介绍事件本章内容繁多且复杂，有空得多回顾">
 <meta name="keywords" content="原生javascript,事件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="再读javascript（四）">
 <meta property="og:url" content="http://yoursite.com/2018/09/04/再读javascript（四）/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="再读javascript（四）标签（空格分隔）： 原生javascript  上接再读javascript（三）本章主要介绍事件本章内容繁多且复杂，有空得多回顾12">
+<meta property="og:description" content="再读javascript（四）标签（空格分隔）： 原生javascript  上接再读javascript（三）本章主要介绍事件本章内容繁多且复杂，有空得多回顾">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-04T08:21:24.401Z">
+<meta property="og:updated_time" content="2018-09-04T08:25:19.140Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="再读javascript（四）">
-<meta name="twitter:description" content="再读javascript（四）标签（空格分隔）： 原生javascript  上接再读javascript（三）本章主要介绍事件本章内容繁多且复杂，有空得多回顾12">
+<meta name="twitter:description" content="再读javascript（四）标签（空格分隔）： 原生javascript  上接再读javascript（三）本章主要介绍事件本章内容繁多且复杂，有空得多回顾">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -173,29 +173,43 @@
       
         <h1 id="再读javascript（四）"><a href="#再读javascript（四）" class="headerlink" title="再读javascript（四）"></a>再读javascript（四）</h1><p>标签（空格分隔）： 原生javascript</p>
 <blockquote>
-<p>上接<a href="https://junwoung.github.io/2018/09/04/%E5%86%8D%E8%AF%BBjavascript%EF%BC%88%E4%B8%89%EF%BC%89/#more" target="_blank" rel="noopener">再读javascript（三）</a><br>本章主要介绍<code>事件</code><br>本章内容繁多且复杂，有空得多回顾<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></p>
+<p>上接<a href="https://junwoung.github.io/2018/09/04/%E5%86%8D%E8%AF%BBjavascript%EF%BC%88%E4%B8%89%EF%BC%89/#more" target="_blank" rel="noopener">再读javascript（三）</a><br>本章主要介绍<code>事件</code><br>本章内容繁多且复杂，有空得多回顾</p>
 </blockquote>
 <a id="more"></a>
 
----
-
-####    1、事件流
-> * 事件冒泡流：事件开始由最具体元素逐级向上传播到较为不具体的节点（最常用！！！）。
-> * 事件捕获流：不太具体的节点应该更早接收到事件，具体的节点应该最后接收到事件。
-> * DOM事件流：包含三个阶段：事件捕获阶段、处于目标阶段和事件冒泡阶段。
-
-####    2、事件处理程序
-> * HTML事件处理程序（直接在节点指定处理程序）： event变量可以直接访问事件对象。this值等于事件的目标元素。`缺点：`当要修改函数名，得同时修改HTML和js两部分
-> * DOM0级事件处理程序：取得一个操作对象的引用。然后为其绑定事件处理程序属性（onclick等），将这种属性的值设置为一个函数。`优点：`可以通过设置属性值为null，来取消事件。
-> * DOM2级事件处理程序：addEventListener()、removeEventListener()
->> addEventListener 接收三个参数，参数一：处理的事件名；参数二：事件处理程序；参数三：为true，表示在补货阶段处理程序，为false，表示在冒泡阶段处理程序。
-优点：可以添加多个事件处理程序
-
-> * IE事件处理程序：attachEvent()、detachEvent()
->> attachEvent使用特点：1、指定处理事件名是用on+事件名；2、与addEventListener一样可以同时添加多个事件处理程序，只不过执行顺序相反，从后往前执行。
-
-> * 跨浏览器的事件处理程序
- <escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var EventUtil = &#123;</span><br><span class="line">    addHandler: function (ele,type,handler) &#123;</span><br><span class="line">        if(ele.addEventListener)&#123;</span><br><span class="line">            ele.addEventListener(type,handler,false);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ele.attachEvent)&#123;</span><br><span class="line">            ele.attachEvent(&apos;on&apos;+type,handler);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            ele[&apos;on&apos;+type] = handler;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    removeHandler: function (ele,type,handler) &#123;</span><br><span class="line">        if(ele.removeHandler)&#123;</span><br><span class="line">            ele.removeHandler(type,handler,false);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ele.detachEvent)&#123;</span><br><span class="line">            ele.detachEvent(&apos;on&apos;+type,handler);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            ele[&apos;on&apos;+type] = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<hr>
+<h4 id="1、事件流"><a href="#1、事件流" class="headerlink" title="1、事件流"></a>1、事件流</h4><blockquote>
+<ul>
+<li>事件冒泡流：事件开始由最具体元素逐级向上传播到较为不具体的节点（最常用！！！）。</li>
+<li>事件捕获流：不太具体的节点应该更早接收到事件，具体的节点应该最后接收到事件。</li>
+<li>DOM事件流：包含三个阶段：事件捕获阶段、处于目标阶段和事件冒泡阶段。</li>
+</ul>
+</blockquote>
+<h4 id="2、事件处理程序"><a href="#2、事件处理程序" class="headerlink" title="2、事件处理程序"></a>2、事件处理程序</h4><blockquote>
+<ul>
+<li>HTML事件处理程序（直接在节点指定处理程序）： event变量可以直接访问事件对象。this值等于事件的目标元素。<code>缺点：</code>当要修改函数名，得同时修改HTML和js两部分</li>
+<li>DOM0级事件处理程序：取得一个操作对象的引用。然后为其绑定事件处理程序属性（onclick等），将这种属性的值设置为一个函数。<code>优点：</code>可以通过设置属性值为null，来取消事件。</li>
+<li>DOM2级事件处理程序：addEventListener()、removeEventListener()<blockquote>
+<p>addEventListener 接收三个参数，参数一：处理的事件名；参数二：事件处理程序；参数三：为true，表示在补货阶段处理程序，为false，表示在冒泡阶段处理程序。<br>优点：可以添加多个事件处理程序</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>IE事件处理程序：attachEvent()、detachEvent()<blockquote>
+<p>attachEvent使用特点：1、指定处理事件名是用on+事件名；2、与addEventListener一样可以同时添加多个事件处理程序，只不过执行顺序相反，从后往前执行。</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>跨浏览器的事件处理程序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var EventUtil = &#123;</span><br><span class="line">    addHandler: function (ele,type,handler) &#123;</span><br><span class="line">        if(ele.addEventListener)&#123;</span><br><span class="line">            ele.addEventListener(type,handler,false);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ele.attachEvent)&#123;</span><br><span class="line">            ele.attachEvent(&apos;on&apos;+type,handler);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            ele[&apos;on&apos;+type] = handler;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    removeHandler: function (ele,type,handler) &#123;</span><br><span class="line">        if(ele.removeHandler)&#123;</span><br><span class="line">            ele.removeHandler(type,handler,false);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ele.detachEvent)&#123;</span><br><span class="line">            ele.detachEvent(&apos;on&apos;+type,handler);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            ele[&apos;on&apos;+type] = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
 <blockquote>
 <blockquote>
 <p>首先创建EventUtil对象，包含绑定和移除事件两个方法。这样就可以通过该对象的两个方法实现跨浏览器为一个元素添加和移除事件。</p>

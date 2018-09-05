@@ -12,11 +12,11 @@
 <meta name="keywords" content="原生javascript,事件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="再读javascript（四）">
-<meta property="og:url" content="http://yoursite.com/2018/09/04/再读javascript（四）/index.html">
+<meta property="og:url" content="http://yoursite.com/2018/09/05/再读javascript（四）/index.html">
 <meta property="og:site_name" content="Jun woung blog">
 <meta property="og:description" content="再读javascript（四）标签（空格分隔）： 原生javascript  上接再读javascript（三）本章主要介绍事件本章内容繁多且复杂，有空得多回顾">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-05T03:04:39.079Z">
+<meta property="og:updated_time" content="2018-09-05T03:38:48.127Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="再读javascript（四）">
 <meta name="twitter:description" content="再读javascript（四）标签（空格分隔）： 原生javascript  上接再读javascript（三）本章主要介绍事件本章内容繁多且复杂，有空得多回顾">
@@ -163,8 +163,8 @@
   
 
         
-        <a href="/2018/09/04/再读javascript（四）/" class="archive-article-date">
-  	<time datetime="2018-09-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-04</time>
+        <a href="/2018/09/05/再读javascript（四）/" class="archive-article-date">
+  	<time datetime="2018-09-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-05</time>
 </a>
         
       </header>
@@ -177,68 +177,12 @@
 </blockquote>
 <a id="more"></a>
 
-<escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<hr>
-<h4 id="1、事件流"><a href="#1、事件流" class="headerlink" title="1、事件流"></a>1、事件流</h4><blockquote>
-<ul>
-<li>事件冒泡流：事件开始由最具体元素逐级向上传播到较为不具体的节点（最常用！！！）。</li>
-<li>事件捕获流：不太具体的节点应该更早接收到事件，具体的节点应该最后接收到事件。</li>
-<li>DOM事件流：包含三个阶段：事件捕获阶段、处于目标阶段和事件冒泡阶段。</li>
-</ul>
-</blockquote>
-<h4 id="2、事件处理程序"><a href="#2、事件处理程序" class="headerlink" title="2、事件处理程序"></a>2、事件处理程序</h4><blockquote>
-<ul>
-<li>HTML事件处理程序（直接在节点指定处理程序）： event变量可以直接访问事件对象。this值等于事件的目标元素。<code>缺点：</code>当要修改函数名，得同时修改HTML和js两部分</li>
-<li>DOM0级事件处理程序：取得一个操作对象的引用。然后为其绑定事件处理程序属性（onclick等），将这种属性的值设置为一个函数。<code>优点：</code>可以通过设置属性值为null，来取消事件。</li>
-<li>DOM2级事件处理程序：addEventListener()、removeEventListener()<blockquote>
-<p>addEventListener 接收三个参数，参数一：处理的事件名；参数二：事件处理程序；参数三：为true，表示在补货阶段处理程序，为false，表示在冒泡阶段处理程序。<br>优点：可以添加多个事件处理程序</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>IE事件处理程序：attachEvent()、detachEvent()<blockquote>
-<p>attachEvent使用特点：1、指定处理事件名是用on+事件名；2、与addEventListener一样可以同时添加多个事件处理程序，只不过执行顺序相反，从后往前执行。</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>跨浏览器的事件处理程序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var EventUtil = &#123;</span><br><span class="line">    addHandler: function (ele,type,handler) &#123;</span><br><span class="line">        if(ele.addEventListener)&#123;</span><br><span class="line">            ele.addEventListener(type,handler,false);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ele.attachEvent)&#123;</span><br><span class="line">            ele.attachEvent(&apos;on&apos;+type,handler);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            ele[&apos;on&apos;+type] = handler;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    removeHandler: function (ele,type,handler) &#123;</span><br><span class="line">        if(ele.removeHandler)&#123;</span><br><span class="line">            ele.removeHandler(type,handler,false);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ele.detachEvent)&#123;</span><br><span class="line">            ele.detachEvent(&apos;on&apos;+type,handler);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            ele[&apos;on&apos;+type] = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
+<escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">```</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">####    1、事件流</span><br><span class="line">&gt; * 事件冒泡流：事件开始由最具体元素逐级向上传播到较为不具体的节点（最常用！！！）。</span><br><span class="line">&gt; * 事件捕获流：不太具体的节点应该更早接收到事件，具体的节点应该最后接收到事件。</span><br><span class="line">&gt; * DOM事件流：包含三个阶段：事件捕获阶段、处于目标阶段和事件冒泡阶段。</span><br><span class="line"></span><br><span class="line">####    2、事件处理程序</span><br><span class="line">&gt; * HTML事件处理程序（直接在节点指定处理程序）： event变量可以直接访问事件对象。this值等于事件的目标元素。`缺点：`当要修改函数名，得同时修改HTML和js两部分</span><br><span class="line">&gt; * DOM0级事件处理程序：取得一个操作对象的引用。然后为其绑定事件处理程序属性（onclick等），将这种属性的值设置为一个函数。`优点：`可以通过设置属性值为null，来取消事件。</span><br><span class="line">&gt; * DOM2级事件处理程序：addEventListener()、removeEventListener()</span><br><span class="line">&gt;&gt; addEventListener 接收三个参数，参数一：处理的事件名；参数二：事件处理程序；参数三：为true，表示在补货阶段处理程序，为false，表示在冒泡阶段处理程序。</span><br><span class="line">优点：可以添加多个事件处理程序</span><br><span class="line"></span><br><span class="line">&gt; * IE事件处理程序：attachEvent()、detachEvent()</span><br><span class="line">&gt;&gt; attachEvent使用特点：1、指定处理事件名是用on+事件名；2、与addEventListener一样可以同时添加多个事件处理程序，只不过执行顺序相反，从后往前执行。</span><br><span class="line"></span><br><span class="line">&gt; * 跨浏览器的事件处理程序</span><br></pre></td></tr></table></figure>
+<p>var EventUtil = {<br>    addHandler: function (ele,type,handler) {<br>        if(ele.addEventListener){<br>            ele.addEventListener(type,handler,false);<br>        }<br>        else if(ele.attachEvent){<br>            ele.attachEvent(‘on’+type,handler);<br>        }<br>        else {<br>            ele[‘on’+type] = handler;<br>        }<br>    },<br>    removeHandler: function (ele,type,handler) {<br>        if(ele.removeHandler){<br>            ele.removeHandler(type,handler,false);<br>        }<br>        else if(ele.detachEvent){<br>            ele.detachEvent(‘on’+type,handler);<br>        }<br>        else {<br>            ele[‘on’+type] = null;<br>        }<br>    }<br>};<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; 首先创建EventUtil对象，包含绑定和移除事件两个方法。这样就可以通过该对象的两个方法实现跨浏览器为一个元素添加和移除事件。</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">####    3、事件对象</span><br><span class="line">&gt; * DOM中的事件对象：在触发DOM上的某个事件时，会产生一个事件对象`event`。</span><br><span class="line">&gt;&gt; event.type 输出触发事件类型</span><br><span class="line">&gt;&gt; event.currentTarget 始终等于 this；event.target 只包含事件的实际触发目标。</span><br><span class="line">&gt;&gt; event.preventDefault(); 阻止特定事件的默认行为，例如：点击a标签会默认跳转到指定的url，可以在click事件调用该方法阻止跳转。</span><br><span class="line">&gt;&gt; event.stopPropagation(); 立即阻止事件在dom层中的传播，阻止冒泡和捕获。</span><br><span class="line"></span><br><span class="line">&gt; * IE 中的事件对象</span><br><span class="line">&gt;&gt; IE中的事件对象的属性很少，但是都是DOM中的事件对象所包含的。因此在处理事件默认行为和阻止冒泡方面有所不同。具体看下面：</span><br><span class="line"></span><br><span class="line">&gt; * 跨浏览器的事件对象</span><br><span class="line">&gt;&gt;</span><br></pre></td></tr></table></figure></p>
 <blockquote>
 <blockquote>
-<p>首先创建EventUtil对象，包含绑定和移除事件两个方法。这样就可以通过该对象的两个方法实现跨浏览器为一个元素添加和移除事件。</p>
+<p>var EventUtil = {<br>    addHandler: function (ele,type,handler) {<br>        if(ele.addEventListener){<br>            ele.addEventListener(type,handler,false);<br>        }<br>        else if(ele.attachEvent){<br>            ele.attachEvent(‘on’+type,handler);<br>        }<br>        else {<br>            ele[‘on’+type] = handler;<br>        }<br>    },<br>    removeHandler: function (ele,type,handler) {<br>        if(ele.removeHandler){<br>            ele.removeHandler(type,handler,false);<br>        }<br>        else if(ele.detachEvent){<br>            ele.detachEvent(‘on’+type,handler);<br>        }<br>        else {<br>            ele[‘on’+type] = null;<br>        }<br>    },<br>    getEvent: function (event) {<br>        return event ? event : window.event;<br>    },<br>    getTarget: function (event) {<br>        return event.target || event.srcElement;<br>    },<br>    preventDefault: function (event) {<br>        if(event.preventDefault){<br>            event.preventDefault();<br>        }<br>        else {<br>            event.returnValue = false;<br>        }<br>    },<br>    stopPropagation: function (event) {<br>        if(event.stopPropagation){<br>            event.stopPropagation();<br>        }<br>        else {<br>            event.cancelBubble = true;<br>        }<br>    }<br>};<br><code>`</code></p>
 </blockquote>
-</blockquote>
-<hr>
-<h4 id="3、事件对象"><a href="#3、事件对象" class="headerlink" title="3、事件对象"></a>3、事件对象</h4><blockquote>
-<ul>
-<li>DOM中的事件对象：在触发DOM上的某个事件时，会产生一个事件对象<code>event</code>。<blockquote>
-<p>event.type 输出触发事件类型<br>event.currentTarget 始终等于 this；event.target 只包含事件的实际触发目标。<br>event.preventDefault(); 阻止特定事件的默认行为，例如：点击a标签会默认跳转到指定的url，可以在click事件调用该方法阻止跳转。<br>event.stopPropagation(); 立即阻止事件在dom层中的传播，阻止冒泡和捕获。</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>IE 中的事件对象<blockquote>
-<p>IE中的事件对象的属性很少，但是都是DOM中的事件对象所包含的。因此在处理事件默认行为和阻止冒泡方面有所不同。具体看下面：</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>跨浏览器的事件对象<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; var EventUtil = &#123;</span><br><span class="line">    addHandler: function (ele,type,handler) &#123;</span><br><span class="line">        if(ele.addEventListener)&#123;</span><br><span class="line">            ele.addEventListener(type,handler,false);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ele.attachEvent)&#123;</span><br><span class="line">            ele.attachEvent(&apos;on&apos;+type,handler);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            ele[&apos;on&apos;+type] = handler;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    removeHandler: function (ele,type,handler) &#123;</span><br><span class="line">        if(ele.removeHandler)&#123;</span><br><span class="line">            ele.removeHandler(type,handler,false);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ele.detachEvent)&#123;</span><br><span class="line">            ele.detachEvent(&apos;on&apos;+type,handler);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            ele[&apos;on&apos;+type] = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    getEvent: function (event) &#123;</span><br><span class="line">        return event ? event : window.event;</span><br><span class="line">    &#125;,</span><br><span class="line">    getTarget: function (event) &#123;</span><br><span class="line">        return event.target || event.srcElement;</span><br><span class="line">    &#125;,</span><br><span class="line">    preventDefault: function (event) &#123;</span><br><span class="line">        if(event.preventDefault)&#123;</span><br><span class="line">            event.preventDefault();</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            event.returnValue = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    stopPropagation: function (event) &#123;</span><br><span class="line">        if(event.stopPropagation)&#123;</span><br><span class="line">            event.stopPropagation();</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            event.cancelBubble = true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&gt;&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
 </blockquote>
 <hr>
 <h4 id="4、事件类型"><a href="#4、事件类型" class="headerlink" title="4、事件类型"></a>4、事件类型</h4><blockquote>
@@ -275,20 +219,15 @@
 </blockquote>
 </li>
 <li>页面坐标位置<blockquote>
-<blockquote>
 <p>event.pageX 和 event.pageY 记录事件是在页面中的什么位置发生的。</p>
-</blockquote>
 </blockquote>
 </li>
 <li>屏幕坐标位置<blockquote>
-<blockquote>
-<blockquote>
 <p>event.screenX 和 event.screenY 记录鼠标事件发生时相对于整个屏幕的坐标信息</p>
-</blockquote>
-</blockquote>
 </blockquote>
 </li>
 <li>event.button 可以获取鼠标按下去的是哪个按钮</li>
+<li>event.toElement或者event.relatedTarget 可以获取鼠标移出到的元素</li>
 </ul>
 </blockquote>
 </li>
@@ -435,7 +374,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/04/再读javascript（四）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/05/再读javascript（四）/" alt="微信分享二维码">
     </div>
 </div>
 

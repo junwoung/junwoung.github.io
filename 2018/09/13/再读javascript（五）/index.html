@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Tag: IntelliJ IDEA | Jun woung blog</title>
+  <title>再读javascript（五） | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="懒懒的我，丑丑的你">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jun woung blog">
-<meta property="og:url" content="http://yoursite.com/tags/IntelliJ-IDEA/index.html">
+  <meta name="description" content="再读javascript（五）标签（空格分隔）： 原生javascript  上接再读javascript（四）本章包含表单脚本，错误处理，ajax，高级技巧（很难，以后再研究）、可维护性和xingn、新兴的API">
+<meta name="keywords" content="原生javascript,ajax,API,其它">
+<meta property="og:type" content="article">
+<meta property="og:title" content="再读javascript（五）">
+<meta property="og:url" content="http://yoursite.com/2018/09/13/再读javascript（五）/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="懒懒的我，丑丑的你">
+<meta property="og:description" content="再读javascript（五）标签（空格分隔）： 原生javascript  上接再读javascript（四）本章包含表单脚本，错误处理，ajax，高级技巧（很难，以后再研究）、可维护性和xingn、新兴的API">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-09-13T11:33:12.029Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jun woung blog">
-<meta name="twitter:description" content="懒懒的我，丑丑的你">
+<meta name="twitter:title" content="再读javascript（五）">
+<meta name="twitter:description" content="再读javascript（五）标签（空格分隔）： 原生javascript  上接再读javascript（四）本章包含表单脚本，错误处理，ajax，高级技巧（很难，以后再研究）、可维护性和xingn、新兴的API">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -149,68 +151,470 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-再读javascript（五）" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/13/IntelliJ IDEA 使用笔记/" class="archive-article-date">
-  	<time datetime="2018-08-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/13/IntelliJ IDEA 使用笔记/">IntelliJ IDEA 使用笔记</a>
+    <h1 class="article-title" itemprop="name">
+      再读javascript（五）
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/09/13/再读javascript（五）/" class="archive-article-date">
+  	<time datetime="2018-09-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-13</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="再读javascript（五）"><a href="#再读javascript（五）" class="headerlink" title="再读javascript（五）"></a>再读javascript（五）</h1><p>标签（空格分隔）： 原生javascript</p>
+<blockquote>
+<p>上接<a href="https://junwoung.github.io/2018/09/04/%E5%86%8D%E8%AF%BBjavascript%EF%BC%88%E5%9B%9B%EF%BC%89/#more" target="_blank" rel="noopener">再读javascript（四）</a><br>本章包含<code>表单脚本</code>，<code>错误处理</code>，<code>ajax</code>，<code>高级技巧（很难，以后再研究）</code>、<code>可维护性和xingn</code>、<code>新兴的API</code><br><a id="more"></a>
+---
+
+<escape><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure></escape></p>
+</blockquote>
+<h4 id="1、表单提交"><a href="#1、表单提交" class="headerlink" title="1、表单提交"></a>1、表单提交</h4><blockquote>
+<p>在触发表单提交操作时，可以利用event.preventDefault()阻止表单提交。（当表单验证未通过时）<br>在某些严禁重复提交操作时，可以设置按钮disable属性或者其他方法禁用提交。<br>novalidate 禁用表单验证<br>设置autocomplete = ‘off’可以关闭烦人的自动补全功能</p>
+</blockquote>
+<h4 id="2、表单控件"><a href="#2、表单控件" class="headerlink" title="2、表单控件"></a>2、表单控件</h4><blockquote>
+<ul>
+<li>form.elements 属性可以获取表单中所有节点</li>
+<li>input：size属性可以指定文本框能够显示的字符数</li>
+<li>通过指定pattern属性达到控制输入模式</li>
+<li>textarea：rows和cols属性设定行数和列数<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">//文本框只输入数值控制</span><br><span class="line">var charCode = event.charCode;</span><br><span class="line">if(!/\d/.test(String.fromCharCode(charCode)) &amp;&amp; charCode &gt; &amp;&amp; !event.ctrlKey)&#123;</span><br><span class="line">    event.preventDefault();</span><br><span class="line">&#125;</span><br><span class="line">&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="3、跨文档消息传递"><a href="#3、跨文档消息传递" class="headerlink" title="3、跨文档消息传递"></a>3、跨文档消息传递</h4><blockquote>
+<p>不同域的页面间传递消息。核心是postMessage()方法。<br>postMessage接收两个参数，一条消息和接收方来自哪个域。主要运用场景是当前页面的iframe元素或者是由当前页面弹出的窗口。<br>onmessage 接收postMessage传送的消息。</p>
+</blockquote>
+<h4 id="4、拖放事件"><a href="#4、拖放事件" class="headerlink" title="4、拖放事件"></a>4、拖放事件</h4><blockquote>
+<p>dragstart事件：按下鼠标并开始移动时触发。<br>drag事件：dragstart事件后，会随即触发drag事件，元素拖动期间会持续触发该事件<br>dragend事件：拖动停止时触发<br>当元素被拖动到一个有效的放置目标时，会触发下列事件：</p>
+<blockquote>
+<p>dragenter事件、dragover事件、dragleave事件或者drop事件</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<ul>
+<li>dataTransfer对象<blockquote>
+<p>getData()和setData()方法</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>可拖动<blockquote>
+<p>draggable属性，表示元素是否可以被拖动</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="5、try-catch-finally语句"><a href="#5、try-catch-finally语句" class="headerlink" title="5、try-catch-finally语句"></a>5、try-catch-finally语句</h4><blockquote>
+<ul>
+<li>正常情况下，catch和finally存在一个即可。但是为了兼容ie8之前的版本，finally必须在catch子句存在时才执行。因此尽量选择catch语句，选择finally子句时，带上个空的catch子句。</li>
+<li>只要代码包含finally子句，那么无论try还是catch语句块中的return语句都会被忽略。</li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="6、ajax"><a href="#6、ajax" class="headerlink" title="6、ajax"></a>6、ajax</h4><blockquote>
+<ul>
+<li>XMLHttpRequest对象<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">//跨浏览器创建一个XMLHTTPRequest对象</span><br><span class="line">function createXHR() &#123;</span><br><span class="line">        if(typeof XMLHttpRequest != &apos;undefined&apos;)&#123;</span><br><span class="line">            //一般都会返回这个</span><br><span class="line">            return new XMLHttpRequest();</span><br><span class="line">        &#125;</span><br><span class="line">        else if(typeof ActiveXObject != &apos;undefined&apos;)&#123;</span><br><span class="line">            //兼容ie7以下</span><br><span class="line">            if (typeof arguments.callee.activeXString != &quot;string&quot;)&#123;</span><br><span class="line">                var versions = [&quot;MSXML2.XMLHttp.6.0&quot;,&quot;MSXML2.XMLHttp.3.0&quot;,&quot;MSXML2.XMLHttp&quot;],i,len;</span><br><span class="line">                for(i = 0,len = versions.length; i &lt; len; i++)&#123;</span><br><span class="line">                    try&#123;</span><br><span class="line">                        new ActiveXObject(versions[i]);</span><br><span class="line">                        arguments.callee.activeXString = versions[i];</span><br><span class="line">                        break;</span><br><span class="line">                    &#125;</span><br><span class="line">                    catch(e)&#123;</span><br><span class="line">                    &#125;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">            return new ActiveXObject(arguments.callee.activeXString);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            throw new Error(&quot;No XHR object available.&quot;);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>xhr的用法<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">let xhr = createXHR();</span><br><span class="line">xhr.onreadystatechange = function () &#123;</span><br><span class="line">       if(xhr.readyState == 4)&#123;</span><br><span class="line">           if((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status == 304)&#123;</span><br><span class="line">               console.log(&apos;success&apos;);</span><br><span class="line">           &#125;</span><br><span class="line">           else &#123;</span><br><span class="line">               console.log(&apos;false&apos;);</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line">   &#125;;</span><br><span class="line">   xhr.open(&apos;method&apos;,&apos;url&apos;,&apos;boolean&apos;);</span><br><span class="line">   xhr.setRequestHeader(&apos;MyHeader&apos;,&apos;MyValue&apos;);//可选，但是一定要放在open之后，send之前</span><br><span class="line">   xhr.send(null);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>get请求<blockquote>
+<p>当需要在链接添加参数时，？后面的字符串中的每个参数的名称和值都必须使用encodeURIComponent()进行编码</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>post请求<blockquote>
+<p>Content-Type头部信息</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>FormData可以不必显示的设置请求头部为表单数据。xhr对象能够识别传入的数据类型是formdata的实例，并配置适当的头部信息。<blockquote>
+<p>var data = new FormData();<br>data.append(‘name’,’wj’);</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>timeout给请求设置超时时间<blockquote>
+<p>xhr.timeout = 2000;  //  请求超时设置为1秒钟<br>xhr.ontimeout = function(){<br>console.log(“request is timeout”)   //设置请求超时处理程序<br>}</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>进度事件：loadstart、progress、error、abort、load、loadend<blockquote>
+<p>load事件，浏览器接收到服务器的响应，不管状态如何，都会触发load事件。这就意味着你必须检验status属性，才能确定是否真的已经可用。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">xhr.onload = function()&#123;</span><br><span class="line">    if((xhr.status &gt;= 200 &amp;&amp; xhr.status &lt; 300) || xhr.status == 304)&#123;</span><br><span class="line">        console.log(&apos;yes&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        console.log(&apos;no&apos;);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>progress事件，在浏览器接收新数据期间周期性地触发。onprogress事件处理程序接收一个event对象，其target属性是XHR对象，但包含着额外三个属性：lengthComputable（表示进度性息是否可用的布尔值），position（表示已经接收的字节数），totalSize（表示根据Content-Length响应头部确定的预期字节数）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">xhr.onprogress = function(event)&#123;</span><br><span class="line">    if(event.lengthComputable)&#123;</span><br><span class="line">        console.log(event.position,event.totalSize);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+</blockquote>
+<blockquote>
+<ul>
+<li>跨源资源共享： 出于跨域安全策略，默认情况下，XHR对象只能访问与包含它的页面位于同一个域中的资源。<blockquote>
+<p>CORS（跨源资源共享）：自定义HTTP头部让浏览器与服务器进行沟通。<br>在发送跨域ajax请求时需要额外指定Origin头部，其中包含请求页面的原信息（协议、域名和端口）</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>跨浏览器的CORS<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">function createCORS(method,url)&#123;</span><br><span class="line">    var xhr = new XMLHttpRequest();</span><br><span class="line">    if(&quot;withCredentials&quot; in xhr)&#123;</span><br><span class="line">        xhr.open(method,url,true);</span><br><span class="line">    &#125;</span><br><span class="line">    else if(typeof XDomainRequest != &quot;undefined&quot;)&#123;</span><br><span class="line">        xhr = new XDomainRequest();</span><br><span class="line">        xhr.open(method,url);</span><br><span class="line">    &#125;</span><br><span class="line">    else&#123;</span><br><span class="line">        xhr = null;</span><br><span class="line">    &#125;</span><br><span class="line">    return xhr;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var request = createCORS(&apos;get&apos;,&apos;http://...&apos;);</span><br><span class="line">if(request)&#123;</span><br><span class="line">    request.onload = function()&#123;</span><br><span class="line">        //...</span><br><span class="line">    &#125;</span><br><span class="line">    request.send();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>其他跨域技术<blockquote>
+<ul>
+<li>图像ping。一个网页可以从任何网页中加载图像，不用担心跨域。利用他们onload和onerror事件处理程序是否接受带响应，缺点：只能发送get请求；无法访问服务器的响应文本。</li>
+<li>JSONP<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">function handleResponse(response)&#123;</span><br><span class="line">    //do something ...</span><br><span class="line">&#125;</span><br><span class="line">var script = document.createElement(&apos;script&apos;);</span><br><span class="line">script.src = &quot;htt[://baidu.com?callback=handleResponse&quot;;</span><br><span class="line">document.body.insertBefore(script,document.body.firstChild);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>Comet：服务器想页面推送数据。<br>Web Sockets：在一个单独的持久连接上提供双工、双向通信。</p>
+</blockquote>
+</blockquote>
+<hr>
+<h4 id="7、函数柯里化"><a href="#7、函数柯里化" class="headerlink" title="7、函数柯里化"></a>7、函数柯里化</h4><h4 id="8、防篡改"><a href="#8、防篡改" class="headerlink" title="8、防篡改"></a>8、防篡改</h4><blockquote>
+<ul>
+<li>不可扩展（不可新增属性和方法，但是可以删除和修改）<blockquote>
+<p>设置obj对象不可扩展：Object.preventExtensions(obj)<br>检测：Object.isExtensible(obj)</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>密封（不可新增、删除、修改属性和方法）<blockquote>
+<p>设置：Object.seal(obj)<br>检测：Object.isSealed(obj)</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>冻结（）<blockquote>
+<p>设置：Object.freeze(obj)<br>检测：Object.isFrozen(obj)</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<p>冻结或密封javascript库中的核心对象，可以避免人为意外或刻意的修改</p>
+</blockquote>
+<h4 id="9、重复的定时器"><a href="#9、重复的定时器" class="headerlink" title="9、重复的定时器"></a>9、重复的定时器</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">setTimeout(function()&#123;</span><br><span class="line">    //...</span><br><span class="line">    setTimeout(arguments.callee,50);</span><br><span class="line">&#125;,50);</span><br></pre></td></tr></table></figure>
+<h4 id="10、拖放（很有意思）"><a href="#10、拖放（很有意思）" class="headerlink" title="10、拖放（很有意思）"></a>10、拖放（很有意思）</h4><h4 id="11、数据存储"><a href="#11、数据存储" class="headerlink" title="11、数据存储"></a>11、数据存储</h4><blockquote>
+<ul>
+<li>cookie：存储在特定域名下，在发送请求时，会携带相关信息<blockquote>
+<p>cookie名不区分大小写；cookie存储的值必须被URL编码；可以指定过期时间<br>document.cookie 可以访问和设置cookie</p>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<h4 id="12、可维护性"><a href="#12、可维护性" class="headerlink" title="12、可维护性"></a>12、可维护性</h4><blockquote>
+<ul>
+<li>代码缩进：一般用固定空格代替tab符。原因：tab符不同文本编辑器显示有差异</li>
+<li>减少全局变量：变量和方法尽可能定义在一个全局变量内</li>
+<li>常量：在文件头部定义一个全局变量Constans,其他常量大写命名，定义为其相应属性</li>
+<li>重复值：经常遇到重复用到某个值，可以抽取为一个常量</li>
+<li>urls：推荐用一个公共的地方存放所有的url</li>
+</ul>
+</blockquote>
+<h4 id="13、性能"><a href="#13、性能" class="headerlink" title="13、性能"></a>13、性能</h4><blockquote>
+<ul>
+<li>避免全局查找：将在一个函数中会用到多次的全局对象存储为局部变量总是没错的。</li>
+<li>避免使用with语句</li>
+<li>避免不必要的属性查找：js访问数组元素和煎蛋变量的时间复杂度都是O(1)，访问对象属性的时间复杂度是O(n)，因此要减少不必要的属性查找。</li>
+<li>优化循环</li>
+<li>switch语句优于if-else</li>
+<li>声明多个变量用,分割，避免多次声明</li>
+<li>声明数组或对象，字面量方法优于构造函数方法</li>
+<li>优化dom交互<blockquote>
+<ul>
+<li>避免现场更新（插入或者移除、更新dom）</li>
+<li>对于大的dom更改，使用innerHTML要优于标准dom创建方法（createElement）</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>利用事件冒泡原理来捕获相应操作优于添加多个事件代理</li>
+</ul>
+</blockquote>
+<hr>
+<h4 id="14、新兴的API"><a href="#14、新兴的API" class="headerlink" title="14、新兴的API"></a>14、新兴的API</h4><blockquote>
+<ul>
+<li>页面显示/隐藏api<blockquote>
+<ul>
+<li>利用document.hidden 属性可以判断页面是否不可见。</li>
+<li>document.onvisibilitychange() 事件可以在页面显示/隐藏时触发</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>地理定位API<blockquote>
+<ul>
+<li>可以通过 navigator.geolocation 对象访问地理信息。</li>
+<li>navigator.geolocation.getCurrentPosition 方法会触发请求用户共享地理定位信息的对话框。接受三个参数：1、成功回调函数；2、可选的失败回调函数；3、可选的选项对象。成功回调函数会接收到一个position对象</li>
+<li>watchPosition() 方法可以跟踪用户的位置信息<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">navigator.geolocation.getCurrentPosition(function)&#123;</span><br><span class="line">    drawMapCenteredAt(position.coords.latitude,position.coords.longitude);</span><br><span class="line">&#125;,function(error)&#123;</span><br><span class="line">    console.log(error.code + &apos; &apos; + error.message);</span><br><span class="line">&#125;,&#123;</span><br><span class="line">    enableHighAccuracy: true, //尽可能获取最精确的位置信息</span><br><span class="line">    timeout: 5000, //等待位置信息的最长时间</span><br><span class="line">    maximumAge: 2500 //距上一次取得坐标信息的有效时间</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<ul>
+<li>File API<blockquote>
+<ul>
+<li>获取文件中的基本信息： event.target.files ；获取的是文件信息列表。</li>
+<li>FileReader类型及其方法如下：<blockquote>
+<ul>
+<li>readAsText(file,encoding)：以纯文本形式读取文件，将读取到的文本保存在result属性中，参数二指定编码类型（可选）</li>
+<li>readAsDataURL(file)：读取文件并将文件以数据URI的形式保存在result属性中。</li>
+<li>readAsBinaryString（file）：读取文件并将一个字符串保存在result属性中。</li>
+<li>readAsArrayBuffer(file)：读取文件并将一个包含文件内容的ArrayBuffer保存在result属性中</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>由于读取过程是异步的，因此FileReader提供了三个事件：progress、error、load，分别表示是否读取了新数据、是否发生了错误、是否已经读完了整个文件。<blockquote>
+<ul>
+<li>与xhr的progress事件相同，包含lengthComputable、loaded、total</li>
+</ul>
+</blockquote>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<blockquote>
+<blockquote>
+<ul>
+<li>File对象还支持一个slice方法支持读取部分数据</li>
+<li>对象URL，使用 window.URL.createObjectURL() 方法可以不必把文件内容读取到javascript中而直接使用。</li>
+<li>event.dataTransfer.files 可以读取拖放的文件信息</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="15、使用XHR上传文件"><a href="#15、使用XHR上传文件" class="headerlink" title="15、使用XHR上传文件"></a>15、使用XHR上传文件</h4><blockquote>
+<ul>
+<li>通过File API确实能够读取文件内容，然后将文件内容放到send方法中，再通过POST请求发送。服务器端接收到数据再把他们存放到另一个文件中。更好的做法是用表单提交的方式来上传文件。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"> data = new FormData();</span><br><span class="line">files = event.target.files;</span><br><span class="line">for(var i = 0,len = files.length; i &lt; len; i++)&#123;</span><br><span class="line">    data.append(files[i])</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://static.zybuluo.com/15013890200/qkxkhak75frt06audogyzwdl/44fa5455088a4a8b9ab67ca9a1a3240.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://static.zybuluo.com/15013890200/0mmotb1tzby2amg8dbt8kcdl/debf945a70816563d0b34062aba3608.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IntelliJ IDEA</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原生javascript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">使用</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ajax</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其它</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/13/再读javascript（五）/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/09/05/解决onmouseover和onmouseout在内部触发父元素相应事件问题/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">解决onmouseover和onmouseout在内部触发父元素相应事件问题</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -233,9 +637,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

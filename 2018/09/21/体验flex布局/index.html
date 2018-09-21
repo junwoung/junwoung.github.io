@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>javascript 常用方法（二） | Jun woung blog</title>
+  <title>体验flex布局 | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理三个关于数组的常用方法，去重、排序、扁平化多维数组和拷贝数组">
-<meta name="keywords" content="原生javascript,array">
+  <meta name="description" content="体验flex布局标签（空格分隔）： css flex 布局  从参加工作以来，涉及到页面布局一直都是采用盒模型的方式，即利用css的display、float、position属性来布局。一直以来，能够很好的解决大部分布局问题，但是遇到垂直居中问题一直都是这种布局方式的最大短板。flex弹性布局的相关特性能够很好的解决各类布局问题。但是由于性能问题，最好只在局部的布局使用弹性布局。">
+<meta name="keywords" content="css,布局,flex">
 <meta property="og:type" content="article">
-<meta property="og:title" content="javascript 常用方法（二）">
-<meta property="og:url" content="http://yoursite.com/2018/08/24/javascript 常用方法（二）/index.html">
+<meta property="og:title" content="体验flex布局">
+<meta property="og:url" content="http://yoursite.com/2018/09/21/体验flex布局/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理三个关于数组的常用方法，去重、排序、扁平化多维数组和拷贝数组">
+<meta property="og:description" content="体验flex布局标签（空格分隔）： css flex 布局  从参加工作以来，涉及到页面布局一直都是采用盒模型的方式，即利用css的display、float、position属性来布局。一直以来，能够很好的解决大部分布局问题，但是遇到垂直居中问题一直都是这种布局方式的最大短板。flex弹性布局的相关特性能够很好的解决各类布局问题。但是由于性能问题，最好只在局部的布局使用弹性布局。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-21T04:03:40.190Z">
+<meta property="og:image" content="http://static.zybuluo.com/15013890200/cm6l4bwt4he8ge83whfqjf32/3791e575c48b3698be6a94ae1dbff79d.png">
+<meta property="og:updated_time" content="2018-09-21T04:02:47.329Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="javascript 常用方法（二）">
-<meta name="twitter:description" content="javascript 常用方法（二）标签（空格分隔）： 原生javascript array   之前有整理过JavaScript的一些常用方法，链接,今天再来整理三个关于数组的常用方法，去重、排序、扁平化多维数组和拷贝数组">
+<meta name="twitter:title" content="体验flex布局">
+<meta name="twitter:description" content="体验flex布局标签（空格分隔）： css flex 布局  从参加工作以来，涉及到页面布局一直都是采用盒模型的方式，即利用css的display、float、position属性来布局。一直以来，能够很好的解决大部分布局问题，但是遇到垂直居中问题一直都是这种布局方式的最大短板。flex弹性布局的相关特性能够很好的解决各类布局问题。但是由于性能问题，最好只在局部的布局使用弹性布局。">
+<meta name="twitter:image" content="http://static.zybuluo.com/15013890200/cm6l4bwt4he8ge83whfqjf32/3791e575c48b3698be6a94ae1dbff79d.png">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -151,56 +153,60 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-javascript 常用方法（二）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-体验flex布局" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      javascript 常用方法（二）
+      体验flex布局
     </h1>
   
 
         
-        <a href="/2018/08/24/javascript 常用方法（二）/" class="archive-article-date">
-  	<time datetime="2018-08-23T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-24</time>
+        <a href="/2018/09/21/体验flex布局/" class="archive-article-date">
+  	<time datetime="2018-09-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="javascript-常用方法（二）"><a href="#javascript-常用方法（二）" class="headerlink" title="javascript 常用方法（二）"></a>javascript 常用方法（二）</h1><p>标签（空格分隔）： 原生javascript array</p>
-<hr>
+        <h1 id="体验flex布局"><a href="#体验flex布局" class="headerlink" title="体验flex布局"></a>体验flex布局</h1><p>标签（空格分隔）： css flex 布局</p>
 <blockquote>
-<p>之前有整理过JavaScript的一些常用方法，<a href="https://junwoung.github.io/2018/08/13/javascript%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">链接</a>,今天再来整理三个关于数组的常用方法，去重、排序、扁平化多维数组和拷贝数组</p>
+<p>从参加工作以来，涉及到页面布局一直都是采用盒模型的方式，即利用css的display、float、position属性来布局。一直以来，能够很好的解决大部分布局问题，但是遇到垂直居中问题一直都是这种布局方式的最大短板。flex弹性布局的相关特性能够很好的解决各类布局问题。但是由于性能问题，最好只在局部的布局使用弹性布局。</p>
 </blockquote>
 <a id="more"></a>
 <hr>
-<p><code>去重</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">function removeDuplicate(arr) &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 利用对象的特性达到数组去重，性能很好</span><br><span class="line">     * */</span><br><span class="line">    if(!arr || arr.length &lt; 2)return arr;</span><br><span class="line">    let obj = &#123;&#125;;</span><br><span class="line">    let data = [];</span><br><span class="line">    for(let i = 0,len = arr.length; i &lt; len; i++)&#123;</span><br><span class="line">        if(!obj[arr[i]])&#123;</span><br><span class="line">            obj[arr[i]] = true;</span><br><span class="line">            data.push(arr[i]);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>去重的方法有很多，网上一抓一大把，我这里只介绍我最喜欢用的，个人也觉得时间复杂度最低的，巧妙的利用对象不可重复的特性，在代码量和理解上都是最能够接受的。值得注意的是es6提供了<code>array.from</code>方法，在数组去重代码量上更简洁。</p>
+<h4 id="1、概念"><a href="#1、概念" class="headerlink" title="1、概念"></a>1、概念</h4><blockquote>
+<ul>
+<li>任何一个容器都可以通过指定 display: flex 方式指定为flex布局。行内元素则指定 display: inline-flex</li>
+<li>webkit内核浏览器需指定前缀，dispaly: -webkit-flex;</li>
+<li>设置flex布局以后，子元素的float、clear、vertical-align属性将失效</li>
+<li>flex布局的元素称为容器，子元素称为 flex item。容器默认存在两个轴。水平轴的主轴（main axis），纵轴的交叉轴（cross axis）<br><img src="http://static.zybuluo.com/15013890200/cm6l4bwt4he8ge83whfqjf32/3791e575c48b3698be6a94ae1dbff79d.png" alt="3791e575c48b3698be6a94ae1dbff79d.png-9.8kB"></li>
+</ul>
 </blockquote>
-<hr>
-<p><code>排序</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">function sort(arr) &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 数值数组的排序</span><br><span class="line">     * */</span><br><span class="line">    if(!arr || arr.length &lt; 2)return arr;</span><br><span class="line">    arr.sort(compare);</span><br><span class="line">    return arr;</span><br><span class="line">&#125;</span><br><span class="line">function compare(val1,val2) &#123;</span><br><span class="line">    return val1-val2;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>javascript自带的sort，默认是对string进行排序，即使你传入的是数值数组输出结果也是按照string来排的。<br>当然，网上的数组排序方法也很多，选择排序、快速排序、递归排序等。感兴趣的可以自行百度了解，笔者依然只介绍笔者最偏爱的排序方法。<br>该方法有个弊端，只能用于javascript语言，因为它中间还是调用了javascript的sort方法，不过传入了一个compare方法作为参数。代码量上十分精简，不过理解上就没那么直观了。</p>
+<h4 id="2、和容器有关的属性"><a href="#2、和容器有关的属性" class="headerlink" title="2、和容器有关的属性"></a>2、和容器有关的属性</h4><blockquote>
+<ul>
+<li>flex-direction: 子元素的排列方式；值：row | row-reverse | column | column-reverse</li>
+<li>flex-wrap: 默认情况下，子元素排列在一行。该属性定义当一行排列不下该如何换行。值：nowrap | wrap | wrap-reverse（换行，第一行在下方）</li>
+<li>flex-flow：flex-direction和flex-wrap的简写形式，默认值为 row nowrap</li>
+<li>justify-content：元素在主轴上的对齐方式，值：flex-start | flex-end | center | space-between（两端对齐） | space-around（均匀分布）</li>
+<li>align-items：元素在交叉轴上的对齐方式，值：flex-start | flex-end | center | baseline（项目的第一行文字的基准线对齐） | stretch（如果项目为设置高度或设置为auto，则占满整个容器）</li>
+<li>align-content: 属性定义了多根轴线的对齐方式，值：flex-start | flex-end | center | space-between | space-around | stretch</li>
+</ul>
 </blockquote>
-<hr>
-<p><code>扁平化</code></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">//方法一</span><br><span class="line">function flattenStr(arr) &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 先将数组转化为字符串，再将字符串分割</span><br><span class="line">     * */</span><br><span class="line">    let str = arr.join(&apos;,&apos;);</span><br><span class="line">    return  str.split(&apos;,&apos;);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">//方法二</span><br><span class="line">function flatten(arr) &#123;</span><br><span class="line">    /**</span><br><span class="line">     * 一个个出栈数组的元素</span><br><span class="line">     * 判断元素是否是数组</span><br><span class="line">     * ... 是es6的运算符：将一个数组转为用逗号分隔的参数序列。</span><br><span class="line">     * */</span><br><span class="line">    if(!arr || arr.length &lt; 1)return arr;</span><br><span class="line">    let arr2 = [...arr].reverse();</span><br><span class="line">    let data = [];</span><br><span class="line">    while(arr2.length)&#123;</span><br><span class="line">        let item = arr2.pop();</span><br><span class="line">        if(Array.isArray(item))&#123;</span><br><span class="line">            arr2.push(...item.reverse());</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            data.push(item);</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return data;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<blockquote>
-<p>方法一：实现和阅读都很简单，缺点：会改变原来数组的数据类型，返回的数组一律都是字符串数组<br>方法二：实现稍微复杂，但是可以保证数据原样输出。<br>当对输出数据没那么严格要求时，或者有特殊要求时（转化为string）方法一是最好的，其他情况最好用方法二。</p>
+<h4 id="3、和项目有关的属性"><a href="#3、和项目有关的属性" class="headerlink" title="3、和项目有关的属性"></a>3、和项目有关的属性</h4><blockquote>
+<ul>
+<li>order：项目的排列顺序，数值越小越靠前，默认为0</li>
+<li>flex-grow: 项目的放大比例，默认为0</li>
+<li>flex-shrink: 项目的缩小比例，默认为1</li>
+<li>flex-basis: 项目占据主轴空间。默认auto，也可以像设置width、height一样</li>
+<li>flex：flex-grow、flex-shrink、flex-basis的缩写，默认 0 1 auto，也有两个快捷值auto（1 1 auto）、none（0 0 auto）</li>
+<li>align-self: 项目的对齐方式，会覆盖父容器的align-items属性，值：auto（继承父） | flex-start | flex-end | center | baseline | stretch</li>
+</ul>
 </blockquote>
-<hr>
-<p><code>拷贝数组</code><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">function copy(arr) &#123;</span><br><span class="line">    return JSON.parse(JSON.stringify(arr));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<blockquote>
-<p>拷贝数组方法可以利用JSON的特性，也可以用枚举的方法赋值给新数组。这里我只介绍自己最偏爱也是最优的数组拷贝方法。</p>
-</blockquote>
-<hr>
-<p>最后，和<a href="https://junwoung.github.io/2018/08/13/javascript%20%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95%EF%BC%88%E4%B8%80%EF%BC%89/" target="_blank" rel="noopener">之前的做法</a>一样,将方法赋值给全局变量util的相关属性，这样就可以通过<code>window.util.</code>或者<code>util.</code>来调用相关的方法。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">window.util = &#123;</span><br><span class="line">    &apos;removeDuplicate&apos;: removeDuplicate,</span><br><span class="line">    &apos;sort&apos;: sort,</span><br><span class="line">    &apos;flatten&apos;: flatten,</span><br><span class="line">    &apos;flattenStr&apos;: flattenStr，</span><br><span class="line">    &apos;copy&apos;: copy</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure></p>
 
       
 
@@ -245,11 +251,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原生javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">array</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">布局</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">flex</a>
         		</li>
       		
 		</ul>
@@ -305,7 +315,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/08/24/javascript 常用方法（二）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/21/体验flex布局/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -319,18 +329,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/08/29/vue upload 文件上传/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          vue upload 文件上传
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/08/23/移动端开发自适应+样式清除/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">移动端开发自适应+样式清除</div>
+    <a href="/2018/09/13/再读javascript（五）/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">再读javascript（五）</div>
       <i class="icon-circle-right"></i>
     </a>
   

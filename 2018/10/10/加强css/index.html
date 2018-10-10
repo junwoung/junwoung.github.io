@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/8 | Jun woung blog</title>
+  <title>加强css | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="懒懒的我，丑丑的你">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jun woung blog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/08/page/2/index.html">
+  <meta name="description" content="加强css css（cascading style sheets）层叠样式表，css的书写直接决定网页的美观与否。是整个前端必不可少的一部分，但是我长期以来前端的工作重心都是放在js上，忽略了对css进行系统性的学习，因此在工作过程中，为了实现某一特效，也走了不少弯路。本文将致力于对自己css方面的知识进行查漏补缺，会记录一些实用的且自己甚少或没有使用的功能。也会记载一些易忽略的知识点，方便以后回">
+<meta name="keywords" content="css">
+<meta property="og:type" content="article">
+<meta property="og:title" content="加强css">
+<meta property="og:url" content="http://yoursite.com/2018/10/10/加强css/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="懒懒的我，丑丑的你">
+<meta property="og:description" content="加强css css（cascading style sheets）层叠样式表，css的书写直接决定网页的美观与否。是整个前端必不可少的一部分，但是我长期以来前端的工作重心都是放在js上，忽略了对css进行系统性的学习，因此在工作过程中，为了实现某一特效，也走了不少弯路。本文将致力于对自己css方面的知识进行查漏补缺，会记录一些实用的且自己甚少或没有使用的功能。也会记载一些易忽略的知识点，方便以后回">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-10-10T09:58:18.008Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jun woung blog">
-<meta name="twitter:description" content="懒懒的我，丑丑的你">
+<meta name="twitter:title" content="加强css">
+<meta name="twitter:description" content="加强css css（cascading style sheets）层叠样式表，css的书写直接决定网页的美观与否。是整个前端必不可少的一部分，但是我长期以来前端的工作重心都是放在js上，忽略了对css进行系统性的学习，因此在工作过程中，为了实现某一特效，也走了不少弯路。本文将致力于对自己css方面的知识进行查漏补缺，会记录一些实用的且自己甚少或没有使用的功能。也会记载一些易忽略的知识点，方便以后回">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -149,297 +151,232 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-加强css" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      加强css
+    </h1>
+  
+
+        
+        <a href="/2018/10/10/加强css/" class="archive-article-date">
+  	<time datetime="2018-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="加强css"><a href="#加强css" class="headerlink" title="加强css"></a>加强css</h1><blockquote>
+<p>css（cascading style sheets）层叠样式表，css的书写直接决定网页的美观与否。是整个前端必不可少的一部分，但是我长期以来前端的工作重心都是放在js上，忽略了对css进行系统性的学习，因此在工作过程中，为了实现某一特效，也走了不少弯路。<br>本文将致力于对自己css方面的知识进行查漏补缺，会记录一些实用的且自己甚少或没有使用的功能。也会记载一些易忽略的知识点，方便以后回顾。</p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<p>1、样式的引入</p>
+<blockquote>
+<p>外联：<code>&lt;link rel=&#39;stylesheet&#39; href=&#39;...&#39;&gt;</code><br>内部：<code>&lt;style&gt;...&lt;/style&gt;</code><br>内联：<code>style=&quot;...&quot;</code></p>
+</blockquote>
+<p>2、文本相关</p>
+<blockquote>
+<p>text-decoration：默认none，overline：顶部划线，line-through：删除线，underline：下划线<br>text-transform:默认none，uppercase：全大写，lowercase：全小写，capitalize：首字母大写<br>text-indent:具体像素值，即首行缩进具体像素值<br>letter-spacing：具体像素值，指定字符间距<br>word-spacing：单词之间的间距</p>
+</blockquote>
+<p>3、链接相关</p>
+<blockquote>
+<p>a标签的四种状态，a:link、a:hover、a:active、a:visited;分别表示未访问、悬浮、点击、访问过状态<br>a:hover必须跟在a:link、a:visited后面；a:active必须跟在a:hover后面</p>
+</blockquote>
+<p>4、定位相关</p>
+<blockquote>
+<p>position: relative | absolute | fixed | static | inherit | sticky<br>前面几个属性值没什么好说的。当属性值为sticky时，元素定位介于relative和fixed之间。即当元素在可是范围内定位为relative，当页面滚动超出可是范围就定位为fixed。<a href="http://www.runoob.com/try/try.php?filename=trycss_position_sticky" target="_blank" rel="noopener">参考</a></p>
+</blockquote>
+<p>5、css组合选择器</p>
+<blockquote>
+<p>div p：所有div后代的p标签<br>div&gt;p: 所有div的直接子元素p标签（范围比第一个小）<br>div+p: 位于div后的直接相邻兄弟元素p标签（范围比下面的小）<br>div~p: 所有位于div后的兄弟元素p标签</p>
+</blockquote>
+<p>6、伪类、伪元素相关</p>
+<blockquote>
+<p>伪类基于当前元素的状态进行操作。伪元素基于内容进行操作。<br>p:first-line p标签的第一行文本<br>p:first-letter p标签的首字符（只能用于块级元素）<br>input标签拥有众多伪类，可以方便做输入验证等</p>
+</blockquote>
+<p>7、css属性选择器</p>
+<blockquote>
+<p><code>[attr]</code> 选择包含attr属性的标签<br><code>[attr=value]</code> 选择属性attr值等于value的标签<br><code>[attr~=value]</code> 选择属性attr值包含value的标签<br><code>[attr^=value]</code> 以value开头<br><code>[attr$=value]</code> 以value结尾</p>
+</blockquote>
+<hr>
+<blockquote>
+<p><code>css3</code>相关</p>
+</blockquote>
+<p>8、背景添加多图</p>
+<blockquote>
+<p>background: url(..) .. .. ..,url(..) .. .. ..;</p>
+</blockquote>
+<p>9、添加阴影叠加效果</p>
+<blockquote>
+<p>box-shadow: 0 4px 8px 0 raba(0,0,255,0.2),0 6px 20px 0 rgba(0,0,0,0.19);</p>
+</blockquote>
+<p>10、文本换行</p>
+<blockquote>
+<p>word-wrap:break-word; 单词过长强制拆分</p>
+</blockquote>
+<p>11、css3 2D转换</p>
+<blockquote>
+<p>transform: translate() | rotate() | scale() | skew() | matrix();<br>translate(x,y): 从当前元素位置移动；值可以具体像素也可以为百分比<br>rotate(x): 元素旋转；正数顺时针，负数逆时针。单位deg；<br>scale(x,y): 改变元素大小；宽为原来x倍，高为原来y倍；无单位；<br>skew(x,y): 元素倾斜；单位deg</p>
+</blockquote>
+<p>12、图片滤镜</p>
+<blockquote>
+<p>filter: blur() | brightness() | contrast() | grayscale() | hue-rotate() | invert() | opacity() | saturate() | speia() | drop-shadow()；<a href="http://www.runoob.com/try/try.php?filename=trycss_ex_images_filters" target="_blank" rel="noopener">参考</a></p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://static.zybuluo.com/15013890200/qkxkhak75frt06audogyzwdl/44fa5455088a4a8b9ab67ca9a1a3240.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://static.zybuluo.com/15013890200/0mmotb1tzby2amg8dbt8kcdl/debf945a70816563d0b34062aba3608.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/16/vue time 时间插件/" class="archive-article-date">
-  	<time datetime="2018-08-15T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/16/vue time 时间插件/">vue time 时间插件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/10/10/加强css/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/13/javascript 常用方法（一）/" class="archive-article-date">
-  	<time datetime="2018-08-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/09/25/Promise 用法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Promise 用法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/13/javascript 常用方法（一）/">javascript 常用方法（一）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原生javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">匿名函数</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/13/IntelliJ IDEA 使用笔记/" class="archive-article-date">
-  	<time datetime="2018-08-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-13</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/13/IntelliJ IDEA 使用笔记/">IntelliJ IDEA 使用笔记</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">IntelliJ IDEA</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">使用</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">工具</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/09/vue select 选择插件/" class="archive-article-date">
-  	<time datetime="2018-08-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/09/vue select 选择插件/">vue select 选择插件</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/09/vue dialog 弹窗插件/" class="archive-article-date">
-  	<time datetime="2018-08-08T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/09/vue dialog 弹窗插件/">vue dialog 弹窗插件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/03/vue craousel 轮播插件/" class="archive-article-date">
-  	<time datetime="2018-08-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/03/vue craousel 轮播插件/">vue craousel 轮播插件</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">vue</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">插件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/08/">&laquo; Prev</a><a class="page-number" href="/archives/2018/08/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2018/08/page/3/">3</a><a class="extend next" rel="next" href="/archives/2018/08/page/3/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -463,8 +400,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

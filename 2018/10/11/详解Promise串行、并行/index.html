@@ -6,20 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>再读javascript（四） | Jun woung blog</title>
+  <title>详解Promise串行、并行 | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="再读javascript（四）标签（空格分隔）： 原生javascript  上接再读javascript（三）本章主要介绍事件本章内容繁多且复杂，有空得多回顾">
-<meta name="keywords" content="原生javascript,事件">
+  <meta name="description" content="详解Promise串行、并行标签（空格分隔）： javascript promise   之前一章初步介绍了promise的使用方法。今天再深入探讨一下promise的用法，并模拟使用场景 promise出现以前。某个ajax发送的请求内容依赖于另一个ajax请求的内容时，往往是将该ajax至于另一个ajax请求内部。这样一来，代码多重嵌套不利于阅读和维护。此时可以利用promise串行，挨个执行">
+<meta name="keywords" content="javascript,promise">
 <meta property="og:type" content="article">
-<meta property="og:title" content="再读javascript（四）">
-<meta property="og:url" content="http://yoursite.com/2018/09/05/再读javascript（四）/index.html">
+<meta property="og:title" content="详解Promise串行、并行">
+<meta property="og:url" content="http://yoursite.com/2018/10/11/详解Promise串行、并行/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="再读javascript（四）标签（空格分隔）： 原生javascript  上接再读javascript（三）本章主要介绍事件本章内容繁多且复杂，有空得多回顾">
+<meta property="og:description" content="详解Promise串行、并行标签（空格分隔）： javascript promise   之前一章初步介绍了promise的使用方法。今天再深入探讨一下promise的用法，并模拟使用场景 promise出现以前。某个ajax发送的请求内容依赖于另一个ajax请求的内容时，往往是将该ajax至于另一个ajax请求内部。这样一来，代码多重嵌套不利于阅读和维护。此时可以利用promise串行，挨个执行">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-21T04:06:45.340Z">
+<meta property="og:updated_time" content="2018-10-11T09:16:34.552Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="再读javascript（四）">
-<meta name="twitter:description" content="再读javascript（四）标签（空格分隔）： 原生javascript  上接再读javascript（三）本章主要介绍事件本章内容繁多且复杂，有空得多回顾">
+<meta name="twitter:title" content="详解Promise串行、并行">
+<meta name="twitter:description" content="详解Promise串行、并行标签（空格分隔）： javascript promise   之前一章初步介绍了promise的使用方法。今天再深入探讨一下promise的用法，并模拟使用场景 promise出现以前。某个ajax发送的请求内容依赖于另一个ajax请求的内容时，往往是将该ajax至于另一个ajax请求内部。这样一来，代码多重嵌套不利于阅读和维护。此时可以利用promise串行，挨个执行">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -151,179 +151,38 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-再读javascript（四）" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-详解Promise串行、并行" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      再读javascript（四）
+      详解Promise串行、并行
     </h1>
   
 
         
-        <a href="/2018/09/05/再读javascript（四）/" class="archive-article-date">
-  	<time datetime="2018-09-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-05</time>
+        <a href="/2018/10/11/详解Promise串行、并行/" class="archive-article-date">
+  	<time datetime="2018-10-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-11</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="再读javascript（四）"><a href="#再读javascript（四）" class="headerlink" title="再读javascript（四）"></a>再读javascript（四）</h1><p>标签（空格分隔）： 原生javascript</p>
+        <h1 id="详解Promise串行、并行"><a href="#详解Promise串行、并行" class="headerlink" title="详解Promise串行、并行"></a>详解Promise串行、并行</h1><p>标签（空格分隔）： javascript promise</p>
 <blockquote>
-<p>上接<a href="https://junwoung.github.io/2018/09/04/%E5%86%8D%E8%AF%BBjavascript%EF%BC%88%E4%B8%89%EF%BC%89/#more" target="_blank" rel="noopener">再读javascript（三）</a><br>本章主要介绍<code>事件</code><br>本章内容繁多且复杂，有空得多回顾</p>
+<ul>
+<li><a href="https://junwoung.github.io/2018/09/25/Promise%20%E7%94%A8%E6%B3%95/#more" target="_blank" rel="noopener">之前一章</a>初步介绍了promise的使用方法。今天再深入探讨一下promise的用法，并模拟使用场景</li>
+<li>promise出现以前。某个ajax发送的请求内容依赖于另一个ajax请求的内容时，往往是将该ajax至于另一个ajax请求内部。这样一来，代码多重嵌套不利于阅读和维护。此时可以利用promise串行，挨个执行ajax（即后面的ajax只有在前面ajax执行完成后才有可能执行）。</li>
+<li>当某项操作需要在多个ajax请求结束后执行，且ajax请求顺序没有要求，则可以利用promise的并行，同时执行多个ajax。</li>
+<li>串行和并行的特点，见代码相应的注释处</li>
+</ul>
 </blockquote>
 <a id="more"></a>
 <hr>
-<h4 id="1、事件流"><a href="#1、事件流" class="headerlink" title="1、事件流"></a>1、事件流</h4><blockquote>
-<ul>
-<li>事件冒泡流：事件开始由最具体元素逐级向上传播到较为不具体的节点（最常用！！！）。</li>
-<li>事件捕获流：不太具体的节点应该更早接收到事件，具体的节点应该最后接收到事件。</li>
-<li>DOM事件流：包含三个阶段：事件捕获阶段、处于目标阶段和事件冒泡阶段。</li>
-</ul>
-</blockquote>
-<h4 id="2、事件处理程序"><a href="#2、事件处理程序" class="headerlink" title="2、事件处理程序"></a>2、事件处理程序</h4><blockquote>
-<ul>
-<li>HTML事件处理程序（直接在节点指定处理程序）： event变量可以直接访问事件对象。this值等于事件的目标元素。<code>缺点：</code>当要修改函数名，得同时修改HTML和js两部分</li>
-<li>DOM0级事件处理程序：取得一个操作对象的引用。然后为其绑定事件处理程序属性（onclick等），将这种属性的值设置为一个函数。<code>优点：</code>可以通过设置属性值为null，来取消事件。</li>
-<li>DOM2级事件处理程序：addEventListener()、removeEventListener()<blockquote>
-<p>addEventListener 接收三个参数，参数一：处理的事件名；参数二：事件处理程序；参数三：为true，表示在补货阶段处理程序，为false，表示在冒泡阶段处理程序。<br>优点：可以添加多个事件处理程序</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>IE事件处理程序：attachEvent()、detachEvent()<blockquote>
-<p>attachEvent使用特点：1、指定处理事件名是用on+事件名；2、与addEventListener一样可以同时添加多个事件处理程序，只不过执行顺序相反，从后往前执行。</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>跨浏览器的事件处理程序<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">var EventUtil = &#123;</span><br><span class="line">    addHandler: function (ele,type,handler) &#123;</span><br><span class="line">        if(ele.addEventListener)&#123;</span><br><span class="line">            ele.addEventListener(type,handler,false);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ele.attachEvent)&#123;</span><br><span class="line">            ele.attachEvent(&apos;on&apos;+type,handler);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            ele[&apos;on&apos;+type] = handler;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    removeHandler: function (ele,type,handler) &#123;</span><br><span class="line">        if(ele.removeHandler)&#123;</span><br><span class="line">            ele.removeHandler(type,handler,false);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ele.detachEvent)&#123;</span><br><span class="line">            ele.detachEvent(&apos;on&apos;+type,handler);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            ele[&apos;on&apos;+type] = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<blockquote>
-<p>首先创建EventUtil对象，包含绑定和移除事件两个方法。这样就可以通过该对象的两个方法实现跨浏览器为一个元素添加和移除事件。</p>
-</blockquote>
-</blockquote>
-<hr>
-<h4 id="3、事件对象"><a href="#3、事件对象" class="headerlink" title="3、事件对象"></a>3、事件对象</h4><blockquote>
-<ul>
-<li>DOM中的事件对象：在触发DOM上的某个事件时，会产生一个事件对象<code>event</code>。<blockquote>
-<p>event.type 输出触发事件类型<br>event.currentTarget 始终等于 this；event.target 只包含事件的实际触发目标。<br>event.preventDefault(); 阻止特定事件的默认行为，例如：点击a标签会默认跳转到指定的url，可以在click事件调用该方法阻止跳转。<br>event.stopPropagation(); 立即阻止事件在dom层中的传播，阻止冒泡和捕获。</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>IE 中的事件对象<blockquote>
-<p>IE中的事件对象的属性很少，但是都是DOM中的事件对象所包含的。因此在处理事件默认行为和阻止冒泡方面有所不同。具体看下面：</p>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>跨浏览器的事件对象<blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">&gt;&gt; var EventUtil = &#123;</span><br><span class="line">    addHandler: function (ele,type,handler) &#123;</span><br><span class="line">        if(ele.addEventListener)&#123;</span><br><span class="line">            ele.addEventListener(type,handler,false);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ele.attachEvent)&#123;</span><br><span class="line">            ele.attachEvent(&apos;on&apos;+type,handler);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            ele[&apos;on&apos;+type] = handler;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    removeHandler: function (ele,type,handler) &#123;</span><br><span class="line">        if(ele.removeHandler)&#123;</span><br><span class="line">            ele.removeHandler(type,handler,false);</span><br><span class="line">        &#125;</span><br><span class="line">        else if(ele.detachEvent)&#123;</span><br><span class="line">            ele.detachEvent(&apos;on&apos;+type,handler);</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            ele[&apos;on&apos;+type] = null;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    getEvent: function (event) &#123;</span><br><span class="line">        return event ? event : window.event;</span><br><span class="line">    &#125;,</span><br><span class="line">    getTarget: function (event) &#123;</span><br><span class="line">        return event.target || event.srcElement;</span><br><span class="line">    &#125;,</span><br><span class="line">    preventDefault: function (event) &#123;</span><br><span class="line">        if(event.preventDefault)&#123;</span><br><span class="line">            event.preventDefault();</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            event.returnValue = false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    stopPropagation: function (event) &#123;</span><br><span class="line">        if(event.stopPropagation)&#123;</span><br><span class="line">            event.stopPropagation();</span><br><span class="line">        &#125;</span><br><span class="line">        else &#123;</span><br><span class="line">            event.cancelBubble = true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line">&gt;&gt;</span><br></pre></td></tr></table></figure>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<hr>
-<h4 id="4、事件类型"><a href="#4、事件类型" class="headerlink" title="4、事件类型"></a>4、事件类型</h4><blockquote>
-<ul>
-<li>UI事件<blockquote>
-<ul>
-<li>load事件：触发条件：1、页面加载完成；2、图片加载完成；3、script或者link节点部分浏览器也会触发；</li>
-<li>unload事件，在页面完全卸载时触发，此时不可引用页面中的任何东西。</li>
-<li>resize事件：调整浏览器窗口时触发</li>
-<li>scroll事件：文档被滚动期间重复被触发。</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>焦点事件<blockquote>
-<ul>
-<li>focus和blur事件（不冒泡）</li>
-<li>focusin和focusout事件（冒泡）</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<blockquote>
-<ul>
-<li>鼠标与滚轮事件<blockquote>
-<p>click、dbclick、mousedown、mouseenter、mouseleave、mousemove、mouseout、mouseover、mouseup、mousewheel。除了mouseenter和mouseleave所有事件都会冒泡，也可以被取消。<br>只有在同一个元素上相继触发mousedown和mouseup事件，才会触发click事件。如果其中一个被取消，就不会触发click事件。类似的，dbclick事件</p>
-<ul>
-<li>客户区坐标位置<blockquote>
-<p>event.clientX 和 event.clientY 记录鼠标指针在视口中的坐标信息。（不表示鼠标在页面中的位置）</p>
-</blockquote>
-</li>
-<li>页面坐标位置<blockquote>
-<p>event.pageX 和 event.pageY 记录事件是在页面中的什么位置发生的。</p>
-</blockquote>
-</li>
-<li>屏幕坐标位置<blockquote>
-<p>event.screenX 和 event.screenY 记录鼠标事件发生时相对于整个屏幕的坐标信息</p>
-</blockquote>
-</li>
-<li>event.button 可以获取鼠标按下去的是哪个按钮</li>
-<li>event.toElement或者event.relatedTarget 可以获取鼠标移出到的元素</li>
-</ul>
-</blockquote>
-</li>
-</ul>
-</blockquote>
-<hr>
-<h4 id="5、键盘与文本事件"><a href="#5、键盘与文本事件" class="headerlink" title="5、键盘与文本事件"></a>5、键盘与文本事件</h4><blockquote>
-<p>keydown、keypress、keyup、textInput：keydown和keypress是在文本变化之前触发、keyup在之后<br>event.keyCode 获取键盘按键对应的ASCII码<br>event.data 可以确定用户输入的数据<br>event.inputMethod 可以确定文本输入到文本框中的方式。1、键盘输入；2、粘贴；3、拖放；等</p>
-</blockquote>
-<h4 id="6、变动事件"><a href="#6、变动事件" class="headerlink" title="6、变动事件"></a>6、变动事件</h4><blockquote>
-<ul>
-<li>DOMSubtreeModified： dom结构发生变化时触发</li>
-<li>DOMNodeInserted： 一个节点被当做子节点插入到另一个节点触发</li>
-<li>DOMNodeRemoved：在节点从父节点移除时触发</li>
-<li>DOMNodeInsertedIntoDocument、DOMNodeRemovedFromDocument</li>
-<li>DOMAttrModified： 在特性被修改时触发</li>
-<li>DOMCharacterDataModified： 在文本节点的值发生变化时触发</li>
-</ul>
-</blockquote>
-<h4 id="7、HTML5事件"><a href="#7、HTML5事件" class="headerlink" title="7、HTML5事件"></a>7、HTML5事件</h4><blockquote>
-<ul>
-<li>contextmenu事件：右键单击触发，使用event.preventDefault()可以阻止</li>
-<li>beforeunload事件：在页面卸载前触发。用户可以定义相关操作，但不能彻底取消这个事件。</li>
-<li>DOMContentLoaded事件：文档dom树加载完触发</li>
-<li>readystatechange事件</li>
-</ul>
-</blockquote>
-<h4 id="8、设备事件（简单了解、移动端）"><a href="#8、设备事件（简单了解、移动端）" class="headerlink" title="8、设备事件（简单了解、移动端）"></a>8、设备事件（简单了解、移动端）</h4><blockquote>
-<p>orientationchange: window.orientation属性可能包含三个值：0表示肖像模式。-90表示想有旋转的横向模式。90表示向左旋转的横向模式。</p>
-</blockquote>
-<h4 id="9、触摸事件（移动端）"><a href="#9、触摸事件（移动端）" class="headerlink" title="9、触摸事件（移动端）"></a>9、触摸事件（移动端）</h4><blockquote>
-<p>touchstart、touchmove、touchend、touchcancel：调用event.preventDefault都可以阻止默认事件<br>手势事件</p>
-</blockquote>
-<h4 id="10、优化内存和性能"><a href="#10、优化内存和性能" class="headerlink" title="10、优化内存和性能"></a>10、优化内存和性能</h4><blockquote>
-<ul>
-<li>事件委托（利用事件冒泡原理）：尽量减少事件绑定，当处理一类事件时，可以通过事件委托的方式，加以参数区分，执行不同结果。</li>
-<li>移除事件处理程序</li>
-</ul>
-</blockquote>
-<h4 id="11、模拟事件（简单了解）"><a href="#11、模拟事件（简单了解）" class="headerlink" title="11、模拟事件（简单了解）"></a>11、模拟事件（简单了解）</h4><blockquote>
-<p>document.createEvent()方法创建event对象。接收参数：UIEvents、MouseEvents、MutationEvents、HTMLEvents</p>
-</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br></pre></td><td class="code"><pre><span class="line">function log(str)&#123;</span><br><span class="line">	console.log(str);</span><br><span class="line">&#125;;</span><br><span class="line">function write(obj)&#123;</span><br><span class="line">	for(let key in obj)&#123;</span><br><span class="line">		if(obj[key])&#123;</span><br><span class="line">			document.write(key + &apos;: &apos; + obj[key] + &apos;&lt;br&gt;&apos;);</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">var condition = &#123;</span><br><span class="line">	name: null,</span><br><span class="line">	age: null,</span><br><span class="line">	addr: null</span><br><span class="line">&#125;;</span><br><span class="line">var func = &#123;</span><br><span class="line">	getName: function(resolve,reject)&#123;</span><br><span class="line">		return new Promise(function(resolve,reject)&#123;</span><br><span class="line">			log(&apos;getName request start...&apos;)</span><br><span class="line">			setTimeout(function()&#123;</span><br><span class="line">				log(&apos;getName request complete!&apos;)</span><br><span class="line">				let random = Math.random();</span><br><span class="line">				let ret = null;</span><br><span class="line">				if(random &gt; 0.1)&#123;</span><br><span class="line">					condition.name = &apos;wangjun&apos;;</span><br><span class="line">					ret = &#123;</span><br><span class="line">						code: 0,</span><br><span class="line">						time: random</span><br><span class="line">					&#125;;</span><br><span class="line">					resolve(ret);</span><br><span class="line">				&#125;</span><br><span class="line">				else&#123;</span><br><span class="line">					ret = &#123;</span><br><span class="line">						name: &apos;getName&apos;,</span><br><span class="line">						code: 1,</span><br><span class="line">						time: random</span><br><span class="line">					&#125;;</span><br><span class="line">					reject(ret);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;,500);</span><br><span class="line">			</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;,</span><br><span class="line">	getAge: function()&#123;</span><br><span class="line">		return new Promise(function(resolve,reject)&#123;</span><br><span class="line">			log(&apos;getAge request start...&apos;)</span><br><span class="line">			setTimeout(function()&#123;</span><br><span class="line">				log(&apos;getAge request complete!&apos;)</span><br><span class="line">				let random = Math.random();</span><br><span class="line">				let ret = null;</span><br><span class="line">				if(random &gt; 0.2)&#123;</span><br><span class="line">					condition.age = 20;</span><br><span class="line">					ret = &#123;</span><br><span class="line">						code: 0,</span><br><span class="line">						time: random</span><br><span class="line">					&#125;;</span><br><span class="line">					resolve(ret);</span><br><span class="line">				&#125;</span><br><span class="line">				else&#123;</span><br><span class="line">					ret = &#123;</span><br><span class="line">						name: &apos;getAge&apos;,</span><br><span class="line">						code: 1,</span><br><span class="line">						time: random</span><br><span class="line">					&#125;;</span><br><span class="line">					reject(ret);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;,500);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;,</span><br><span class="line">	getAddr: function()&#123;</span><br><span class="line">		return new Promise(function(resolve,reject)&#123;</span><br><span class="line">			log(&apos;getAddr request start...&apos;)</span><br><span class="line">			setTimeout(function()&#123;</span><br><span class="line">				log(&apos;getAddr request complete!&apos;)</span><br><span class="line">				let random = Math.random();</span><br><span class="line">				let ret = null;</span><br><span class="line">				if(random &gt; 0.2)&#123;</span><br><span class="line">					condition.addr = &apos;shenzhen&apos;;</span><br><span class="line">					ret = &#123;</span><br><span class="line">						code: 0,</span><br><span class="line">						time: random</span><br><span class="line">					&#125;;</span><br><span class="line">					resolve(ret);</span><br><span class="line">				&#125;</span><br><span class="line">				else&#123;</span><br><span class="line">					ret = &#123;</span><br><span class="line">						name: &apos;getAddr&apos;,</span><br><span class="line">						code: 1,</span><br><span class="line">						time: random</span><br><span class="line">					&#125;;</span><br><span class="line">					reject(ret);</span><br><span class="line">				&#125;</span><br><span class="line">			&#125;,500);</span><br><span class="line">		&#125;);</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line">/**</span><br><span class="line"> * 串行promise</span><br><span class="line"> * 任一环节的then执行reject都会导致执行链直接跳到catch</span><br><span class="line"> * then的执行取决于前面then是否执行的resolve</span><br><span class="line"> */</span><br><span class="line">var promise = new Promise(function(resolve,reject)&#123;</span><br><span class="line">	resolve();</span><br><span class="line">&#125;);</span><br><span class="line">promise.then(func.getName)</span><br><span class="line">.then(func.getAge)</span><br><span class="line">.then(func.getAddr)</span><br><span class="line">.then(function()&#123;</span><br><span class="line">	write(condition);</span><br><span class="line">&#125;)</span><br><span class="line">.catch(function(res)&#123;</span><br><span class="line">	log(res.name + &apos; failed!&apos;);</span><br><span class="line">	console.log(condition);</span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * 并行promise</span><br><span class="line"> * 任一函数执行reject都会执行catch</span><br><span class="line"> * 当所有函数都执行resolve才会执行then</span><br><span class="line"> * 某一函数执行reject并不影响其他函数的执行</span><br><span class="line"> */</span><br><span class="line">Promise.all([func.getName(),func.getAge(),func.getAddr()]).then((res) =&gt; &#123;</span><br><span class="line">	console.log(res);//返回的是三个函数执行返回的结果组成的数组；只有当三者均执行成功时才会返回结果</span><br><span class="line">	console.log(condition);</span><br><span class="line">&#125;).catch((res) =&gt; &#123;</span><br><span class="line">	console.log(res)//当某个函数执行失败时，返回对应的返回参数；任意一个函数执行失败均会返回结果。但不影响其他函数的执行</span><br><span class="line">	console.log(condition);</span><br><span class="line">	console.log(res.name + &apos; falied!&apos;)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
 
       
 
@@ -368,11 +227,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原生javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">事件</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">promise</a>
         		</li>
       		
 		</ul>
@@ -428,7 +287,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/09/05/再读javascript（四）/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/10/11/详解Promise串行、并行/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -442,18 +301,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2018/09/13/再读javascript（五）/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          再读javascript（五）
-        
-      </div>
-    </a>
   
-  
-    <a href="/2018/09/05/解决onmouseover和onmouseout在内部触发父元素相应事件问题/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">解决onmouseover和onmouseout在内部触发父元素相应事件问题</div>
+    <a href="/2018/10/10/加强css/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">加强css</div>
       <i class="icon-circle-right"></i>
     </a>
   

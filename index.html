@@ -151,6 +151,107 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-MySQL使用笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/22/MySQL使用笔记/">MySQL使用笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/22/MySQL使用笔记/" class="archive-article-date">
+  	<time datetime="2018-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="MySQL使用笔记"><a href="#MySQL使用笔记" class="headerlink" title="MySQL使用笔记"></a>MySQL使用笔记</h1><p>标签（空格分隔）： MySQL</p>
+<hr>
+<blockquote>
+<p>最近在做自己的小项目的时候，使用Yii1.x + php + mysql搭建项目的后台，前端使用vue2.x，采用PHP写接口暴露给前台调用，不采用后端吐模板那一套方式。<br>在工作中，涉及到数据库的查询，也让我了解到数据库的繁杂和强大之处。<br>本文内容会不定期补充</p>
+</blockquote>
+<hr>
+<h4 id="1、事物"><a href="#1、事物" class="headerlink" title="1、事物"></a>1、事物</h4><blockquote>
+<p>当需要同时操作不同数据表的时候，任何一个环节出错，都会影响逻辑的正确执行。因此在开始整个步骤前，先开启MySQL事物，在yii框架中开启事物：<code>$transaction = Yii::app()-&gt;db-&gt;beginTransaction()</code>；当所有步骤都执行成功则提交事务：<code>$transaction-&gt;commit()</code>；当中任一环节出错则回滚任务：<code>$transaction-&gt;rollBack()</code>，并捕捉报错信息（任务的执行放在try catch语句块中）</p>
+</blockquote>
+<h4 id="2、left-join-、-right-join-、-inner-join"><a href="#2、left-join-、-right-join-、-inner-join" class="headerlink" title="2、left join 、 right join 、 inner join"></a>2、left join 、 right join 、 inner join</h4><blockquote>
+<p>设计到多表查询必然会用到连接，根据具体业务场景选择不同连接方式：具体见<code>3</code>处贴的代码</p>
+</blockquote>
+<h4 id="3、将查询到的列表拼接成字符串-GROUP-CONCAT"><a href="#3、将查询到的列表拼接成字符串-GROUP-CONCAT" class="headerlink" title="3、将查询到的列表拼接成字符串(GROUP_CONCAT)"></a>3、将查询到的列表拼接成字符串(GROUP_CONCAT)</h4><blockquote>
+<p>以下查询是个多步骤查询：<br>第一步：左连接查询文章表和用户表，查出具体文章信息和文章对应的作者信息<br>第二步：将第一步查询得到的结果暂存在一张表中，当做左表，左连接查询点赞信息表，查出每个帖子具体的点赞人id，并拼接为字符串<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">public static function getArticle($aid)&#123;</span><br><span class="line">	$sql = &quot;select t.*,GROUP_CONCAT(s.userId) as totalS from (select a.*,b.name from `wj_article` as a left join `wj_user` as b on a.userId = b.id where a.delete = 0 and a.id = $aid) t left join `wj_support` s on t.id = s.postId group by t.id&quot;;</span><br><span class="line">	$result = Yii::app()-&gt;db-&gt;createCommand($sql)-&gt;queryAll();</span><br><span class="line">	return $result;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h4 id="4、排序（多表查询，左右链接排序问题）"><a href="#4、排序（多表查询，左右链接排序问题）" class="headerlink" title="4、排序（多表查询，左右链接排序问题）"></a>4、排序（多表查询，左右链接排序问题）</h4><blockquote>
+<p>任何一个步骤的排序不可放置在limit之后<br>以下是一个按id排序输出查询结果的例子：</p>
+<blockquote>
+<p>第一，这是一个多步骤查询，类似于例子<code>3</code>，不过输出的是一个数组<br>第二，本意是想按照id降序输出前十帖子信息，原以为只要在第一步查询结果前<code>order by a.id desc</code> 就可以了，其实还不行（因为第一步输出的信息并不是最终结果，它只是第二步的左表）<br>第三，在第二步查询继续<code>order by t.id desc</code></p>
+<ul>
+<li>必须进行两步order by ，不然得不到想要的结果<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$sql = &quot;select t.*,GROUP_CONCAT(s.userId) as totalS from (select a.*,b.name from `wj_article` as a left join `wj_user` as b on a.userId = b.id where a.delete = 0 order by a.`id` desc limit $start,$size) t left join `wj_support` s on t.id = s.postId group by t.id order by t.id desc&quot;;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+</blockquote>
+<h4 id="5、索引"><a href="#5、索引" class="headerlink" title="5、索引"></a>5、索引</h4><blockquote>
+<p>索引好比书的目录，可以帮人快速的查找到相应的内容。<br>MySQL中索引也是帮助查询迅速匹配到相应内容。但是索引并非越多越好，因为建立索引也是要消耗性能的。通常是给经常用到查询的字段建立索引。<br>索引的类型：hash、btree、全文索引。分别对应不同业务场景，最常使用的是btree</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/22/MySQL使用笔记/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-动画效果比较" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -574,6 +675,93 @@
 
 
   
+    <article id="post-体验flex布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/09/21/体验flex布局/">体验flex布局</a>
+    </h1>
+  
+
+        
+        <a href="/2018/09/21/体验flex布局/" class="archive-article-date">
+  	<time datetime="2018-09-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="体验flex布局"><a href="#体验flex布局" class="headerlink" title="体验flex布局"></a>体验flex布局</h1><p>标签（空格分隔）： css flex 布局</p>
+<blockquote>
+<p>从参加工作以来，涉及到页面布局一直都是采用盒模型的方式，即利用css的display、float、position属性来布局。一直以来，能够很好的解决大部分布局问题，但是遇到垂直居中问题一直都是这种布局方式的最大短板。flex弹性布局的相关特性能够很好的解决各类布局问题。但是由于性能问题，最好只在局部的布局使用弹性布局。</p>
+</blockquote>
+        
+          <a class="article-more-a" href="/2018/09/21/体验flex布局/#more">更多 >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">布局</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">flex</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/21/体验flex布局/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-元素垂直居中" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -636,93 +824,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/21/元素垂直居中/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-体验flex布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/21/体验flex布局/">体验flex布局</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/21/体验flex布局/" class="archive-article-date">
-  	<time datetime="2018-09-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="体验flex布局"><a href="#体验flex布局" class="headerlink" title="体验flex布局"></a>体验flex布局</h1><p>标签（空格分隔）： css flex 布局</p>
-<blockquote>
-<p>从参加工作以来，涉及到页面布局一直都是采用盒模型的方式，即利用css的display、float、position属性来布局。一直以来，能够很好的解决大部分布局问题，但是遇到垂直居中问题一直都是这种布局方式的最大短板。flex弹性布局的相关特性能够很好的解决各类布局问题。但是由于性能问题，最好只在局部的布局使用弹性布局。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/09/21/体验flex布局/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">布局</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">flex</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/21/体验flex布局/">展开全文 >></a>
         </p>
       
 
@@ -882,15 +983,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">event</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">prototype</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
         		</li>
       		
 		</ul>
@@ -901,89 +1002,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2018/09/05/解决onmouseover和onmouseout在内部触发父元素相应事件问题/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-再读javascript（四）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/05/再读javascript（四）/">再读javascript（四）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/05/再读javascript（四）/" class="archive-article-date">
-  	<time datetime="2018-09-04T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-05</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="再读javascript（四）"><a href="#再读javascript（四）" class="headerlink" title="再读javascript（四）"></a>再读javascript（四）</h1><p>标签（空格分隔）： 原生javascript</p>
-<blockquote>
-<p>上接<a href="https://junwoung.github.io/2018/09/04/%E5%86%8D%E8%AF%BBjavascript%EF%BC%88%E4%B8%89%EF%BC%89/#more" target="_blank" rel="noopener">再读javascript（三）</a><br>本章主要介绍<code>事件</code><br>本章内容繁多且复杂，有空得多回顾</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/09/05/再读javascript（四）/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原生javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">事件</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/05/再读javascript（四）/">展开全文 >></a>
         </p>
       
 
@@ -1110,6 +1128,10 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">mysql</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">IntelliJ IDEA</a>
               </li>
              
@@ -1119,14 +1141,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">工具</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">原生javascript</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">array</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1142,11 +1156,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">php</a>
+                <a href="javascript:void(0)" class="js-tag color3">原生javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
+                <a href="javascript:void(0)" class="js-tag color1">array</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">css</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">布局</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1158,11 +1180,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">css</a>
+                <a href="javascript:void(0)" class="js-tag color4">php</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">布局</a>
+                <a href="javascript:void(0)" class="js-tag color5">ajax</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1182,10 +1204,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">BOM</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">API</a>
               </li>
              
@@ -1194,23 +1212,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">rem</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">event</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">prototype</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">DOM</a>
+                <a href="javascript:void(0)" class="js-tag color4">BOM</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -1223,6 +1225,26 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">setInterval</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">移动端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">rem</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">DOM</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">event</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">prototype</a>
               </li>
             
             <div class="clearfix"></div>

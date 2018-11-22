@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>MySQL使用笔记 | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="MySQL使用笔记标签（空格分隔）： MySQL   最近在做自己的小项目的时候，使用Yii1.x + php + mysql搭建项目的后台，前端使用vue2.x，采用PHP写接口暴露给前台调用，不采用后端吐模板那一套方式。在工作中，涉及到数据库的查询，也让我了解到数据库的繁杂和强大之处。本文内容会不定期补充   1、事物 当需要同时操作不同数据表的时候，任何一个环节出错，都会影响逻辑的正确执行。">
+  <meta name="description" content="MySQL使用笔记标签（空格分隔）： MySQL   最近在做自己的小项目的时候，使用Yii1.x + php + mysql搭建项目的后台，前端使用vue2.x，采用PHP写接口暴露给前台调用，不采用后端吐模板那一套方式。在工作中，涉及到数据库的查询，也让我了解到数据库的繁杂和强大之处。本文内容会不定期补充">
 <meta name="keywords" content="mysql">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL使用笔记">
 <meta property="og:url" content="http://yoursite.com/2018/11/22/MySQL使用笔记/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="MySQL使用笔记标签（空格分隔）： MySQL   最近在做自己的小项目的时候，使用Yii1.x + php + mysql搭建项目的后台，前端使用vue2.x，采用PHP写接口暴露给前台调用，不采用后端吐模板那一套方式。在工作中，涉及到数据库的查询，也让我了解到数据库的繁杂和强大之处。本文内容会不定期补充   1、事物 当需要同时操作不同数据表的时候，任何一个环节出错，都会影响逻辑的正确执行。">
+<meta property="og:description" content="MySQL使用笔记标签（空格分隔）： MySQL   最近在做自己的小项目的时候，使用Yii1.x + php + mysql搭建项目的后台，前端使用vue2.x，采用PHP写接口暴露给前台调用，不采用后端吐模板那一套方式。在工作中，涉及到数据库的查询，也让我了解到数据库的繁杂和强大之处。本文内容会不定期补充">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-11-22T03:47:10.462Z">
+<meta property="og:updated_time" content="2018-11-22T03:51:43.173Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MySQL使用笔记">
-<meta name="twitter:description" content="MySQL使用笔记标签（空格分隔）： MySQL   最近在做自己的小项目的时候，使用Yii1.x + php + mysql搭建项目的后台，前端使用vue2.x，采用PHP写接口暴露给前台调用，不采用后端吐模板那一套方式。在工作中，涉及到数据库的查询，也让我了解到数据库的繁杂和强大之处。本文内容会不定期补充   1、事物 当需要同时操作不同数据表的时候，任何一个环节出错，都会影响逻辑的正确执行。">
+<meta name="twitter:description" content="MySQL使用笔记标签（空格分隔）： MySQL   最近在做自己的小项目的时候，使用Yii1.x + php + mysql搭建项目的后台，前端使用vue2.x，采用PHP写接口暴露给前台调用，不采用后端吐模板那一套方式。在工作中，涉及到数据库的查询，也让我了解到数据库的繁杂和强大之处。本文内容会不定期补充">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -176,6 +176,7 @@
 <blockquote>
 <p>最近在做自己的小项目的时候，使用Yii1.x + php + mysql搭建项目的后台，前端使用vue2.x，采用PHP写接口暴露给前台调用，不采用后端吐模板那一套方式。<br>在工作中，涉及到数据库的查询，也让我了解到数据库的繁杂和强大之处。<br>本文内容会不定期补充</p>
 </blockquote>
+<a id="more"></a>
 <hr>
 <h4 id="1、事物"><a href="#1、事物" class="headerlink" title="1、事物"></a>1、事物</h4><blockquote>
 <p>当需要同时操作不同数据表的时候，任何一个环节出错，都会影响逻辑的正确执行。因此在开始整个步骤前，先开启MySQL事物，在yii框架中开启事物：<code>$transaction = Yii::app()-&gt;db-&gt;beginTransaction()</code>；当所有步骤都执行成功则提交事务：<code>$transaction-&gt;commit()</code>；当中任一环节出错则回滚任务：<code>$transaction-&gt;rollBack()</code>，并捕捉报错信息（任务的执行放在try catch语句块中）</p>

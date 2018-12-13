@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Jun woung blog</title>
+  <title>原生js封装的弹框插件 | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="懒懒的我，丑丑的你">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jun woung blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="原生js封装的弹框插件标签（空格分隔）： 原生javascript 弹框 插件   介于旧版本的弹框插件不是很好用，所以，笔者在vue框架里面上传了另一版的弹框插件新版本弹框亮点：1、完全基于原生js，可以移植到其他框架语言项目（前提是支持es6，或者能够编译降级）2、引用限制：老版本弹框，由于插入节点的性质，因此一次只能打开一个弹框。新版本弹框只会在调用时才会插入相应节点，且无打开弹框数目限制，">
+<meta name="keywords" content="原生javascript,插件,弹框">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生js封装的弹框插件">
+<meta property="og:url" content="http://yoursite.com/2018/12/13/原生js封装的弹框插件/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="懒懒的我，丑丑的你">
+<meta property="og:description" content="原生js封装的弹框插件标签（空格分隔）： 原生javascript 弹框 插件   介于旧版本的弹框插件不是很好用，所以，笔者在vue框架里面上传了另一版的弹框插件新版本弹框亮点：1、完全基于原生js，可以移植到其他框架语言项目（前提是支持es6，或者能够编译降级）2、引用限制：老版本弹框，由于插入节点的性质，因此一次只能打开一个弹框。新版本弹框只会在调用时才会插入相应节点，且无打开弹框数目限制，">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-12-13T08:03:44.896Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jun woung blog">
-<meta name="twitter:description" content="懒懒的我，丑丑的你">
+<meta name="twitter:title" content="原生js封装的弹框插件">
+<meta name="twitter:description" content="原生js封装的弹框插件标签（空格分隔）： 原生javascript 弹框 插件   介于旧版本的弹框插件不是很好用，所以，笔者在vue框架里面上传了另一版的弹框插件新版本弹框亮点：1、完全基于原生js，可以移植到其他框架语言项目（前提是支持es6，或者能够编译降级）2、引用限制：老版本弹框，由于插入节点的性质，因此一次只能打开一个弹框。新版本弹框只会在调用时才会插入相应节点，且无打开弹框数目限制，">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -149,16 +151,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-原生js封装的弹框插件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-原生js封装的弹框插件" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/12/13/原生js封装的弹框插件/">原生js封装的弹框插件</a>
+    <h1 class="article-title" itemprop="name">
+      原生js封装的弹框插件
     </h1>
   
 
@@ -176,11 +176,301 @@
 <blockquote>
 <p>介于旧版本的弹框插件不是很好用，<br>所以，笔者在vue框架里面上传了另一版的弹框插件<br>新版本弹框亮点：<br>1、完全基于原生js，可以移植到其他框架语言项目（前提是支持es6，或者能够编译降级）<br>2、引用限制：老版本弹框，由于插入节点的性质，因此一次只能打开一个弹框。新版本弹框只会在调用时才会插入相应节点，且无打开弹框数目限制，更符合项目实际需求<br>3、视觉层面：新版本弹框做了适度的过渡效果，不至于太生硬<br>4、性能层面：老版本弹框大量使用了定时器，新版本弹框只在必要时引入，但新版本是直接操作节点的，因此性能消耗大致相当（脑补）<br>5、代码层面：新版本弹框使用较多es6语法，且代码书写较老版本稍微规范，更容易阅读、维护和改写<br>6、新版本弹框支持更多的弹框选择（新增success、error）<br>7、支持的方法：新版本open方法更加稳定，支持打开各类弹框；close方法也更加稳定；支持changeMsg方法改变弹框显示的信息</p>
 </blockquote>
-        
-          <a class="article-more-a" href="/2018/12/13/原生js封装的弹框插件/#more">更多 >></a>
-        
+<a id="more"></a>
+<p>补充：<br>1、由于自身限制，弹框插件可能存在诸多槽点，各位在使用的时候欢迎指出<br><a href="https://github.com/junwoung/UI-Frame" target="_blank" rel="noopener">框架github仓库地址</a><br>新版弹框相对目录：src/components/dialog/</p>
+<hr>
+<h2 id="一、-各类弹窗的调用"><a href="#一、-各类弹窗的调用" class="headerlink" title="一、 各类弹窗的调用"></a>一、 各类弹窗的调用</h2><hr>
+<h3 id="1-1、加载对话框"><a href="#1-1、加载对话框" class="headerlink" title="1.1、加载对话框"></a>1.1、加载对话框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">调用：</span><br><span class="line">方法一： this.$dialog.loading(msg,clickClose,callback)</span><br><span class="line">方法二： this.$dialog.open(&#123;</span><br><span class="line">            type: &apos;loading&apos;,</span><br><span class="line">            msg: &apos;&apos;,</span><br><span class="line">            clickClose: true,</span><br><span class="line">            callback: function()&#123;&#125;</span><br><span class="line">         &#125;)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+<th>必填选项</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>显示的文本信息</td>
+<td>非必填</td>
+<td>‘加载中…’</td>
+</tr>
+<tr>
+<td>clickClose</td>
+<td>boolean</td>
+<td>是否支持点击模态关闭</td>
+<td>非必填</td>
+<td>false</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>function</td>
+<td>对话框关闭触发的回调函数</td>
+<td>非必填</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="1-2、警告对话框"><a href="#1-2、警告对话框" class="headerlink" title="1.2、警告对话框"></a>1.2、警告对话框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">调用：</span><br><span class="line">方法一： this.$dialog.alert(msg,ensure)</span><br><span class="line">方法二： this.$dialog.open(&#123;</span><br><span class="line">            type: &apos;alert&apos;,</span><br><span class="line">            msg: &apos;&apos;,</span><br><span class="line">            ensure: function()&#123;&#125;</span><br><span class="line">         &#125;)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+<th>必填选项</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>显示的文本信息</td>
+<td>非必填</td>
+<td>‘请输入确认内容！’</td>
+</tr>
+<tr>
+<td>ensure</td>
+<td>function</td>
+<td>点击确认按钮触发的回调函数</td>
+<td>非必填</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="1-3、确认对话框"><a href="#1-3、确认对话框" class="headerlink" title="1.3、确认对话框"></a>1.3、确认对话框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">调用：</span><br><span class="line">方法一： this.$dialog.confirm(msg,ensure,cancel)</span><br><span class="line">方法二： this.$dialog.open(&#123;</span><br><span class="line">            type: &apos;confirm&apos;,</span><br><span class="line">            msg: &apos;&apos;,</span><br><span class="line">            ensure: function()&#123;&#125;,</span><br><span class="line">            cancel: function()&#123;&#125;</span><br><span class="line">         &#125;)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+<th>必填选项</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>显示的文本信息</td>
+<td>非必填</td>
+<td>‘请输入确认内容！’</td>
+</tr>
+<tr>
+<td>ensure</td>
+<td>function</td>
+<td>点击确认按钮触发的回调函数</td>
+<td>非必填</td>
+<td></td>
+</tr>
+<tr>
+<td>cancel</td>
+<td>function</td>
+<td>点击取消按钮触发的回调函数</td>
+<td>非必填</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="1-4、输入对话框"><a href="#1-4、输入对话框" class="headerlink" title="1.4、输入对话框"></a>1.4、输入对话框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">调用：</span><br><span class="line">方法一： this.$dialog.prompt(msg,value,ensure,cancel)</span><br><span class="line">方法二： this.$dialog.open(&#123;</span><br><span class="line">            type: &apos;prompt&apos;,</span><br><span class="line">            msg: &apos;&apos;,</span><br><span class="line">            value: &apos;&apos;,</span><br><span class="line">            ensure: function()&#123;&#125;,</span><br><span class="line">            cancel: function()&#123;&#125;</span><br><span class="line">         &#125;)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+<th>必填选项</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>显示的文本信息</td>
+<td>非必填</td>
+<td>‘请输入确认内容！’</td>
+</tr>
+<tr>
+<td>value</td>
+<td>string、number</td>
+<td>初始化文本框值，回调函数传的参数</td>
+<td>必填</td>
+<td></td>
+</tr>
+<tr>
+<td>ensure</td>
+<td>function</td>
+<td>点击确认按钮触发的回调函数</td>
+<td>非必填</td>
+<td></td>
+</tr>
+<tr>
+<td>cancel</td>
+<td>function</td>
+<td>点击取消按钮触发的回调函数</td>
+<td>非必填</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="1-5、普通信息对话框"><a href="#1-5、普通信息对话框" class="headerlink" title="1.5、普通信息对话框"></a>1.5、普通信息对话框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">调用：</span><br><span class="line">方法一： this.$dialog.msg(msg,timeout,callback)</span><br><span class="line">方法二： this.$dialog.open(&#123;</span><br><span class="line">            type: &apos;msg&apos;,</span><br><span class="line">            msg: &apos;&apos;,</span><br><span class="line">            timeout: 3,</span><br><span class="line">            callback: function()&#123;&#125;</span><br><span class="line">         &#125;)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+<th>必填选项</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>显示的文本信息</td>
+<td>非必填</td>
+<td>‘请输入确认内容！’</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>number</td>
+<td>定时关闭对话框</td>
+<td>非必填</td>
+<td>3000</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>function</td>
+<td>对话框关闭触发回调函数</td>
+<td>非必填</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="1-6、成功信息对话框"><a href="#1-6、成功信息对话框" class="headerlink" title="1.6、成功信息对话框"></a>1.6、成功信息对话框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">调用：</span><br><span class="line">方法一： this.$dialog.success(msg,timeout,callback)</span><br><span class="line">方法二： this.$dialog.open(&#123;</span><br><span class="line">            type: &apos;success&apos;,</span><br><span class="line">            msg: &apos;&apos;,</span><br><span class="line">            timeout: 3,</span><br><span class="line">            callback: function()&#123;&#125;</span><br><span class="line">         &#125;)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+<th>必填选项</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>显示的文本信息</td>
+<td>非必填</td>
+<td>‘请输入确认内容！’</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>number</td>
+<td>定时关闭对话框</td>
+<td>非必填</td>
+<td>3000</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>function</td>
+<td>对话框关闭触发回调函数</td>
+<td>非必填</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="1-7、失败信息对话框"><a href="#1-7、失败信息对话框" class="headerlink" title="1.7、失败信息对话框"></a>1.7、失败信息对话框</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">调用：</span><br><span class="line">方法一： this.$dialog.error(msg,timeout,callback)</span><br><span class="line">方法二： this.$dialog.open(&#123;</span><br><span class="line">            type: &apos;error&apos;,</span><br><span class="line">            msg: &apos;&apos;,</span><br><span class="line">            timeout: 3,</span><br><span class="line">            callback: function()&#123;&#125;</span><br><span class="line">         &#125;)</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>类型</th>
+<th>说明</th>
+<th>必填选项</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>msg</td>
+<td>string</td>
+<td>显示的文本信息</td>
+<td>非必填</td>
+<td>‘请输入确认内容！’</td>
+</tr>
+<tr>
+<td>timeout</td>
+<td>number</td>
+<td>定时关闭对话框</td>
+<td>非必填</td>
+<td>3000</td>
+</tr>
+<tr>
+<td>callback</td>
+<td>function</td>
+<td>对话框关闭触发回调函数</td>
+<td>非必填</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h2 id="二、其他方法"><a href="#二、其他方法" class="headerlink" title="二、其他方法"></a>二、其他方法</h2><hr>
+<h3 id="2-1-关闭指定弹框"><a href="#2-1-关闭指定弹框" class="headerlink" title="2.1 关闭指定弹框"></a>2.1 关闭指定弹框</h3><blockquote>
+<p>调用：<code>this.$dialog.close(id)</code><br>每个弹框在生成的时候都附有指定的<code>id</code><br>例：<code>let id  = this.$dialog.loading(&#39;loading...&#39;)</code> <code>this.$dialog.close(id)</code></p>
+</blockquote>
+<hr>
+<h3 id="2-2-关闭所有弹框"><a href="#2-2-关闭所有弹框" class="headerlink" title="2.2 关闭所有弹框"></a>2.2 关闭所有弹框</h3><blockquote>
+<p>调用： <code>this.$dialog.closeAll()</code></p>
+</blockquote>
+<hr>
+<h3 id="2-3-更改指定弹框的文本信息"><a href="#2-3-更改指定弹框的文本信息" class="headerlink" title="2.3 更改指定弹框的文本信息"></a>2.3 更改指定弹框的文本信息</h3><blockquote>
+<p>调用： <code>this.$dialog.changeMsg(id,msg)</code><br>id: 指定对话框id； msg： 要替换成的信息</p>
+</blockquote>
+
       
 
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://static.zybuluo.com/15013890200/qkxkhak75frt06audogyzwdl/44fa5455088a4a8b9ab67ca9a1a3240.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://static.zybuluo.com/15013890200/0mmotb1tzby2amg8dbt8kcdl/debf945a70816563d0b34062aba3608.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -208,16 +498,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/12/13/原生js封装的弹框插件/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2018/12/13/原生js封装的弹框插件/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018/11/22/MySQL使用笔记/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">MySQL使用笔记</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -237,784 +586,14 @@
 
 
 
-
-  
-    <article id="post-MySQL使用笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/11/22/MySQL使用笔记/">MySQL使用笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2018/11/22/MySQL使用笔记/" class="archive-article-date">
-  	<time datetime="2018-11-21T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="MySQL使用笔记"><a href="#MySQL使用笔记" class="headerlink" title="MySQL使用笔记"></a>MySQL使用笔记</h1><p>标签（空格分隔）： MySQL</p>
-<hr>
-<blockquote>
-<p>最近在做自己的小项目的时候，使用Yii1.x + php + mysql搭建项目的后台，前端使用vue2.x，采用PHP写接口暴露给前台调用，不采用后端吐模板那一套方式。<br>在工作中，涉及到数据库的查询，也让我了解到数据库的繁杂和强大之处。<br>本文内容会不定期补充</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/11/22/MySQL使用笔记/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">mysql</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/11/22/MySQL使用笔记/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-动画效果比较" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/17/动画效果比较/">动画效果比较</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/17/动画效果比较/" class="archive-article-date">
-  	<time datetime="2018-10-16T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-17</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="动画效果比较"><a href="#动画效果比较" class="headerlink" title="动画效果比较"></a>动画效果比较</h1><p>标签（空格分隔）： animation requestAnimationFrame setInterval</p>
-<blockquote>
-<p>对前端人员来说，要想做出酷炫的动画效果还是需要下点功夫的，实现的途径也是有很多的，以下介绍和比较实现动画效果的几种途径。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/10/17/动画效果比较/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">animation</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">requestAnimationFrame</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">setInterval</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/17/动画效果比较/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-css学习实践" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/12/css学习实践/">css学习实践</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/12/css学习实践/" class="archive-article-date">
-  	<time datetime="2018-10-11T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="css学习实践"><a href="#css学习实践" class="headerlink" title="css学习实践"></a>css学习实践</h1><p>标签（空格分隔）： css </p>
-<blockquote>
-<p><a href="https://junwoung.github.io/2018/10/10/%E5%8A%A0%E5%BC%BAcss/#more" target="_blank" rel="noopener">前面一节</a>补充了css一些薄弱的知识点。今天集中实践了不少。感觉收获还是蛮多的（平时对css忽略蛮多的，只写了一些基本样式）。<br>本次主要实践了 display的sticky属性、伪类/伪节点、文本处理、图片处理</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/10/12/css学习实践/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/12/css学习实践/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-详解Promise串行、并行" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/11/详解Promise串行、并行/">详解Promise串行、并行</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/11/详解Promise串行、并行/" class="archive-article-date">
-  	<time datetime="2018-10-10T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-11</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="详解Promise串行、并行"><a href="#详解Promise串行、并行" class="headerlink" title="详解Promise串行、并行"></a>详解Promise串行、并行</h1><p>标签（空格分隔）： javascript promise</p>
-<blockquote>
-<ul>
-<li><a href="https://junwoung.github.io/2018/09/25/Promise%20%E7%94%A8%E6%B3%95/#more" target="_blank" rel="noopener">之前一章</a>初步介绍了promise的使用方法。今天再深入探讨一下promise的用法，并模拟使用场景</li>
-<li>promise出现以前。某个ajax发送的请求内容依赖于另一个ajax请求的内容时，往往是将该ajax至于另一个ajax请求内部。这样一来，代码多重嵌套不利于阅读和维护。此时可以利用promise串行，挨个执行ajax（即后面的ajax只有在前面ajax执行完成后才有可能执行）。</li>
-<li>当某项操作需要在多个ajax请求结束后执行，且ajax请求顺序没有要求，则可以利用promise的并行，同时执行多个ajax。</li>
-<li>串行和并行的特点，见代码相应的注释处</li>
-</ul>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/10/11/详解Promise串行、并行/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">promise</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/11/详解Promise串行、并行/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-加强css" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/10/10/加强css/">加强css</a>
-    </h1>
-  
-
-        
-        <a href="/2018/10/10/加强css/" class="archive-article-date">
-  	<time datetime="2018-10-09T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-10</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="加强css"><a href="#加强css" class="headerlink" title="加强css"></a>加强css</h1><blockquote>
-<p>css（cascading style sheets）层叠样式表，css的书写直接决定网页的美观与否。是整个前端必不可少的一部分，但是我长期以来前端的工作重心都是放在js上，忽略了对css进行系统性的学习，因此在工作过程中，为了实现某一特效，也走了不少弯路。<br>本文将致力于对自己css方面的知识进行查漏补缺，会记录一些实用的且自己甚少或没有使用的功能。也会记载一些易忽略的知识点，方便以后回顾。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/10/10/加强css/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/10/10/加强css/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Promise 用法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/25/Promise 用法/">Promise 用法</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/25/Promise 用法/" class="archive-article-date">
-  	<time datetime="2018-09-24T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-25</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Promise-用法"><a href="#Promise-用法" class="headerlink" title="Promise 用法"></a>Promise 用法</h1><p>标签（空格分隔）： javascript promise setTimeout</p>
-<blockquote>
-<ul>
-<li>由于javascript的语言特性，即所用代码的执行都是单线程的，所有涉及到的网络操作、浏览器事件都必须是异步的。</li>
-<li>利用Promise，可以将和某一请求事件相关的操作定义到一个执行链上，这样做的优点：先统一执行ajax请求，不必关心如何处理结果。然后根据请求的结果，在将来的某个时间调用resolve或者reject函数</li>
-<li>同时，也学到了如何向setTimeout的回调函数传参数。即 <code>setTimeout(回调函数,毫秒数,参数1,参数2,...)</code></li>
-</ul>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/09/25/Promise 用法/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">promise</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">setTimeout</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/25/Promise 用法/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-体验flex布局" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/21/体验flex布局/">体验flex布局</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/21/体验flex布局/" class="archive-article-date">
-  	<time datetime="2018-09-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="体验flex布局"><a href="#体验flex布局" class="headerlink" title="体验flex布局"></a>体验flex布局</h1><p>标签（空格分隔）： css flex 布局</p>
-<blockquote>
-<p>从参加工作以来，涉及到页面布局一直都是采用盒模型的方式，即利用css的display、float、position属性来布局。一直以来，能够很好的解决大部分布局问题，但是遇到垂直居中问题一直都是这种布局方式的最大短板。flex弹性布局的相关特性能够很好的解决各类布局问题。但是由于性能问题，最好只在局部的布局使用弹性布局。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/09/21/体验flex布局/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">布局</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">flex</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/21/体验flex布局/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-元素垂直居中" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/21/元素垂直居中/">元素垂直居中</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/21/元素垂直居中/" class="archive-article-date">
-  	<time datetime="2018-09-20T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="元素垂直居中"><a href="#元素垂直居中" class="headerlink" title="元素垂直居中"></a>元素垂直居中</h1><p>标签（空格分隔）： css flex 布局 grid</p>
-<blockquote>
-<p>元素垂直居中，一直都是前端初学者头疼的地方。之前也一直困扰着我。虽然实现方式多样，但是却找不到一个最优解。终于有一次看到别人整理的多达20多种方法，让我茅塞顿开，原来还可以这样玩。自己也亲测了自己感兴趣qie简洁的10多种方法。</p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/09/21/元素垂直居中/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">css</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">布局</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">flex</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">grid</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/21/元素垂直居中/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-再读javascript（五）" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018/09/13/再读javascript（五）/">再读javascript（五）</a>
-    </h1>
-  
-
-        
-        <a href="/2018/09/13/再读javascript（五）/" class="archive-article-date">
-  	<time datetime="2018-09-12T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="再读javascript（五）"><a href="#再读javascript（五）" class="headerlink" title="再读javascript（五）"></a>再读javascript（五）</h1><p>标签（空格分隔）： 原生javascript</p>
-<blockquote>
-<p>上接<a href="https://junwoung.github.io/2018/09/05/%E5%86%8D%E8%AF%BBjavascript%EF%BC%88%E5%9B%9B%EF%BC%89/" target="_blank" rel="noopener">再读javascript（四）</a><br> 本章包含<code>表单脚本</code>，<code>错误处理</code>，<code>ajax</code>，<code>高级技巧（很难，以后再研究）</code>、<code>可维护性和xingn</code>、<code>新兴的API</code></p>
-</blockquote>
-        
-          <a class="article-more-a" href="/2018/09/13/再读javascript（五）/#more">更多 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原生javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">ajax</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">API</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">其它</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018/09/13/再读javascript（五）/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1037,8 +616,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

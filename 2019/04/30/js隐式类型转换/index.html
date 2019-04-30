@@ -6,18 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2018/9 | Jun woung blog</title>
+  <title>js隐式类型转换 | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="懒懒的我，丑丑的你">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Jun woung blog">
-<meta property="og:url" content="http://yoursite.com/archives/2018/09/page/2/index.html">
+  <meta name="description" content="js隐式类型转换标签（空格分隔）： javascript 类型转换  javascript的隐式类型转换当中存在很多坑。记得刚入门的时候被坑过好几次，后来怕了遇事就用===（最好用=== 代替==），之前也尝试过硬记一些常用的==规则，一直都没能完全明白到底发生了什么，偶然间发现一篇博客还不错，于是自己也把学习心得撰写出来，便于日后加以复习。">
+<meta name="keywords" content="javascript,类型转换">
+<meta property="og:type" content="article">
+<meta property="og:title" content="js隐式类型转换">
+<meta property="og:url" content="http://yoursite.com/2019/04/30/js隐式类型转换/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="懒懒的我，丑丑的你">
+<meta property="og:description" content="js隐式类型转换标签（空格分隔）： javascript 类型转换  javascript的隐式类型转换当中存在很多坑。记得刚入门的时候被坑过好几次，后来怕了遇事就用===（最好用=== 代替==），之前也尝试过硬记一些常用的==规则，一直都没能完全明白到底发生了什么，偶然间发现一篇博客还不错，于是自己也把学习心得撰写出来，便于日后加以复习。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-04-30T03:19:33.088Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Jun woung blog">
-<meta name="twitter:description" content="懒懒的我，丑丑的你">
+<meta name="twitter:title" content="js隐式类型转换">
+<meta name="twitter:description" content="js隐式类型转换标签（空格分隔）： javascript 类型转换  javascript的隐式类型转换当中存在很多坑。记得刚入门的时候被坑过好几次，后来怕了遇事就用===（最好用=== 代替==），之前也尝试过硬记一些常用的==规则，一直都没能完全明白到底发生了什么，偶然间发现一篇博客还不错，于是自己也把学习心得撰写出来，便于日后加以复习。">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -149,109 +151,238 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-js隐式类型转换" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/04/再读javascript（三）/" class="archive-article-date">
-  	<time datetime="2018-09-03T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-04</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/04/再读javascript（三）/">再读javascript（三）</a>
+    <h1 class="article-title" itemprop="name">
+      js隐式类型转换
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/04/30/js隐式类型转换/" class="archive-article-date">
+  	<time datetime="2019-04-29T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-30</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="js隐式类型转换"><a href="#js隐式类型转换" class="headerlink" title="js隐式类型转换"></a>js隐式类型转换</h1><p>标签（空格分隔）： javascript 类型转换</p>
+<blockquote>
+<p>javascript的隐式类型转换当中存在很多坑。记得刚入门的时候被坑过好几次，后来怕了遇事就用===（最好用=== 代替==），之前也尝试过硬记一些常用的==规则，一直都没能完全明白到底发生了什么，偶然间发现一篇博客还不错，于是自己也把学习心得撰写出来，便于日后加以复习。</p>
+</blockquote>
+<a id="more"></a>
+<hr>
+<h2 id="1-先来做几道题吧！"><a href="#1-先来做几道题吧！" class="headerlink" title="1.先来做几道题吧！"></a>1.先来做几道题吧！</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">[] == false  //  true</span><br><span class="line">!![] == true  //  true</span><br><span class="line">!!&apos;&apos; == false  //  true</span><br><span class="line">[1] == &apos;1&apos;  //  true</span><br><span class="line">&apos;&apos; == 0  // true</span><br><span class="line">&apos;&apos; == false  //  true</span><br><span class="line">[1] == true  //  true</span><br><span class="line">null == 0  //  false</span><br><span class="line">null == &apos;&apos;  // false</span><br><span class="line">null == undefined  // true</span><br><span class="line">![] == [] //  true</span><br><span class="line">!&#123;&#125; == &#123;&#125; //  false</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="2-解析"><a href="#2-解析" class="headerlink" title="2.解析"></a>2.解析</h2><h3 id="2-1-为什么-false"><a href="#2-1-为什么-false" class="headerlink" title="2.1 为什么 [] == false"></a>2.1 为什么 [] == false</h3><blockquote>
+<p>js中规定，如果<code>==</code>中有<code>布尔值</code>，只能转化为<code>数字</code>比较（而不是字符串，因为布尔值转化为字符串就变成’true’和’false’）<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Number(true)  //  1</span><br><span class="line">Number(false)  //  0</span><br><span class="line"></span><br><span class="line">所以问题转化为,为什么: [] == 0</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="2-2-为什么-0"><a href="#2-2-为什么-0" class="headerlink" title="2.2 为什么 [] == 0"></a>2.2 为什么 [] == 0</h3><blockquote>
+<ul>
+<li>Primitive(原值)和非Primitive比较，需要把非Primitive转换成Primitive才可以。[]是一个对象，因此需要toPrimitive()。（大部分对象最后都是用toString来转换成Primitive）</li>
+<li>数组的 toString() 相当于 join(‘,’)<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[].toString()  //  &apos;&apos;</span><br><span class="line">[1].toString() //  1</span><br><span class="line">[1,2,3].toString()  //  1,2,3</span><br><span class="line"></span><br><span class="line">//  上面提到数组的toString相当于join，那么对象的toString方法呢</span><br><span class="line">&#123;&#125;.toString == &apos;[object Object]&apos;  //  true,注意第一个object是小写，第二个Object是大写</span><br><span class="line"></span><br><span class="line">所以问题转化为,为什么: &apos;&apos; == 0</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="2-3-为什么-‘’-0"><a href="#2-3-为什么-‘’-0" class="headerlink" title="2.3 为什么 ‘’ == 0"></a>2.3 为什么 ‘’ == 0</h3><blockquote>
+<ul>
+<li>==号,字符串和数字比较会将字符串转化为数字</li>
+<li>字符串转化成数字是用Number()，而不是parseInt()和parseFloat()<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Number(&apos;&apos;)  //  0</span><br><span class="line">Number(&apos;abc&apos;)  //  NaN</span><br><span class="line"></span><br><span class="line">所以问题转化为， 0 == 0 显然返回true</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<hr>
+<h2 id="3-总结"><a href="#3-总结" class="headerlink" title="3. 总结"></a>3. 总结</h2><h3 id="3-1-比较转化路程"><a href="#3-1-比较转化路程" class="headerlink" title="3.1 比较转化路程"></a>3.1 比较转化路程</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">[] == false</span><br><span class="line">[] == 0</span><br><span class="line">&apos;&apos; == 0</span><br><span class="line">0 == 0</span><br></pre></td></tr></table></figure>
+<h3 id="3-2-NaN"><a href="#3-2-NaN" class="headerlink" title="3.2 NaN"></a>3.2 NaN</h3><blockquote>
+<ul>
+<li>NaN也是数值类型</li>
+<li>NaN不能等于自身，否则隐式转化就乱了套了</li>
+<li>等式两边出现NaN，则返回结果必然是false</li>
+</ul>
+</blockquote>
+<h3 id="3-3-隐式转换的恶果"><a href="#3-3-隐式转换的恶果" class="headerlink" title="3.3 隐式转换的恶果"></a>3.3 隐式转换的恶果</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[1,2,NaN].indexOf(NaN)  //  -1</span><br><span class="line">[1,2,NaN].includes(NaN)  //  true</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="4-扩展"><a href="#4-扩展" class="headerlink" title="4. 扩展"></a>4. 扩展</h2><h3 id="4-1-为什么-null-0-为false"><a href="#4-1-为什么-null-0-为false" class="headerlink" title="4.1 为什么 null == 0 为false"></a>4.1 为什么 null == 0 为false</h3><blockquote>
+<p>两边类型虽然不同，但是null本身就是Primitive类型值了，所以没法toPrimitive。因此==两边始终无法转化为同类型进行比较，所以返回false。</p>
+</blockquote>
+<h3 id="4-2-为什么-null-undefined"><a href="#4-2-为什么-null-undefined" class="headerlink" title="4.2 为什么 null == undefined"></a>4.2 为什么 null == undefined</h3><blockquote>
+<ul>
+<li>null 和 undefined 一样都是Primitive，也不是字符串和数字，转无可能。</li>
+<li>但是 JS 专门规定了null == undefined 就是返回true，属于一种专门的特殊情况<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//  The Abstract Equality Comparison Algorithm</span><br><span class="line"></span><br><span class="line">If x is null and y is undefined, return true.</span><br><span class="line">If x is undefined and y is null, return true.</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="4-3-为什么-true"><a href="#4-3-为什么-true" class="headerlink" title="4.3 为什么 !![] == true"></a>4.3 为什么 !![] == true</h3><blockquote>
+<ul>
+<li>因为!![]先计算，它已经是true了</li>
+<li>!运算符可将变量类型转化为布尔类型，null，undefined，NaN，’’，0，false，取反都是true，其余全是false<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">console.log(!null, !undefined, !NaN, !&apos;&apos;, !0, !false)  //  皆为true</span><br><span class="line">console.log(![], !&#123;&#125;) // 皆为false</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+</blockquote>
+<h3 id="4-4-为什么"><a href="#4-4-为什么" class="headerlink" title="4.4 为什么 ![] == []"></a>4.4 为什么 ![] == []</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//  步骤解析</span><br><span class="line">false == []  //  [].toString()</span><br><span class="line">false == &apos;&apos; </span><br><span class="line">0 == &apos;&apos;</span><br><span class="line">0 == 0</span><br></pre></td></tr></table></figure>
+<h3 id="4-5-为什么-为false"><a href="#4-5-为什么-为false" class="headerlink" title="4.5 为什么 !{} == {} 为false"></a>4.5 为什么 !{} == {} 为false</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">//  解析</span><br><span class="line">false == &#123;&#125;  //  &#123;&#125;.toString()</span><br><span class="line">false == &apos;[object Object]&apos;  //  Number(false)</span><br><span class="line">0 == &apos;[object Object]&apos;  //  Number(&apos;[object Object&apos;])</span><br><span class="line">0 == NaN  //  false</span><br></pre></td></tr></table></figure>
+<hr>
+<h2 id="5-其他"><a href="#5-其他" class="headerlink" title="5. 其他"></a>5. 其他</h2><blockquote>
+<p>ESLint和其他编程规范会各种限制使用==</p>
+</blockquote>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://static.zybuluo.com/15013890200/qkxkhak75frt06audogyzwdl/44fa5455088a4a8b9ab67ca9a1a3240.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://static.zybuluo.com/15013890200/0mmotb1tzby2amg8dbt8kcdl/debf945a70816563d0b34062aba3608.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原生javascript</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">javascript</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">DOM</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">类型转换</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/30/js隐式类型转换/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/09/03/再读javascript（二）/" class="archive-article-date">
-  	<time datetime="2018-09-02T16:00:00.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-03</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2018/12/13/原生js封装的弹框插件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">原生js封装的弹框插件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/09/03/再读javascript（二）/">再读javascript（二）</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">原生javascript</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">BOM</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
-    <nav id="page-nav">
-      <a class="extend prev" rel="prev" href="/archives/2018/09/">&laquo; Prev</a><a class="page-number" href="/archives/2018/09/">1</a><span class="page-number current">2</span>
-    </nav>
+  
+
   
 
 
@@ -275,8 +406,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

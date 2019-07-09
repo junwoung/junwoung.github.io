@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>详解Promise串行、并行 | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="详解Promise串行、并行标签（空格分隔）： javascript promise   之前一章初步介绍了promise的使用方法。今天再深入探讨一下promise的用法，并模拟使用场景 promise出现以前。某个ajax发送的请求内容依赖于另一个ajax请求的内容时，往往是将该ajax至于另一个ajax请求内部。这样一来，代码多重嵌套不利于阅读和维护。此时可以利用promise串行，挨个执行">
+  <meta name="description" content="之前一章初步介绍了promise的使用方法。今天再深入探讨一下promise的用法，并模拟使用场景 promise出现以前。某个ajax发送的请求内容依赖于另一个ajax请求的内容时，往往是将该ajax至于另一个ajax请求内部。这样一来，代码多重嵌套不利于阅读和维护。此时可以利用promise串行，挨个执行ajax（即后面的ajax只有在前面ajax执行完成后才有可能执行）。 当某项操作需要">
 <meta name="keywords" content="javascript,promise">
 <meta property="og:type" content="article">
 <meta property="og:title" content="详解Promise串行、并行">
 <meta property="og:url" content="http://yoursite.com/2018/10/11/详解Promise串行、并行/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="详解Promise串行、并行标签（空格分隔）： javascript promise   之前一章初步介绍了promise的使用方法。今天再深入探讨一下promise的用法，并模拟使用场景 promise出现以前。某个ajax发送的请求内容依赖于另一个ajax请求的内容时，往往是将该ajax至于另一个ajax请求内部。这样一来，代码多重嵌套不利于阅读和维护。此时可以利用promise串行，挨个执行">
+<meta property="og:description" content="之前一章初步介绍了promise的使用方法。今天再深入探讨一下promise的用法，并模拟使用场景 promise出现以前。某个ajax发送的请求内容依赖于另一个ajax请求的内容时，往往是将该ajax至于另一个ajax请求内部。这样一来，代码多重嵌套不利于阅读和维护。此时可以利用promise串行，挨个执行ajax（即后面的ajax只有在前面ajax执行完成后才有可能执行）。 当某项操作需要">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-11T09:16:34.552Z">
+<meta property="og:updated_time" content="2019-07-09T03:23:56.441Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="详解Promise串行、并行">
-<meta name="twitter:description" content="详解Promise串行、并行标签（空格分隔）： javascript promise   之前一章初步介绍了promise的使用方法。今天再深入探讨一下promise的用法，并模拟使用场景 promise出现以前。某个ajax发送的请求内容依赖于另一个ajax请求的内容时，往往是将该ajax至于另一个ajax请求内部。这样一来，代码多重嵌套不利于阅读和维护。此时可以利用promise串行，挨个执行">
+<meta name="twitter:description" content="之前一章初步介绍了promise的使用方法。今天再深入探讨一下promise的用法，并模拟使用场景 promise出现以前。某个ajax发送的请求内容依赖于另一个ajax请求的内容时，往往是将该ajax至于另一个ajax请求内部。这样一来，代码多重嵌套不利于阅读和维护。此时可以利用promise串行，挨个执行ajax（即后面的ajax只有在前面ajax执行完成后才有可能执行）。 当某项操作需要">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -171,8 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="详解Promise串行、并行"><a href="#详解Promise串行、并行" class="headerlink" title="详解Promise串行、并行"></a>详解Promise串行、并行</h1><p>标签（空格分隔）： javascript promise</p>
-<blockquote>
+        <blockquote>
 <ul>
 <li><a href="https://junwoung.github.io/2018/09/25/Promise%20%E7%94%A8%E6%B3%95/#more" target="_blank" rel="noopener">之前一章</a>初步介绍了promise的使用方法。今天再深入探讨一下promise的用法，并模拟使用场景</li>
 <li>promise出现以前。某个ajax发送的请求内容依赖于另一个ajax请求的内容时，往往是将该ajax至于另一个ajax请求内部。这样一来，代码多重嵌套不利于阅读和维护。此时可以利用promise串行，挨个执行ajax（即后面的ajax只有在前面ajax执行完成后才有可能执行）。</li>

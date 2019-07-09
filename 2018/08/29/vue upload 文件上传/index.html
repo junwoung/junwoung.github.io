@@ -8,22 +8,22 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>vue upload 文件上传 | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="vue upload 文件上传标签（空格分隔）： vue javascript 插件  文件上传功能是交互式网站必不可少的功能。一年前，笔者还是什么都不懂得小白（虽然现在懂得也很少）的时候，被这个功能折磨了好一阵子。求助师兄师姐才勉强会用封装好的插件。最近，抽空写了个简单的文件上传插件，下面将介绍此插件的特点。  1、该插件严格上来说，并不能算真正的文件上传插件。我只是利用该插件获取到自己选择的文">
+  <meta name="description" content="文件上传功能是交互式网站必不可少的功能。一年前，笔者还是什么都不懂得小白（虽然现在懂得也很少）的时候，被这个功能折磨了好一阵子。求助师兄师姐才勉强会用封装好的插件。最近，抽空写了个简单的文件上传插件，下面将介绍此插件的特点。  1、该插件严格上来说，并不能算真正的文件上传插件。我只是利用该插件获取到自己选择的文件的信息，包括文件对象和文件base64编码，然后返回。至于后来怎样上传、何时上传就因">
 <meta name="keywords" content="javascript,vue,插件">
 <meta property="og:type" content="article">
 <meta property="og:title" content="vue upload 文件上传">
 <meta property="og:url" content="http://yoursite.com/2018/08/29/vue upload 文件上传/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="vue upload 文件上传标签（空格分隔）： vue javascript 插件  文件上传功能是交互式网站必不可少的功能。一年前，笔者还是什么都不懂得小白（虽然现在懂得也很少）的时候，被这个功能折磨了好一阵子。求助师兄师姐才勉强会用封装好的插件。最近，抽空写了个简单的文件上传插件，下面将介绍此插件的特点。  1、该插件严格上来说，并不能算真正的文件上传插件。我只是利用该插件获取到自己选择的文">
+<meta property="og:description" content="文件上传功能是交互式网站必不可少的功能。一年前，笔者还是什么都不懂得小白（虽然现在懂得也很少）的时候，被这个功能折磨了好一阵子。求助师兄师姐才勉强会用封装好的插件。最近，抽空写了个简单的文件上传插件，下面将介绍此插件的特点。  1、该插件严格上来说，并不能算真正的文件上传插件。我只是利用该插件获取到自己选择的文件的信息，包括文件对象和文件base64编码，然后返回。至于后来怎样上传、何时上传就因">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://static.zybuluo.com/15013890200/r7nrfujhatmzx914biy2i6n8/c92866ecc7697d9f0ae907960fdab26.png">
 <meta property="og:image" content="http://static.zybuluo.com/15013890200/t4tb4gr1muawhrcjbykmqzma/4d1c26a9ae5333236451bf3f673c8b6.png">
 <meta property="og:image" content="http://static.zybuluo.com/15013890200/z7zh8m20efvg3la2yxzfmkzy/977a62f1d261c940f119b9eefe9e104.png">
 <meta property="og:image" content="http://static.zybuluo.com/15013890200/kaba65fa7ob0bpq6e973qvam/ec4217e09b49325832ea586dcfe1283.png">
-<meta property="og:updated_time" content="2018-09-21T04:08:28.436Z">
+<meta property="og:updated_time" content="2019-07-09T03:25:55.598Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="vue upload 文件上传">
-<meta name="twitter:description" content="vue upload 文件上传标签（空格分隔）： vue javascript 插件  文件上传功能是交互式网站必不可少的功能。一年前，笔者还是什么都不懂得小白（虽然现在懂得也很少）的时候，被这个功能折磨了好一阵子。求助师兄师姐才勉强会用封装好的插件。最近，抽空写了个简单的文件上传插件，下面将介绍此插件的特点。  1、该插件严格上来说，并不能算真正的文件上传插件。我只是利用该插件获取到自己选择的文">
+<meta name="twitter:description" content="文件上传功能是交互式网站必不可少的功能。一年前，笔者还是什么都不懂得小白（虽然现在懂得也很少）的时候，被这个功能折磨了好一阵子。求助师兄师姐才勉强会用封装好的插件。最近，抽空写了个简单的文件上传插件，下面将介绍此插件的特点。  1、该插件严格上来说，并不能算真正的文件上传插件。我只是利用该插件获取到自己选择的文件的信息，包括文件对象和文件base64编码，然后返回。至于后来怎样上传、何时上传就因">
 <meta name="twitter:image" content="http://static.zybuluo.com/15013890200/r7nrfujhatmzx914biy2i6n8/c92866ecc7697d9f0ae907960fdab26.png">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
@@ -176,8 +176,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="vue-upload-文件上传"><a href="#vue-upload-文件上传" class="headerlink" title="vue upload 文件上传"></a>vue upload 文件上传</h1><p>标签（空格分隔）： vue javascript 插件</p>
-<blockquote>
+        <blockquote>
 <p>文件上传功能是交互式网站必不可少的功能。一年前，笔者还是什么都不懂得小白（虽然现在懂得也很少）的时候，被这个功能折磨了好一阵子。求助师兄师姐才勉强会用封装好的插件。<br>最近，抽空写了个简单的文件上传插件，下面将介绍此插件的特点。</p>
 <blockquote>
 <p>1、该插件严格上来说，并不能算真正的文件上传插件。我只是利用该插件获取到自己选择的文件的信息，包括文件对象和文件base64编码，然后返回。至于后来怎样上传、何时上传就因人而异。<br>2、该插件支持的配置：是否支持多选、上传文件的大致类型、上传文件的后缀、上传文件的字节大小、上传文件的宽高、是否严格限制上传文件的宽高。<br>3、由于该插件并不将文件直接上传到服务器。因此给用户带来撤回选择文件的功能，减轻服务器的压力。<br>4、选择的文件展示方面，支持图片缩略图。定制化excel、word、ppt、txt、html、pdf、rar、video文件图标，以及默认文件图标。</p>

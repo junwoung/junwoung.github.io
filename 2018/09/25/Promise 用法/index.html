@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>Promise 用法 | Jun woung blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Promise 用法标签（空格分隔）： javascript promise setTimeout   由于javascript的语言特性，即所用代码的执行都是单线程的，所有涉及到的网络操作、浏览器事件都必须是异步的。 利用Promise，可以将和某一请求事件相关的操作定义到一个执行链上，这样做的优点：先统一执行ajax请求，不必关心如何处理结果。然后根据请求的结果，在将来的某个时间调用resol">
+  <meta name="description" content="由于javascript的语言特性，即所用代码的执行都是单线程的，所有涉及到的网络操作、浏览器事件都必须是异步的。 利用Promise，可以将和某一请求事件相关的操作定义到一个执行链上，这样做的优点：先统一执行ajax请求，不必关心如何处理结果。然后根据请求的结果，在将来的某个时间调用resolve或者reject函数 同时，也学到了如何向setTimeout的回调函数传参数。即 setTim">
 <meta name="keywords" content="javascript,promise,setTimeout">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Promise 用法">
 <meta property="og:url" content="http://yoursite.com/2018/09/25/Promise 用法/index.html">
 <meta property="og:site_name" content="Jun woung blog">
-<meta property="og:description" content="Promise 用法标签（空格分隔）： javascript promise setTimeout   由于javascript的语言特性，即所用代码的执行都是单线程的，所有涉及到的网络操作、浏览器事件都必须是异步的。 利用Promise，可以将和某一请求事件相关的操作定义到一个执行链上，这样做的优点：先统一执行ajax请求，不必关心如何处理结果。然后根据请求的结果，在将来的某个时间调用resol">
+<meta property="og:description" content="由于javascript的语言特性，即所用代码的执行都是单线程的，所有涉及到的网络操作、浏览器事件都必须是异步的。 利用Promise，可以将和某一请求事件相关的操作定义到一个执行链上，这样做的优点：先统一执行ajax请求，不必关心如何处理结果。然后根据请求的结果，在将来的某个时间调用resolve或者reject函数 同时，也学到了如何向setTimeout的回调函数传参数。即 setTim">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-09-25T02:40:10.006Z">
+<meta property="og:updated_time" content="2019-07-09T03:27:39.166Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Promise 用法">
-<meta name="twitter:description" content="Promise 用法标签（空格分隔）： javascript promise setTimeout   由于javascript的语言特性，即所用代码的执行都是单线程的，所有涉及到的网络操作、浏览器事件都必须是异步的。 利用Promise，可以将和某一请求事件相关的操作定义到一个执行链上，这样做的优点：先统一执行ajax请求，不必关心如何处理结果。然后根据请求的结果，在将来的某个时间调用resol">
+<meta name="twitter:description" content="由于javascript的语言特性，即所用代码的执行都是单线程的，所有涉及到的网络操作、浏览器事件都必须是异步的。 利用Promise，可以将和某一请求事件相关的操作定义到一个执行链上，这样做的优点：先统一执行ajax请求，不必关心如何处理结果。然后根据请求的结果，在将来的某个时间调用resolve或者reject函数 同时，也学到了如何向setTimeout的回调函数传参数。即 setTim">
   
     <link rel="alternative" href="/atom.xml" title="Jun woung blog" type="application/atom+xml">
   
@@ -171,8 +171,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="Promise-用法"><a href="#Promise-用法" class="headerlink" title="Promise 用法"></a>Promise 用法</h1><p>标签（空格分隔）： javascript promise setTimeout</p>
-<blockquote>
+        <blockquote>
 <ul>
 <li>由于javascript的语言特性，即所用代码的执行都是单线程的，所有涉及到的网络操作、浏览器事件都必须是异步的。</li>
 <li>利用Promise，可以将和某一请求事件相关的操作定义到一个执行链上，这样做的优点：先统一执行ajax请求，不必关心如何处理结果。然后根据请求的结果，在将来的某个时间调用resolve或者reject函数</li>
